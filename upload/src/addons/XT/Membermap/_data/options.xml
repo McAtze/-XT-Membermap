@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="xtMMDefaultMapMarkerIcon" edit_format="template" data_type="string">
+    <default_value>styles/default/xt/membermap/map_markers/red-dot.png</default_value>
+    <edit_format_params>option_xt_membermap_defaut_pin</edit_format_params>
+    <relation group_id="xt_membermap" display_order="100"/>
+  </option>
+  <option option_id="xtMMGoogleMapsApiKey" edit_format="textbox" data_type="string" validation_class="XT\Membermap\Option\GoogleApi" validation_method="verifyApiKey">
+    <default_value></default_value>
+    <relation group_id="xt_membermap" display_order="11"/>
+  </option>
+  <option option_id="xtMMShowPOI" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="xt_membermap" display_order="300"/>
+  </option>
+  <option option_id="xtMMdefaultLatLong" edit_format="template" data_type="array">
+    <default_value>{"lat":"50.861","long":"9.685"}</default_value>
+    <edit_format_params>template=option_xt_mm_default_latlong</edit_format_params>
+    <sub_options>lat
+long</sub_options>
+    <relation group_id="xt_membermap" display_order="210"/>
+  </option>
+  <option option_id="xtMMdefaultZoom" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>4</default_value>
+    <edit_format_params>min=0
+max=20
+units=Zoom</edit_format_params>
+    <relation group_id="xt_membermap" display_order="211"/>
+  </option>
+  <option option_id="xtMMmapType" edit_format="select" data_type="string">
+    <default_value>roadmap</default_value>
+    <edit_format_params>roadmap={{ phrase('xt_mm_roadmap') }}
+satellite={{ phrase('xt_mm_satellite') }}
+hybrid={{ phrase('xt_mm_hybrid') }}
+terrain={{ phrase('xt_mm_terrain') }}</edit_format_params>
+    <relation group_id="xt_membermap" display_order="212"/>
+  </option>
+</options>

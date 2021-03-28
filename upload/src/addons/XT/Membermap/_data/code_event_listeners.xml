@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<code_event_listeners>
+  <listener event_id="entity_pre_save" execute_order="10" callback_class="XT\Membermap\Listener" callback_method="entityPreSaveUserProfile" active="1" hint="XF\Entity\UserProfile" description="calculates location"/>
+  <listener event_id="entity_structure" execute_order="10" callback_class="XT\Membermap\Listener" callback_method="userGroupEntityStructure" active="1" hint="XF\Entity\UserGroup" description="Adds Map Pin"/>
+  <listener event_id="entity_structure" execute_order="10" callback_class="XT\Membermap\Listener" callback_method="userProfileEntityStructure" active="1" hint="XF\Entity\UserProfile" description="Adds Location Data field"/>
+</code_event_listeners>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="nav.xt_membermap" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Member Map]]></phrase>
+  <phrase title="option.xtMMDefaultMapMarkerIcon" version_id="1000012" version_string="1.0.0 Alpha 2"><![CDATA[Default map marker icon]]></phrase>
+  <phrase title="option.xtMMGoogleMapsApiKey" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Google Maps API Key]]></phrase>
+  <phrase title="option.xtMMShowPOI" version_id="1000012" version_string="1.0.0 Alpha 2"><![CDATA[Show Points of Interest on map]]></phrase>
+  <phrase title="option.xtMMdefaultLatLong" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[Default Lat/Long]]></phrase>
+  <phrase title="option.xtMMdefaultZoom" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[Default Map Zoom]]></phrase>
+  <phrase title="option.xtMMmapType" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[Default map type]]></phrase>
+  <phrase title="option_explain.xtMMDefaultMapMarkerIcon" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Enter the location of your uploaded pin. The default is located in:
+<pre>/styles/default/xt/membermap/map_markers/</pre>]]></phrase>
+  <phrase title="option_explain.xtMMGoogleMapsApiKey" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Input your Google Maps API Key here. <br />
+The ApiKey need access to: Geocoding and Maps JavaScript Api<br />
+Instructions on generating and retrieving your Google Maps Geocoding API key can be found <a href="https://developers.google.com/maps/documentation/geocoding/get-api-key" target="google">here</a>.]]></phrase>
+  <phrase title="option_explain.xtMMShowPOI" version_id="1000012" version_string="1.0.0 Alpha 2"><![CDATA[When enabled, will include points of interest on maps (this is default standard with google maps). Disable this option if you want to "clean up" the map from looking cluttered.]]></phrase>
+  <phrase title="option_explain.xtMMdefaultLatLong" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[For detailed information about latitude and longitude check this <a href="https://www.latlong.net/" target="_blank">online lat/long finder</a>.]]></phrase>
+  <phrase title="option_explain.xtMMdefaultZoom" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[For detailed informations about the zoom levels check the <a href="https://developers.google.com/maps/documentation/javascript/overview#zoom-levels" target="_blank">google map developer documentation</a>.]]></phrase>
+  <phrase title="option_explain.xtMMmapType" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[For more information about map types take a look at the <a href="https://developers.google.com/maps/documentation/javascript/maptypes" target="_blank">google maps documentation</a>.]]></phrase>
+  <phrase title="option_group.xt_membermap" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[[XT] Membermap]]></phrase>
+  <phrase title="option_group_description.xt_membermap" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Options that control the Membermap add-on.]]></phrase>
+  <phrase title="permission.xt_membermap_view" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[View membermap]]></phrase>
+  <phrase title="permission_interface.xt_membermap" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[[XT] Membermap permission]]></phrase>
+  <phrase title="style_prop.xtMMAvatar" version_id="1000114" version_string="1.0.1 Alpha 4"><![CDATA[Avatar size]]></phrase>
+  <phrase title="style_prop.xtMMContainerHeight" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Map container height]]></phrase>
+  <phrase title="style_prop.xtMMinfoWindow" version_id="1000114" version_string="1.0.1 Alpha 4"><![CDATA[Info window]]></phrase>
+  <phrase title="style_prop.xtMMinfoWindowItem" version_id="1000114" version_string="1.0.1 Alpha 4"><![CDATA[Info window item]]></phrase>
+  <phrase title="style_prop_desc.xtMMAvatar" version_id="1000114" version_string="1.0.1 Alpha 4"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xtMMContainerHeight" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Set the height of the map container.]]></phrase>
+  <phrase title="style_prop_desc.xtMMinfoWindow" version_id="1000114" version_string="1.0.1 Alpha 4"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xtMMinfoWindowItem" version_id="1000114" version_string="1.0.1 Alpha 4"><![CDATA[]]></phrase>
+  <phrase title="style_prop_group.xtMMAppearance" version_id="1000114" version_string="1.0.1 Alpha 4"><![CDATA[[XT] Membermap]]></phrase>
+  <phrase title="style_prop_group_desc.xtMMAppearance" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[A number of properties to control the appearance of [XT] Membermap add-on.]]></phrase>
+  <phrase title="xt_mm_hybrid" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[Hybrid - displays a mixture of normal and satellite views.]]></phrase>
+  <phrase title="xt_mm_no_location_in_profile" version_id="1000019" version_string="1.0.0 Alpha 9"><![CDATA[You have not enter a location in your account details. To show your location on the map, please fill out the location field in your <a href="{account}">account</a>.]]></phrase>
+  <phrase title="xt_mm_roadmap" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[Roadmap - displays the default road map view. This is the default map type.]]></phrase>
+  <phrase title="xt_mm_satellite" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[Satellite - displays Google Earth satellite images.]]></phrase>
+  <phrase title="xt_mm_show_on_map" version_id="1000012" version_string="1.0.0 Alpha 2"><![CDATA[Show me on the membermap]]></phrase>
+  <phrase title="xt_mm_show_on_map_explain" version_id="1000012" version_string="1.0.0 Alpha 2"><![CDATA[Enable this option to let other users see your location on the membermap.]]></phrase>
+  <phrase title="xt_mm_terrain" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[Terrain - displays a physical map based on terrain information.]]></phrase>
+  <phrase title="xt_mm_the_api_code_seems_to_be_invalid" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[It seems that the API Key is not valid or is not allowed to use one of the needed operations.]]></phrase>
+  <phrase title="xt_mm_title" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Membermap]]></phrase>
+  <phrase title="xt_mm_usergroup_marker_pin" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Membermap Marker Pin]]></phrase>
+  <phrase title="xt_mm_usergroup_marker_pin_explain" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[]]></phrase>
+  <phrase title="xt_mm_viewing_membermap" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[Viewing Membermap]]></phrase>
+</phrases>

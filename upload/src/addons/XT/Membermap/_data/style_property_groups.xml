@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style_property_groups>
+  <style_property_group group_name="xtMMAppearance" title="[XT] Membermap" description="A number of properties to control the appearance of [XT] Membermap add-on." display_order="9999"/>
+</style_property_groups>

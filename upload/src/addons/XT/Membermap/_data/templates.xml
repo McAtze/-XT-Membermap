@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="admin" title="admin_xt_membermap_defaut_pin" version_id="1000019" version_string="1.0.0 Alpha 9"><![CDATA[<xf:js src="xt/membermap/admin.js" />
+<xf:css src="xt_mm.less" />
+
+<xf:assetuploadrow name="userGroup[xt_mm_markerPin]"
+				   value="{$userGroup.xt_mm_markerPin}" 
+				   asset="xtMembermapPin" 
+				   explain="{{ phrase('xt_mm_usergroup_marker_pin_explain') }}"
+				   label="{{ phrase('xt_mm_usergroup_marker_pin') }}" 
+				   data-xf-init="xtAssetImage"
+				   placeholder="path/to/marker.png"
+				   class="xt--mm-imagepreview"
+				   />]]></template>
+  <template type="admin" title="option_xt_membermap_defaut_pin" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[<xf:js src="xt/membermap/admin.js" />
+<xf:css src="xt_mm.less" />
+
+<xf:assetuploadrow asset="xtmembermap" 
+	label="{$option.title}"
+	name="{$inputName}"
+	hint="{$hintHtml}"
+	value="{$option.option_value}" 
+	explain="{$explainHtml}"
+	html="{$listedHtml}"
+	rowclass="{$rowClass}"
+	placeholder="path/to/image.png" 
+	class="xt--mm-imagepreview" 
+	data-xf-init="xtAssetImage"
+/>]]></template>
+  <template type="admin" title="option_xt_mm_default_latlong" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[<xf:formrow rowtype="input"
+	label="{$option.title}"
+	hint="{$hintHtml}"
+	explain="{$explainHtml}"
+	html="{$listedHtml}"
+	rowclass="{$rowClass}">
+
+	<div class="inputGroup inputGroup--numbers">
+		<span class="inputGroup-text">Latitude</span>
+		<xf:textbox name="{$inputName}[lat]" value="{$option.option_value.lat}" />
+		<span class="inputGroup-text">Longitude</span>
+		<xf:textbox name="{$inputName}[long]" value="{$option.option_value.long}" />
+	</div>
+</xf:formrow>]]></template>
+  <template type="admin" title="xt_mm.less" version_id="1000019" version_string="1.0.0 Alpha 9"><![CDATA[.xt--mm-imagepreview {
+    background-size: contain;
+	background-repeat: no-repeat;
+	background-position: right;
+}]]></template>
+  <template type="public" title="xt_mm.less" version_id="1000132" version_string="1.0.1 Beta 2"><![CDATA[// ############################ Membermap LESS ######################
+.xtMapContainer
+{
+	&.top
+	{
+		padding-bottom: 10px
+	}
+	&.bottom
+	{
+		
+	}
+}
+
+.xtMapInfoWindow 
+{
+	.xf-xtMMinfoWindow();
+}
+	
+.xtMapInfoWindowItem
+{
+	.xf-xtMMinfoWindowItem();
+	
+	.itemCoverImage
+	{
+		padding: @xf-paddingLarge;
+		
+		&.left
+		{
+			float: left;
+			margin-right: 10px;
+		}
+		.thumbImage
+		{
+			width: 100%;
+			vertical-align: middle;
+		}
+		.listBlockInner
+		{
+			padding-right: 0px;
+		}
+		.listBlockInnerImage
+		{
+			
+		}
+	}
+	.title 
+	{
+		font-size: 13pt;
+		font-weight: bold;
+		padding: 5px 0;	 
+	}
+	.user-banner,
+	.user-blurb
+	{
+		margin-bottom: @xf-paddingSmall;
+	}
+	.xt-muted
+	{
+		color: @xf-textColorMuted;
+	}		
+}
+
+.xtItem
+{
+	display: flex;
+
+	.xtItem-avatar
+	{
+		flex: 0 0 100px;
+	}
+	.xtItem-info
+	{
+		flex: 1 1 auto;
+		width: 100%;
+		min-width: 0;
+	}
+}	
+
+@media (max-width: @xf-responsiveMedium)
+{
+	.xtMapInfoWindow 
+	{
+		width: 100%;
+	
+		.xtMapInfoWindowItem
+		{
+			.itemCoverImage
+			{
+				width: 10%;
+				min-width: 75px;
+				max-width: 75px;
+			}	
+			.title
+			{
+				font-size: 12pt;
+			}
+		}
+	}
+}
+
+@media (max-width: @xf-responsiveNarrow)
+{
+	.xtMapInfoWindow 
+	{
+		width: 100%;
+		
+		.xtMapInfoWindowItem
+		{
+			.itemCoverImage
+			{
+				width: 10%;
+				min-width: 50px;
+				max-width: 50px;
+			}	
+			.title
+			{
+				font-size: 11pt;
+			}
+		}
+	}
+}]]></template>
+  <template type="public" title="xt_mm_index" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
+<xf:if is="!{$xf.visitor.Profile.location_}">
+	<xf:description>{{ phrase('xt_mm_no_location_in_profile', {'account': link('account/account-details')}) }}</xf:description>
+</xf:if>
+
+<xf:css src="xt_mm.less" />
+<xf:css src="account_avatar.less" />
+<xf:js prod="xf/avatar-compiled.js" dev="xf/avatar.js" />
+<xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsApiKey}&language={$xf.language.language_code|substr}" />
+<xf:js src="xt/membermap/map.js" />
+
+<xf:macro template="metadata_macros" name="metadata"
+	arg-description=""
+	arg-canonicalUrl="{{ link('canonical:membermap') }}" />
+
+<div class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="block-row">
+				<div id="membermap" style="height:{{ property('xtMMContainerHeight') ?: 600 }}px; width:100%;" 
+					 data-xf-init="xtMembermap" 
+					 data-mapurl="{{ link('xt-membermap/mapdata') }}" 
+					 data-latitude="{{ $xf.options.xtMMdefaultLatLong.lat }}" 
+					 data-longitude="{{ $xf.options.xtMMdefaultLatLong.long }}" 
+					 data-zoom="{{ $xf.options.xtMMdefaultZoom }}" 
+					 data-poi="{{ $xf.options.xtMMShowPOI }}"
+					 data-maptype="{{ $xf.options.xtMMmapType }}">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>]]></template>
+  <template type="public" title="xt_mm_macros" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[<xf:macro name="xt_mm_ShowOnMap" arg-hint="" arg-canViewXtMembermap="!">
+	<xf:checkboxrow hint="{{ $hint ? $hint : ''  }}">
+		<xf:option value="1" name="profile[xt_mm_show_on_map]" checked="{$xf.visitor.Profile.xt_mm_show_on_map}"
+				   label="{{ phrase('xt_mm_show_on_map') }}"
+				   hint="{{ phrase('xt_mm_show_on_map_explain') }}" />
+	</xf:checkboxrow>
+</xf:macro>]]></template>
+  <template type="public" title="xt_mm_useritem" version_id="1000132" version_string="1.0.1 Beta 2"><![CDATA[<div class="xtMapInfoWindow">
+    <div class="xtItem xtMapInfoWindowItem">
+        <div class="xtItem-avatar itemCoverImage">
+            <div class="listBlockInnerImage">
+                <xf:avatar user="{$user}" size="m" />
+            </div>
+        </div>
+		<div class="xtItem-info">
+			<div class="title"><xf:username user="{$user}" /></div>
+        <div class="user-banner xt-muted"><xf:userbanners user="{$user}" /></div>
+        <div class="user-blurb xt-muted"><xf:userblurb user="{$user}" /></div>
+		<div class="structItem-cell structItem-cell--meta">
+			<dl class="pairs pairs--justified">
+				<dt>{{ phrase('join_date') }}</dt>
+				<dd><xf:date time="$user.register_date" /></dd>
+			</dl>
+
+			<dl class="pairs pairs--justified">
+				<dt>{{ phrase('posts') }}</dt>
+				<dd>{$user.message_count|number}</dd>
+			</dl>
+
+			<dl class="pairs pairs--justified">
+				<dt>{{ phrase('last_activity') }}</dt>
+				<dd><xf:date time="$user.last_activity" /></dd>
+			</dl>
+		</div>
+		</div>
+    </div>
+</div>]]></template>
+</templates>

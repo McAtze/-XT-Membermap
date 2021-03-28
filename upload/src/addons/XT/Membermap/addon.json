@@ -1,0 +1,23 @@
+{
+    "legacy_addon_id": "",
+    "title": "[XT] Membermap",
+    "description": "A membermap based on user location field with opt-in.",
+    "version_id": 1000132,
+    "version_string": "1.0.1 Beta 2",
+    "dev": "XenTutorials",
+    "dev_url": "https://www.xentutorials.com",
+    "faq_url": "",
+    "support_url": "",
+    "extra_urls": [],
+    "require": {
+        "XF": [
+            2020010,
+            "XenForo 2.2.0+"
+        ],
+        "php": [
+            "7.2.0",
+            "PHP 7.2.0+"
+        ]
+    },
+    "icon": "fa-map-marked-alt"
+}

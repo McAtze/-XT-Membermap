@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation>
+  <navigation_entry navigation_id="xt_membermap" parent_navigation_id="members" display_order="1" navigation_type_id="basic" enabled="1"><![CDATA[{"link":"{{ link('xt-membermap') }}","display_condition":"$xf.visitor.canViewXtMembermap()","extra_attributes":[]}]]></navigation_entry>
+</navigation>

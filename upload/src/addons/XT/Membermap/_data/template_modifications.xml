@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="account_details" modification_key="AddMapPrivacy" description="Add OptIn for Membermap" execution_order="5" enabled="1" action="str_replace">
+    <find><![CDATA[label="{{ phrase('location') }}" />]]></find>
+    <replace><![CDATA[$0
+<xf:if is="{{ $xf.visitor.canViewXtMembermap() }}">
+	<xf:macro template="xt_mm_macros" name="xt_mm_ShowOnMap" arg-canViewXtMembermap="{{ $xf.visitor.canViewXtMembermap() }}" />
+</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="register_macros" modification_key="InsertShowOnMap" description="Insert show on map checkbox" execution_order="5" enabled="1" action="preg_replace">
+    <find><![CDATA[#(\s*)(<xf:if is="$xf.options.registrationSetup.requireLocation">.*?)(\s*</xf:if>)#si]]></find>
+    <replace><![CDATA[$1
+<xf:if is="{{ $xf.visitor.canViewXtMembermap() }}">
+	<xf:macro template="xt_mm_macros" name="xt_mm_ShowOnMap" arg-canViewXtMembermap="{{ $xf.visitor.canViewXtMembermap() }}" />
+</xf:if>
+$2]]></replace>
+  </modification>
+  <modification type="admin" template="user_edit" modification_key="xtMMuserEdit" description="Add OptIn for Membermap" execution_order="5" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:textboxrow name="profile[location]" value="{$user.Profile.location_}"
+						label="{{ phrase('location') }}" />]]></find>
+    <replace><![CDATA[$0
+<xf:checkboxrow>
+		<xf:option name="profile[xt_mm_show_on_map]" selected="{$user.Profile.xt_mm_show_on_map}" 
+				   label="{{ phrase('xt_mm_show_on_map') }}" 
+				   hint="{{ phrase('xt_mm_show_on_map_explain') }}" />
+	</xf:checkboxrow>]]></replace>
+  </modification>
+  <modification type="admin" template="user_group_edit" modification_key="xtMMuserGroupEdit" description="Add marker pin asset" execution_order="5" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:css src="public:app_user_banners.less" />]]></find>
+    <replace><![CDATA[<xf:include template="admin_xt_membermap_defaut_pin" />
+
+		$0]]></replace>
+  </modification>
+</template_modifications>

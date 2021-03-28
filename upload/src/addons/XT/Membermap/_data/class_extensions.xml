@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class_extensions>
+  <extension from_class="XF\Admin\Controller\User" to_class="XT\Membermap\XF\Admin\Controller\User" execute_order="10" active="1"/>
+  <extension from_class="XF\Admin\Controller\UserGroup" to_class="XT\Membermap\XF\Admin\Controller\UserGroup" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\User" to_class="XT\Membermap\XF\Entity\User" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\UserGroup" to_class="XT\Membermap\XF\Entity\UserGroup" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\UserProfile" to_class="XT\Membermap\XF\Entity\UserProfile" execute_order="10" active="1"/>
+  <extension from_class="XF\Pub\Controller\Account" to_class="XT\Membermap\XF\Pub\Controller\Account" execute_order="10" active="1"/>
+</class_extensions>
