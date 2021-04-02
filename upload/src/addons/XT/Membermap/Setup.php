@@ -21,8 +21,8 @@ class Setup extends AbstractSetup
 	
 		$sm->alterTable('xf_user_profile', function(Alter $table)
 		{
-			$table->addColumn('xt_mm_location_lat', 'double', (40.30))->setDefault(0)->after('location');
-			$table->addColumn('xt_mm_location_long', 'double', (40.30))->setDefault(0)->after('xt_mm_location_lat');
+			$table->addColumn('xt_mm_location_lat', 'double(40,30)')->setDefault(0)->after('location');
+			$table->addColumn('xt_mm_location_long', 'double(40,30)')->setDefault(0)->after('xt_mm_location_lat');
 			$table->addColumn('xt_mm_show_on_map', 'tinyint', 3)->setDefault(0)->after('xt_mm_location_long');
 		});
 

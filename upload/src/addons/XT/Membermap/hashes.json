@@ -14,7 +14,7 @@
     "src/addons/XT/Membermap/Pub/Controller/Membermap.php": "581614eda959e1a48327a4f256c059b8e56d5f293d75f8dfe2d11daa27c29032",
     "src/addons/XT/Membermap/Repository/Membermap.php": "508bbca592182473f54c909fe3e70d79d98a37d7720688c7050e2388192891b0",
     "src/addons/XT/Membermap/Service/GoogleApi.php": "5cac551bf6c0871e9cf4a8885c404889f09593175fcfc2a4a2ec4f50ab6cc93d",
-    "src/addons/XT/Membermap/Setup.php": "68c3c596cf3b539d193b9d27a507be61978a9fc739471dcba2fab1439f608fbe",
+    "src/addons/XT/Membermap/Setup.php": "b4ddec3e539d2e2e308fad203fcb59b51b7739a8600e3183e36e2dc77fd15921",
     "src/addons/XT/Membermap/XF/Admin/Controller/User.php": "c9fa1a828f79755e60cd793b2bd1bb666e09c0ebb969b9cca14406c96ef8d396",
     "src/addons/XT/Membermap/XF/Admin/Controller/UserGroup.php": "a9469a4962f8fde4b40cde74b8e07a69abe21e881905c93bd81a82e0cf12bd18",
     "src/addons/XT/Membermap/XF/Entity/User.php": "ca88d8314a660169e29fabf170cf64d1186097fd3e55a7ba9c738e3a35cfa8bd",
