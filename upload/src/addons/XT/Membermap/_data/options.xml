@@ -9,6 +9,10 @@
     <default_value></default_value>
     <relation group_id="xt_membermap" display_order="11"/>
   </option>
+  <option option_id="xtMMShowCluster" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="xt_membermap" display_order="301"/>
+  </option>
   <option option_id="xtMMShowPOI" edit_format="onoff" data_type="boolean">
     <default_value>1</default_value>
     <relation group_id="xt_membermap" display_order="300"/>
@@ -34,5 +38,18 @@ satellite={{ phrase('xt_mm_satellite') }}
 hybrid={{ phrase('xt_mm_hybrid') }}
 terrain={{ phrase('xt_mm_terrain') }}</edit_format_params>
     <relation group_id="xt_membermap" display_order="212"/>
+  </option>
+  <option option_id="xtMMshowStats" edit_format="radio" data_type="string">
+    <default_value>none</default_value>
+    <edit_format_params>none={{ phrase('none') }}
+sidebar={{ phrase('xt_mm_stats_in_sidebar') }}
+below={{ phrase('xt_mm_stats_below_map') }}</edit_format_params>
+    <relation group_id="xt_membermap" display_order="400"/>
+  </option>
+  <option option_id="xtMMshowStatsUser" edit_format="radio" data_type="string">
+    <default_value>name</default_value>
+    <edit_format_params>name={{ phrase('user_name') }}
+avatar={{ phrase('avatar') }}</edit_format_params>
+    <relation group_id="xt_membermap" display_order="401"/>
   </option>
 </options>

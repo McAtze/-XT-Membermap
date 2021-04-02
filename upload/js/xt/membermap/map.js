@@ -12,7 +12,7 @@
             longitude: null,
             zoom: null,
             poi: 1,
-            cluster: null,
+            cluster: 1,
         },
 
         load: null,
@@ -20,6 +20,7 @@
         dimensions: null,
         markers: null,
         mapData: null,
+        markerClusterer: null,
         map: null,
         bounds: null,
         infoWindow: null,
@@ -50,7 +51,15 @@
                 map: this.map,
                 title: props.title,
                 icon: props.iconUrl,
-            });
+            });           
+
+            if(this.options.cluster)
+            {
+                var markerCluster = new MarkerClusterer(this.map, this.marker, {
+                    averageCenter: true,
+                    imagePath: props.clusterPath + '/m',
+                });
+            }
 
             if (props.coords)
             {
@@ -76,7 +85,7 @@
 		initMap: function() {
             var options = {
                 zoom: this.options.zoom,
-                center: { lat: this.options.latitude, lng: this.options.longitude },
+                center: {lat: this.options.latitude, lng: this.options.longitude},
                 mapTypeId: this.options.maptype,
                 mapTypeControl: true,
                 mapTypeControlOptions: {
@@ -113,8 +122,8 @@
                 this.bounds.extend(extendPoint2);
             }
 
-            this.map.fitBounds(this.bounds);
-            this.map.panToBounds(this.bounds);
+            //this.map.fitBounds(this.bounds);
+            //this.map.panToBounds(this.bounds);
 
         }
     });

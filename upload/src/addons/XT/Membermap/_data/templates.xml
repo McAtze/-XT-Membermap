@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <templates>
-  <template type="admin" title="admin_xt_membermap_defaut_pin" version_id="1000019" version_string="1.0.0 Alpha 9"><![CDATA[<xf:js src="xt/membermap/admin.js" />
+  <template type="admin" title="admin_xt_membermap_defaut_pin" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[<xf:js src="xt/membermap/admin.js" min="1" />
 <xf:css src="xt_mm.less" />
 
 <xf:assetuploadrow name="userGroup[xt_mm_markerPin]"
@@ -12,7 +12,7 @@
 				   placeholder="path/to/marker.png"
 				   class="xt--mm-imagepreview"
 				   />]]></template>
-  <template type="admin" title="option_xt_membermap_defaut_pin" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[<xf:js src="xt/membermap/admin.js" />
+  <template type="admin" title="option_xt_membermap_defaut_pin" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[<xf:js src="xt/membermap/admin.js" min="1" />
 <xf:css src="xt_mm.less" />
 
 <xf:assetuploadrow asset="xtmembermap" 
@@ -46,6 +46,32 @@
 	background-repeat: no-repeat;
 	background-position: right;
 }]]></template>
+  <template type="admin" title="xt_mm_tools_rebuild" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[<xf:set var="$userMapDataBody">
+	<xf:inforow>{{ phrase('xt_mm_rebuild_userMapData_explain') }}</xf:inforow>
+</xf:set>
+<xf:macro template="tools_rebuild" name="rebuild_job"
+		  arg-header="{{ phrase('xt_mm_rebuild_userMapData') }}"
+		  arg-body="{$userMapDataBody}"
+		  arg-job="XT\Membermap:UserMapData" />
+<!--[XF:after_xt_mm_rebuild_userMapData]-->
+
+<xf:set var="$userMapShowBody">
+	<xf:inforow>{{ phrase('xt_mm_rebuild_userMapShow_explain') }}</xf:inforow>
+</xf:set>
+<xf:macro template="tools_rebuild" name="rebuild_job"
+		  arg-header="{{ phrase('xt_mm_rebuild_userMapShow') }}"
+		  arg-body="{$userMapShowBody}"
+		  arg-job="XT\Membermap:UserMapShow" />
+<!--[XF:after_xt_mm_rebuild_userMapShow]-->
+
+<xf:set var="$userMapHideBody">
+	<xf:inforow>{{ phrase('xt_mm_rebuild_userMapHide_explain') }}</xf:inforow>
+</xf:set>
+<xf:macro template="tools_rebuild" name="rebuild_job"
+		  arg-header="{{ phrase('xt_mm_rebuild_userMapHide') }}"
+		  arg-body="{$userMapHideBody}"
+		  arg-job="XT\Membermap:UserMapHide" />
+<!--[XF:after_xt_mm_rebuild_userMapHide]-->]]></template>
   <template type="public" title="xt_mm.less" version_id="1000132" version_string="1.0.1 Beta 2"><![CDATA[// ############################ Membermap LESS ######################
 .xtMapContainer
 {
@@ -167,20 +193,27 @@
 		}
 	}
 }]]></template>
-  <template type="public" title="xt_mm_index" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
+  <template type="public" title="xt_mm_index" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
 <xf:if is="!{$xf.visitor.Profile.location_}">
 	<xf:description>{{ phrase('xt_mm_no_location_in_profile', {'account': link('account/account-details')}) }}</xf:description>
+<xf:else />
+	<xf:description>Hello <b>{$xf.visitor.username}</b>, currently there're {$total} members on the map.</xf:description>
 </xf:if>
 
 <xf:css src="xt_mm.less" />
 <xf:css src="account_avatar.less" />
 <xf:js prod="xf/avatar-compiled.js" dev="xf/avatar.js" />
 <xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsApiKey}&language={$xf.language.language_code|substr}" />
-<xf:js src="xt/membermap/map.js" />
+<xf:js src="xt/membermap/map.js" min="1" />
+<xf:js src="xt/membermap/markerclusterer.js" min="1" />
 
-<xf:macro template="metadata_macros" name="metadata"
-	arg-description=""
-	arg-canonicalUrl="{{ link('canonical:membermap') }}" />
+<xf:macro template="metadata_macros" name="canonical_url" arg-canonicalUrl="{{ link('canonical:membermap') }}" />
+
+<xf:pageaction>
+    <xf:button href="{{ link('account/account-details') }}" class="button--cta" fa="fa-map-marked">
+        {{ phrase('xt_mm_edit_location')}}
+    </xf:button>
+</xf:pageaction>
 
 <div class="block">
 	<div class="block-container">
@@ -193,18 +226,107 @@
 					 data-longitude="{{ $xf.options.xtMMdefaultLatLong.long }}" 
 					 data-zoom="{{ $xf.options.xtMMdefaultZoom }}" 
 					 data-poi="{{ $xf.options.xtMMShowPOI }}"
+					 data-cluster="{{ $xf.options.xtMMShowCluster }}"
 					 data-maptype="{{ $xf.options.xtMMmapType }}">
 				</div>
 			</div>
 		</div>
 	</div>
-</div>]]></template>
-  <template type="public" title="xt_mm_macros" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[<xf:macro name="xt_mm_ShowOnMap" arg-hint="" arg-canViewXtMembermap="!">
+</div>
+
+<xf:if is="$userData is not empty">
+	<xf:if is="$xf.options.xtMMshowStats == 'sidebar'">
+		<xf:sidebar key="userDataToSidebar">
+			<div class="block">
+				<div class="block-container">
+					<h3 class="block-minorHeader">{{ phrase('xt_mm_map_stats') }}</h3>
+					<div class="block-body">
+						<div class="block-row block-row--minor">
+							<xf:if is="$xf.options.xtMMshowStatsUser == 'name'">
+								<ul class="listInline listInline--comma">
+									<xf:foreach loop="$userData" value="$data">
+										<li><xf:username user="$data.user" rich="true" class="{{ !$data.user.visible ? 'username--invisible' : '' }}" /></li>
+									</xf:foreach>
+								</ul>
+							<xf:elseif is="$xf.options.xtMMshowStatsUser == 'avatar'" />
+								<ul class="listHeap">
+									<xf:foreach loop="$userData" value="$data">
+										<li>
+											<xf:avatar user="$data.user" size="xs" img="true" />
+										</li>
+									</xf:foreach>
+								</ul>
+							</xf:if>
+						</div>
+					</div>
+					<div class="block-footer">
+						<span class="block-footer-counter">
+							{{ phrase('xt_mm_total_x_members',{'total': number($total)}) }}
+						</span>
+					</div>
+				</div>
+			</div>
+		</xf:sidebar>
+	<xf:elseif is="$xf.options.xtMMshowStats == 'below'" />
+		<div class="block">
+			<div class="block-container">
+				<h3 class="block-minorHeader">{{ phrase('xt_mm_map_stats') }}</h3>
+				<div class="block-body">
+					<div class="block-row block-row--minor">
+						<xf:if is="$xf.options.xtMMshowStatsUser == 'name'">
+							<ul class="listInline listInline--comma">
+								<xf:foreach loop="$userData" value="$data">
+									<li><xf:username user="$data.user" rich="true" class="{{ !$data.user.visible ? 'username--invisible' : '' }}" /></li>
+								</xf:foreach>
+							</ul>
+							<xf:elseif is="$xf.options.xtMMshowStatsUser == 'avatar'" />
+							<ul class="listHeap">
+								<xf:foreach loop="$userData" value="$data">
+									<li>
+										<xf:avatar user="$data.user" size="xs" img="true" />
+									</li>
+								</xf:foreach>
+							</ul>
+						</xf:if>
+					</div>
+				</div>
+				<div class="block-footer">
+					<span class="block-footer-counter">
+						{{ phrase('xt_mm_total_x_members',{'total': number($total)}) }}
+					</span>
+				</div>
+			</div>
+		</div>
+	</xf:if>
+</xf:if>]]></template>
+  <template type="public" title="xt_mm_macros" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[<xf:macro name="xt_mm_ShowOnMap" arg-hint="" arg-canViewXtMembermap="!">
 	<xf:checkboxrow hint="{{ $hint ? $hint : ''  }}">
 		<xf:option value="1" name="profile[xt_mm_show_on_map]" checked="{$xf.visitor.Profile.xt_mm_show_on_map}"
 				   label="{{ phrase('xt_mm_show_on_map') }}"
 				   hint="{{ phrase('xt_mm_show_on_map_explain') }}" />
 	</xf:checkboxrow>
+</xf:macro>
+
+<xf:macro name="xt_mm_stats" arg-user="" arg-total="!">
+	<div class="block">
+		<div class="block-container">
+			<h3 class="block-minorHeader">{{ phrase('xt_mm_map_stats') }}</h3>
+			<div class="block-body">
+				<div class="block-row block-row--minor">
+					<ul class="listInline listInline--comma">
+						<xf:foreach loop="$userData" value="$data">
+							<li><xf:username user="$data.user" rich="true" class="{{ !$data.user.visible ? 'username--invisible' : '' }}" /></li>
+						</xf:foreach>
+					</ul>
+				</div>
+			</div>
+			<div class="block-footer">
+				<span class="block-footer-counter">
+					{{ phrase('xt_mm_total_x_members',{'total': number($total)}) }}
+				</span>
+			</div>
+		</div>
+	</div>
 </xf:macro>]]></template>
   <template type="public" title="xt_mm_useritem" version_id="1000132" version_string="1.0.1 Beta 2"><![CDATA[<div class="xtMapInfoWindow">
     <div class="xtItem xtMapInfoWindowItem">

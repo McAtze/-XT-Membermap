@@ -34,8 +34,8 @@ class Listener
 		}
 		elseif ($location && $googleService->isAvaiable())
 		{
-			$entity->xt_mm_location_lat = $googleService->fetchLocationData($location)['latitude'] ?: 0;
-			$entity->xt_mm_location_long = $googleService->fetchLocationData($location)['longitude'] ?: 0;
+			$entity->xt_mm_location_lat = isset($googleService->fetchLocationData($location)['latitude']) ? $googleService->fetchLocationData($location)['latitude'] : 0;
+			$entity->xt_mm_location_long = isset($googleService->fetchLocationData($location)['longitude']) ? $googleService->fetchLocationData($location)['longitude'] : 0;
 		}
 		
     }
