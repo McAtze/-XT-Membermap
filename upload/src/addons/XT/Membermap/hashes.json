@@ -6,7 +6,7 @@
     "js/xt/membermap/markerclusterer.js": "2d2bf45c9f3ee5c1dc9dc975dc20594da6d82e1aefd2a0924b61273056433758",
     "js/xt/membermap/markerclusterer.min.js": "476972a10bcc1880dbe5a71127d40a04fc5f4af20dec37a3493403c7f023b098",
     "src/addons/XT/Membermap/addon.json": "a03b14e48cd0c9730bf190c96b26ddb94cdcce42f085cf1315cb3f2ac932433e",
-    "src/addons/XT/Membermap/Job/UserMapData.php": "5508f5bd69459c079211dfed06781ba86ecb0bddcdd88c42ac843ccb61cce8fd",
+    "src/addons/XT/Membermap/Job/UserMapData.php": "ee24c72822c3227c407a0c06ef08e9ba7439f669cbf3da04b29b094ae371035c",
     "src/addons/XT/Membermap/Job/UserMapHide.php": "63bbd8c0e44b9dd304b31684b76ada13f26cd6a99d986fab23aff5f46287580e",
     "src/addons/XT/Membermap/Job/UserMapShow.php": "f7af7913e53c626de2b113fda34b8e56207026311743364ce9f547966c804f75",
     "src/addons/XT/Membermap/Listener.php": "73c746ceaaef7c76f681da5f0bda48e3f687108f0e60c44c2cbae2f08224fdc4",

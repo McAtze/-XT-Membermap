@@ -26,18 +26,21 @@ class UserMapData extends AbstractRebuildJob
 		$userRepo = $this->app->repository('XT\Membermap:Membermap');
 		$userLocation = $userRepo->getUserLocation($id);
 
-        /**
-		 * @var \XT\Membermap\Service\GoogleApi $googleService
-		 */
-		$googleService = $this->app->service('XT\Membermap::GoogleApi');
+		if(!empty($userLocation))
+		{
+			/**
+			 * @var \XT\Membermap\Service\GoogleApi $googleService
+			 */
+			$googleService = $this->app->service('XT\Membermap::GoogleApi');
 
-        $xt_mm_location_lat = isset($googleService->fetchLocationData($userLocation)['latitude']) ? $googleService->fetchLocationData($userLocation)['latitude'] : 0;
-		$xt_mm_location_long = isset($googleService->fetchLocationData($userLocation)['longitude']) ? $googleService->fetchLocationData($userLocation)['longitude'] : 0;
+			$xt_mm_location_lat = isset($googleService->fetchLocationData($userLocation)['latitude']) ? $googleService->fetchLocationData($userLocation)['latitude'] : 0;
+			$xt_mm_location_long = isset($googleService->fetchLocationData($userLocation)['longitude']) ? $googleService->fetchLocationData($userLocation)['longitude'] : 0;
 
-        $this->app->db()->update('xf_user_profile', [
-			'xt_mm_location_lat' => $xt_mm_location_lat,
-			'xt_mm_location_long' => $xt_mm_location_long
-		], 'user_id = ?', $id);
+			$this->app->db()->update('xf_user_profile', [
+				'xt_mm_location_lat' => $xt_mm_location_lat,
+				'xt_mm_location_long' => $xt_mm_location_long
+			], 'user_id = ?', $id);
+		}
 	}
 
     protected function getStatusType()
