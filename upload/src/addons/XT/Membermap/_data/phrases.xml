@@ -40,6 +40,14 @@ Instructions on generating and retrieving your Google Maps Geocoding API key can
   <phrase title="style_prop_desc.xtMMinfoWindowItem" version_id="1000114" version_string="1.0.1 Alpha 4"><![CDATA[]]></phrase>
   <phrase title="style_prop_group.xtMMAppearance" version_id="1000114" version_string="1.0.1 Alpha 4"><![CDATA[[XT] Membermap]]></phrase>
   <phrase title="style_prop_group_desc.xtMMAppearance" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[A number of properties to control the appearance of [XT] Membermap add-on.]]></phrase>
+  <phrase title="widget_def.xt_mm_mapStats" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[XT: Membermap Statistics]]></phrase>
+  <phrase title="widget_def_desc.xt_mm_mapStats" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[Displays all members on the map as name or avatar list.]]></phrase>
+  <phrase title="widget_pos.xt_mm_membermap_above" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[XT Membermap: Above map]]></phrase>
+  <phrase title="widget_pos.xt_mm_membermap_below" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[XT Membermap: Below map]]></phrase>
+  <phrase title="widget_pos.xt_mm_membermap_sidebar" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[XT Membermap: Map sidebar]]></phrase>
+  <phrase title="widget_pos_desc.xt_mm_membermap_above" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[A position inside the main content area of the membermap above the map.]]></phrase>
+  <phrase title="widget_pos_desc.xt_mm_membermap_below" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[A position inside the main content area of the membermap below the map.]]></phrase>
+  <phrase title="widget_pos_desc.xt_mm_membermap_sidebar" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[A position inside the membermap sidebar for various stats and new content widgets.]]></phrase>
   <phrase title="xt_mm_edit_location" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[Edit location]]></phrase>
   <phrase title="xt_mm_hybrid" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[Hybrid - displays a mixture of normal and satellite views.]]></phrase>
   <phrase title="xt_mm_map_stats" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[Membermap statistics]]></phrase>

@@ -189,11 +189,9 @@
 		}
 	}
 }]]></template>
-  <template type="public" title="xt_mm_index" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
+  <template type="public" title="xt_mm_index" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
 <xf:if is="!{$xf.visitor.Profile.location_}">
 	<xf:description>{{ phrase('xt_mm_no_location_in_profile', {'account': link('account/account-details')}) }}</xf:description>
-<xf:else />
-	<xf:description>Hello <b>{$xf.visitor.username}</b>, currently there're {$total} members on the map.</xf:description>
 </xf:if>
 
 <xf:css src="xt_mm.less" />
@@ -210,6 +208,10 @@
         {{ phrase('xt_mm_edit_location')}}
     </xf:button>
 </xf:pageaction>
+
+<xf:widgetpos id="xt_mm_membermap_sidebar" position="sidebar" />
+
+<xf:widgetpos id="xt_mm_membermap_above" />
 
 <div class="block">
 	<div class="block-container">
@@ -230,72 +232,8 @@
 	</div>
 </div>
 
-<xf:if is="$userData is not empty">
-	<xf:if is="$xf.options.xtMMshowStats == 'sidebar'">
-		<xf:sidebar key="userDataToSidebar">
-			<div class="block">
-				<div class="block-container">
-					<h3 class="block-minorHeader">{{ phrase('xt_mm_map_stats') }}</h3>
-					<div class="block-body">
-						<div class="block-row block-row--minor">
-							<xf:if is="$xf.options.xtMMshowStatsUser == 'name'">
-								<ul class="listInline listInline--comma">
-									<xf:foreach loop="$userData" value="$data">
-										<li><xf:username user="$data.user" rich="true" class="{{ !$data.user.visible ? 'username--invisible' : '' }}" /></li>
-									</xf:foreach>
-								</ul>
-							<xf:elseif is="$xf.options.xtMMshowStatsUser == 'avatar'" />
-								<ul class="listHeap">
-									<xf:foreach loop="$userData" value="$data">
-										<li>
-											<xf:avatar user="$data.user" size="xs" img="true" />
-										</li>
-									</xf:foreach>
-								</ul>
-							</xf:if>
-						</div>
-					</div>
-					<div class="block-footer">
-						<span class="block-footer-counter">
-							{{ phrase('xt_mm_total_x_members',{'total': number($total)}) }}
-						</span>
-					</div>
-				</div>
-			</div>
-		</xf:sidebar>
-	<xf:elseif is="$xf.options.xtMMshowStats == 'below'" />
-		<div class="block">
-			<div class="block-container">
-				<h3 class="block-minorHeader">{{ phrase('xt_mm_map_stats') }}</h3>
-				<div class="block-body">
-					<div class="block-row block-row--minor">
-						<xf:if is="$xf.options.xtMMshowStatsUser == 'name'">
-							<ul class="listInline listInline--comma">
-								<xf:foreach loop="$userData" value="$data">
-									<li><xf:username user="$data.user" rich="true" class="{{ !$data.user.visible ? 'username--invisible' : '' }}" /></li>
-								</xf:foreach>
-							</ul>
-							<xf:elseif is="$xf.options.xtMMshowStatsUser == 'avatar'" />
-							<ul class="listHeap">
-								<xf:foreach loop="$userData" value="$data">
-									<li>
-										<xf:avatar user="$data.user" size="xs" img="true" />
-									</li>
-								</xf:foreach>
-							</ul>
-						</xf:if>
-					</div>
-				</div>
-				<div class="block-footer">
-					<span class="block-footer-counter">
-						{{ phrase('xt_mm_total_x_members',{'total': number($total)}) }}
-					</span>
-				</div>
-			</div>
-		</div>
-	</xf:if>
-</xf:if>]]></template>
-  <template type="public" title="xt_mm_macros" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[<xf:macro name="xt_mm_ShowOnMap" arg-hint="" arg-canViewXtMembermap="!">
+<xf:widgetpos id="xt_mm_membermap_below" />]]></template>
+  <template type="public" title="xt_mm_macros" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[<xf:macro name="xt_mm_ShowOnMap" arg-hint="" arg-canViewXtMembermap="!">
 	<xf:checkboxrow hint="{{ $hint ? $hint : ''  }}">
 		<xf:option value="1" name="profile[xt_mm_show_on_map]" checked="{$xf.visitor.Profile.xt_mm_show_on_map}"
 				   label="{{ phrase('xt_mm_show_on_map') }}"
@@ -303,26 +241,12 @@
 	</xf:checkboxrow>
 </xf:macro>
 
-<xf:macro name="xt_mm_stats" arg-user="" arg-total="!">
-	<div class="block">
-		<div class="block-container">
-			<h3 class="block-minorHeader">{{ phrase('xt_mm_map_stats') }}</h3>
-			<div class="block-body">
-				<div class="block-row block-row--minor">
-					<ul class="listInline listInline--comma">
-						<xf:foreach loop="$userData" value="$data">
-							<li><xf:username user="$data.user" rich="true" class="{{ !$data.user.visible ? 'username--invisible' : '' }}" /></li>
-						</xf:foreach>
-					</ul>
-				</div>
-			</div>
-			<div class="block-footer">
-				<span class="block-footer-counter">
-					{{ phrase('xt_mm_total_x_members',{'total': number($total)}) }}
-				</span>
-			</div>
-		</div>
-	</div>
+<xf:macro name="xt_mm_ShowOnMapRegister" arg-hint="" arg-canViewXtMembermap="!">
+	<xf:checkboxrow hint="{{ $hint ? $hint : ''  }}">
+		<xf:option name="profile[xt_mm_show_on_map]"
+				   label="{{ phrase('xt_mm_show_on_map') }}"
+				   hint="{{ phrase('xt_mm_show_on_map_explain') }}" />
+	</xf:checkboxrow>
 </xf:macro>]]></template>
   <template type="public" title="xt_mm_useritem" version_id="1000132" version_string="1.0.1 Beta 2"><![CDATA[<div class="xtMapInfoWindow">
     <div class="xtItem xtMapInfoWindowItem">
@@ -354,4 +278,35 @@
 		</div>
     </div>
 </div>]]></template>
+  <template type="public" title="xt_mm_widget_members_on_map" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[<xf:if is="$userData is not empty">
+	<div class="block">
+		<div class="block-container">
+			<h3 class="block-minorHeader">{{ phrase('xt_mm_map_stats') }}</h3>
+			<div class="block-body">
+				<div class="block-row block-row--minor">
+					<xf:if is="$xf.options.xtMMshowStatsUser == 'name'">
+						<ul class="listInline listInline--comma">
+							<xf:foreach loop="$userData" value="$data">
+								<li><xf:username user="$data.user" rich="true" class="{{ !$data.user.visible ? 'username--invisible' : '' }}" /></li>
+							</xf:foreach>
+						</ul>
+						<xf:elseif is="$xf.options.xtMMshowStatsUser == 'avatar'" />
+						<ul class="listHeap">
+							<xf:foreach loop="$userData" value="$data">
+								<li>
+									<xf:avatar user="$data.user" size="xs" img="true" />
+								</li>
+							</xf:foreach>
+						</ul>
+					</xf:if>
+				</div>
+			</div>
+			<div class="block-footer">
+				<span class="block-footer-counter">
+					{{ phrase('xt_mm_total_x_members',{'total': number($total)}) }}
+				</span>
+			</div>
+		</div>
+	</div>
+</xf:if>]]></template>
 </templates>

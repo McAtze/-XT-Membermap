@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget_positions/>
+<widget_positions>
+  <widget_position position_id="xt_mm_membermap_above" active="1"/>
+  <widget_position position_id="xt_mm_membermap_below" active="1"/>
+  <widget_position position_id="xt_mm_membermap_sidebar" active="1"/>
+</widget_positions>

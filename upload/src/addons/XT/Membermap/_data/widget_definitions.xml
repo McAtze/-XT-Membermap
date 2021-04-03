@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget_definitions/>
+<widget_definitions>
+  <widget_definition definition_id="xt_mm_mapStats" definition_class="XT\Membermap\Widget\MapStatistics"/>
+</widget_definitions>
