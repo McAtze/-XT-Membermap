@@ -1,6 +1,22 @@
 # -XT-Membermap
 A membermap based on user location field with opt-in.
 
+## Functions
+- Membermap based on Google Maps Geocode, JavaScript and Staticmap API
+- The map use the default XenForo location field with OptIn for every user
+- Permissions and map markers per user group
+- Map marker clustering
+- Choose between 4 different map types (Roadmap, Hybrid, Terrain and Satellite)
+- Default map coordinates and zoom in options
+- Enable/Disable POI on membermap
+- Enable/Disable clustering on membermap
+- Checking if Api key is valid/available when entering in options
+- Minimize the api calls
+- Static mini map per user in account an as widget available
+- 3 different widgets are available (Stats, Legend and Minimap (User based))
+- Ignored user hidden on map
+- Logs in ACP per Api call with response in detail view
+
 ### Installation
 
 1. Auto-installation
