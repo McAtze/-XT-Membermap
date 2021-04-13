@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <routes>
+  <route route_type="admin" route_prefix="xt-api-logs" format=":int&lt;log_id&gt;/" controller="XT\Membermap:Log" context="xtMMLog"/>
   <route route_type="public" route_prefix="xt-membermap" controller="XT\Membermap:Membermap" context="members"/>
 </routes>

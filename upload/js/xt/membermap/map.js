@@ -13,6 +13,7 @@
             zoom: null,
             poi: 1,
             cluster: 1,
+            clusterPath: null,
         },
 
         load: null,
@@ -20,10 +21,11 @@
         dimensions: null,
         markers: null,
         mapData: null,
-        markerClusterer: null,
+        markerCluster: null,
         map: null,
         bounds: null,
         infoWindow: null,
+        userDataUrl: null,
 
         init: function () {
             if (this.load !== true)
@@ -35,31 +37,24 @@
                 });
                 this.xhr = XF.ajax('post', this.options.mapurl, {}, XF.proxy(this, 'onLoad'));
             }
+            this.markers = [];
         },
 
         onLoad: function (data) {
             if (data.mapData)
             {
-                this.mapData = data.mapData;
+                this.mapData = data.mapData;    
                 this.initMap();
             }
         },
 
-        addMarker: function(props) { 
+        addMarker: function(props,userid) { 
             var marker = new google.maps.Marker({
                 position: props.coords,
                 map: this.map,
                 title: props.title,
                 icon: props.iconUrl,
             });           
-
-            if(this.options.cluster)
-            {
-                var markerCluster = new MarkerClusterer(this.map, this.marker, {
-                    averageCenter: true,
-                    imagePath: props.clusterPath + '/m',
-                });
-            }
 
             if (props.coords)
             {
@@ -73,13 +68,19 @@
 
             var self = this;
 
-            (function (marker, props) {
-                google.maps.event.addListener(marker, "click", function (e) {
-                    self.map.panTo(marker.getPosition())
-                    self.infoWindow.setContent(props.content);
-                    self.infoWindow.open(self.map, marker);
+            (function (marker, props) 
+            {
+                google.maps.event.addListener(marker, "click", function (e) 
+                {
+                    XF.ajax('post', props.infoUrl, {}, function (data) 
+                    {
+                        self.map.panTo(marker.getPosition())
+                        self.infoWindow.setContent(data.html.content);
+                        self.infoWindow.open(self.map, marker);
+                    });
                 });
             })(marker, props);
+            this.markers.push(marker);
         },
 
 		initMap: function() {
@@ -111,9 +112,18 @@
                 this.map.setOptions({styles: noPoi});
             }
 
-            $.each(this.mapData, function() {
-                self.addMarker(this);
+            $.each(this.mapData, function(index) {
+                self.addMarker(this,index);
             });
+
+            if (this.options.cluster) {
+                // this.markerCluster = new MarkerClusterer(this.map, this.markers);
+                this.markerCluster = new MarkerClusterer(this.map, this.markers, {
+                    averageCenter: true,
+                    // clusterClass: "custom-clustericon",
+                    imagePath: self.options.clusterPath + '/m',
+                });
+            }
 
            if (this.bounds.getNorthEast().equals(this.bounds.getSouthWest())) {
                 var extendPoint1 = new google.maps.LatLng(this.bounds.getNorthEast().lat() + 0.01, this.bounds.getNorthEast().lng() + 0.01);

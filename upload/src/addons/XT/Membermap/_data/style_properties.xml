@@ -6,15 +6,15 @@ m={{ phrase('medium') }}
 l={{ phrase('large') }}</value_parameters>
     <value>"m"</value>
   </style_property>
-  <style_property property_name="xtMMContainerHeight" group_name="xtMMAppearance" title="Map container height" description="Set the height of the map container." property_type="value" value_type="number" display_order="30">
+  <style_property property_name="xtMMContainerHeight" group_name="xtMMAppearance" title="Map container height" description="Set the height of the map container." property_type="value" value_type="unit" display_order="30">
     <value_parameters>min=300
 max=900
 step=10</value_parameters>
-    <value>"600"</value>
+    <value>"600px"</value>
   </style_property>
   <style_property property_name="xtMMinfoWindow" group_name="xtMMAppearance" title="Info window" property_type="css" display_order="100" css_components="text,background,border,border_radius,border_width_simple,border_color_simple,border_radius_simple,padding,extra">
     <value>{
-    "extra": "min-width: 400px;"
+    "extra": "max-width: 350px;\nwidth: 100%;"
 }</value>
   </style_property>
   <style_property property_name="xtMMinfoWindowItem" group_name="xtMMAppearance" title="Info window item" property_type="css" display_order="110" css_components="text,background,border,border_radius,border_width_simple,border_color_simple,border_radius_simple,padding,extra">

@@ -36,7 +36,25 @@
 
 	});
 
+	XF.xtSetIcon = XF.Event.newHandler({
+        eventType: 'click',
+      	eventNameSpace: 'xtSetIcon',
+
+		$container: null,
+
+		init: function() {
+			this.$container = $('.xt--mm-imagepreview');
+		},
+
+        click: function () {
+			this.$container.val(this.$target.attr('src'));
+			this.$container.css('background-image', 'url(' + this.$target.attr('src') + ')');
+        }
+
+	});
+
 	XF.Element.register('xtAssetImage', 'XF.xtAssetImage');
+	XF.Event.register('click', 'xtSetIcon', 'XF.xtSetIcon');
 
 	
 }(jQuery, window, document);

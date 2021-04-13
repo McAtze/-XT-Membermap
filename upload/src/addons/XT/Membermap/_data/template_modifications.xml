@@ -4,8 +4,32 @@
     <find><![CDATA[label="{{ phrase('location') }}" />]]></find>
     <replace><![CDATA[$0
 <xf:if is="{{ $xf.visitor.canViewXtMembermap() }}">
-	<xf:macro template="xt_mm_macros" name="xt_mm_ShowOnMap" arg-canViewXtMembermap="{{ $xf.visitor.canViewXtMembermap() }}" />
+	<xf:macro name="xt_mm_macros::xt_mm_ShowOnMap" arg-canViewXtMembermap="{{ $xf.visitor.canViewXtMembermap() }}" arg-location_image="{$location_image}"/>
 </xf:if>]]></replace>
+  </modification>
+  <modification type="admin" template="helper_criteria" modification_key="xt_hc_add_criteria" description="Adds criteria" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:user:profile_bottom]-->]]></find>
+    <replace><![CDATA[<xf:optgroup label="{{ phrase('location:') }}">
+    <xf:option name="user_criteria[location][rule]" value="location" selected="{$criteria.location}"
+               label="{{ phrase('xt_mm_user_has_filled_in_location') }}" />
+
+    <xf:option name="user_criteria[not_location][rule]" value="not_location" selected="{$criteria.not_location}"
+               label="{{ phrase('xt_mm_user_has_not_filled_in_location') }}" />
+ 
+    <xf:option name="user_criteria[xt_mm_show_in_map][rule]" value="xt_mm_show_in_map" selected="{$criteria.xt_mm_show_in_map}"
+               label="{{ phrase('xt_mm_user_show_in_map') }}" />
+
+    <xf:option name="user_criteria[xt_mm_hide_in_map][rule]" value="xt_mm_hide_in_map" selected="{$criteria.xt_mm_hide_in_map}"
+               label="{{ phrase('xt_mm_user_hide_in_map') }}" />
+</xf:optgroup>
+
+$0]]></replace>
+  </modification>
+  <modification type="admin" template="helper_user_search_criteria" modification_key="xt_mm_helper_user_search_criteria" description="Add search criteria" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:checkboxrow name="criteria[user_state]" readonly="{$readOnly}"]]></find>
+    <replace><![CDATA[<xf:include template="xt_mm_helper_user_search_criteria" />
+
+$0]]></replace>
   </modification>
   <modification type="public" template="register_form" modification_key="InsertShowOnMap" description="Insert show on map checkbox" execution_order="5" enabled="1" action="str_replace">
     <find><![CDATA[arg-value="{$fields.location}" />]]></find>

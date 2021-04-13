@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<admin_navigation/>
+<admin_navigation>
+  <admin_navigation_entry navigation_id="xtMMLog" parent_navigation_id="logsUser" display_order="9999" link="xt-api-logs" admin_permission_id="viewLogs" debug_only="0" development_only="0" hide_no_children="0"/>
+</admin_navigation>

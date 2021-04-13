@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <templates>
-  <template type="admin" title="admin_xt_membermap_defaut_pin" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[<xf:js src="xt/membermap/admin.js" min="1" />
+  <template type="admin" title="admin_xt_membermap_defaut_pin" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[<xf:js src="xt/membermap/admin.js" />
 <xf:css src="xt_mm.less" />
 
 <xf:assetuploadrow name="userGroup[xt_mm_markerPin]"
@@ -11,22 +11,36 @@
 				   data-xf-init="xtAssetImage"
 				   placeholder="path/to/marker.png"
 				   class="xt--mm-imagepreview"
-				   />]]></template>
-  <template type="admin" title="option_xt_membermap_defaut_pin" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[<xf:js src="xt/membermap/admin.js" min="1" />
+				   />
+<dl class="formRow">
+	<dt>
+	</dt>
+	<dd style="padding-top:0;">
+		<xf:include template="xt_mm_pinselector" />
+	</dd>
+</dl>				   ]]></template>
+  <template type="admin" title="option_xt_membermap_defaut_pin" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[<xf:js src="xt/membermap/admin.js" min="1" />
 <xf:css src="xt_mm.less" />
 
 <xf:assetuploadrow asset="xtmembermap" 
-	label="{$option.title}"
-	name="{$inputName}"
-	hint="{$hintHtml}"
-	value="{$option.option_value}" 
-	explain="{$explainHtml}"
-	html="{$listedHtml}"
-	rowclass="{$rowClass}"
-	placeholder="path/to/image.png" 
-	class="xt--mm-imagepreview" 
-	data-xf-init="xtAssetImage"
-/>]]></template>
+		label="{$option.title}"
+		hint="{$hintHtml}"
+		explain="{$explainHtml}"
+		rowclass="{$rowClass}"
+		name="{$inputName}"
+		value="{$option.option_value}" 
+		html="{$listedHtml}"
+		placeholder="path/to/image.png" 
+		class="xt--mm-imagepreview" 
+		data-xf-init="xtAssetImage"
+	/>
+<dl class="formRow">
+	<dt>
+	</dt>
+	<dd style="padding-top:0;">
+		<xf:include template="xt_mm_pinselector" />
+	</dd>
+</dl>]]></template>
   <template type="admin" title="option_xt_mm_default_latlong" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[<xf:formrow rowtype="input"
 	label="{$option.title}"
 	hint="{$hintHtml}"
@@ -41,11 +55,175 @@
 		<xf:textbox name="{$inputName}[long]" value="{$option.option_value.long}" />
 	</div>
 </xf:formrow>]]></template>
-  <template type="admin" title="xt_mm.less" version_id="1000019" version_string="1.0.0 Alpha 9"><![CDATA[.xt--mm-imagepreview {
+  <template type="admin" title="widget_def_options_xt_mm_members_on_map" version_id="1000135" version_string="1.0.1 Beta 5"><![CDATA[<hr class="formRowSep" />
+
+<xf:numberboxrow name="options[limit]" value="{$options.limit}" min="0"
+	label="{{ phrase('xt_mm_maximum_users') }}"
+	explain="{{ phrase('xt_mm_maximum_users_explain') }}" />
+
+<xf:radiorow name="options[style]" value="{{ $options.style ?: 'name' }}"
+	label="{{ phrase('display_style') }}">
+
+	<xf:option value="name"
+		label="{{ phrase('user_name') }}"
+		hint="{{ phrase('xt_mm_widget_display_user_name_explain') }}" />
+	<xf:option value="avatar"
+		label="{{ phrase('avatar') }}"
+		hint="{{ phrase('xt_mm_widget_display_avatar_explain') }}" />
+</xf:radiorow>]]></template>
+  <template type="admin" title="xt_mm.less" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[.xt--mm-imagepreview {
     background-size: contain;
 	background-repeat: no-repeat;
 	background-position: right;
+}
+ul.xtMapMarkerPreview {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	li {
+		display: inline;
+		margin-right: 10px;
+	}
 }]]></template>
+  <template type="admin" title="xt_mm_helper_user_search_criteria" version_id="1000138" version_string="1.0.1 Beta 8"><![CDATA[<xf:checkboxrow name="criteria[location]" readonly="{$readOnly}"
+	label="{{ phrase('location') }}">
+
+	<xf:option value="0" selected="in_array(0, $criteria.location)">{{ phrase('xt_mm_not_filled_location') }}</xf:option>
+	<xf:option value="1" selected="in_array(1, $criteria.location)">{{ phrase('xt_mm_filled_location') }}</xf:option>
+</xf:checkboxrow>
+
+<xf:checkboxrow name="criteria[xt_mm_show_on_map]" readonly="{$readOnly}"
+	label="{{ phrase('xt_mm_membermap') }}">
+
+	<xf:option value="0" selected="in_array(0, $criteria.xt_mm_show_on_map)">{{ phrase('xt_mm_hiding_on_map') }}</xf:option>
+	<xf:option value="1" selected="in_array(1, $criteria.xt_mm_show_on_map)">{{ phrase('xt_mm_showing_on_map') }}</xf:option>
+</xf:checkboxrow>]]></template>
+  <template type="admin" title="xt_mm_log_delete" version_id="1000151" version_string="1.0.1 Release Candidate 1"><![CDATA[<xf:title>{{ phrase('confirm_action') }}</xf:title>
+
+<xf:form action="{{ link('xt-api-logs/delete', $log) }}" class="block" ajax="true">
+    <div class="block-container">
+        <div class="block-body">
+            <xf:inforow rowtype="confirm">
+                {{ phrase('please_confirm_that_you_want_to_delete_following:') }}
+                <strong>
+                    {$log.User}: <br />
+                    {$log.request_url_short}
+                </strong>
+            </xf:inforow>
+        </div>
+        <xf:submitrow rowtype="simple" icon="delete" />
+    </div>
+</xf:form>]]></template>
+  <template type="admin" title="xt_mm_log_list" version_id="1000151" version_string="1.0.1 Release Candidate 1"><![CDATA[<xf:title>{{ phrase('xt_mm_log_list') }}</xf:title>
+
+<xf:form action="{{ link('xt-api-logs') }}" class="block">
+	<div class="block-container">
+		<div class="block-body block-row">
+			<span>
+				{{ phrase('filter_by_user:') }}
+				<xf:select name="user_id" value="{$userId}" class="input--inline">
+					<xf:option value="0">{{ phrase('any') }}</xf:option>
+					<xf:options source="$logUsers" />
+				</xf:select>
+			</span>
+
+			<xf:button type="submit">{{ phrase('filter') }}</xf:button>
+		</div>
+	</div>
+</xf:form>
+
+<xf:if is="$logs is not empty">
+    <xf:form action="{{ link('xt-api-logs/mass-delete') }}" ajax="true" class="block">
+        <div class="block-container">
+            <div class="block-body">
+                <xf:datalist data-xf-init="responsive-data-list">
+                    <colgroup>
+                        <col>
+                        <col style="width: 15%">
+                        <col style="width: 5%">
+                        <col style="width: 5%">
+                        <col style="width: 9%">
+                    </colgroup>
+
+                    <xf:datarow rowtype="header">
+                        <xf:cell>
+                            <xf:checkbox standalone="true">
+                                <xf:option check-all="< .block-container" data-xf-init="tooltip" title="{{ phrase('select_all')|for_attr }}" />
+                            </xf:checkbox>
+                        </xf:cell>
+                        <xf:cell>{{ phrase('Request') }}</xf:cell>
+						<xf:cell>{{ phrase('status') }}</xf:cell>
+						<xf:cell>{{ phrase('user') }}</xf:cell>
+						<xf:cell>{{ phrase('date_time') }}</xf:cell>
+                    </xf:datarow>
+
+                    <xf:foreach loop="$logs" value="$log">
+                        <xf:datarow>
+                            <xf:toggle name="delete[]" value="{$log.log_id}" />
+							<xf:cell class="u-ltr"><a href="{{ link('xt-api-logs', $log) }}" data-xf-click="overlay">{$log.request_url_short}</a></xf:cell>
+                            <xf:cell>{$log.request_status}</xf:cell>
+                            <xf:cell>
+								<xf:if is="$log.User">
+									<xf:username user="$log.User" href="{{ link('users/edit', $log.User) }}" />
+								<xf:else />
+									{{ phrase('unknown_account') }}
+								</xf:if>
+							</xf:cell>
+                            <xf:cell><xf:date time="{$log.request_date}" /></xf:cell>
+                        </xf:datarow>
+                    </xf:foreach>
+
+                </xf:datalist>
+
+            </div>
+            <div class="block-footer block-footer--split">
+                <span class="block-footer-counter">{{ display_totals($logs, $total) }}</span>
+
+                <span class="block-footer-select">
+                    <xf:checkbox standalone="true">
+                        <xf:option check-all="< .block-container" label="{{ phrase('select_all') }}" />
+                    </xf:checkbox>
+                </span>
+
+                <span class="block-footer-controls">
+                    <xf:button type="submit" icon="delete" />
+                </span>
+            </div>
+        </div>
+		
+		<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="api-logs" params="{$linkFilters}"
+			wrapperclass="block-outer block-outer--after" />
+
+    </xf:form>
+<xf:else />
+    <div class="blockMessage">{{ phrase('no_records_matched') }}</div>
+</xf:if>]]></template>
+  <template type="admin" title="xt_mm_log_view" version_id="1000151" version_string="1.0.1 Release Candidate 1"><![CDATA[<xf:title>{{ phrase('xt_mm_GoogleMapsApi_log_entry') }}</xf:title>
+
+<div class="block">
+	<div class="block-container">
+		<div class="block-body block-row">
+			<span class="u-ltr">{$entry.request_url}</span>
+			<ul class="listInline listInline--bullet u-muted">
+				<li>{{ phrase('generated_by:') }} {{ $entry.User ? '<a href="' . link('users/edit', $entry) . '">' . $entry.User.username . '</a>' : phrase('unknown_account') }}</li>
+				<li><xf:date time="{$entry.request_date}" /></li>
+			</ul>
+		</div>
+
+		<h3 class="block-minorHeader">{{ phrase('xt_mm_api_response') }}</h3>
+		<div class="block-body block-body--contained block-row" dir="ltr">
+			{{ dump($entry.request_data) }}
+		</div>
+	</div>
+</div>]]></template>
+  <template type="admin" title="xt_mm_pinselector" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[<ul class="xtMapMarkerPreview">
+	<li><img src="styles/default/xt/membermap/map_markers/blue-dot.png" data-xf-click="xtSetIcon"></li>
+	<li><img src="styles/default/xt/membermap/map_markers/white-dot.png" data-xf-click="xtSetIcon"></li>
+	<li><img src="styles/default/xt/membermap/map_markers/red-dot.png" data-xf-click="xtSetIcon"></li>
+	<li><img src="styles/default/xt/membermap/map_markers/orange-dot.png" data-xf-click="xtSetIcon"></li>
+	<li><img src="styles/default/xt/membermap/map_markers/purple-dot.png" data-xf-click="xtSetIcon"></li>
+</ul>]]></template>
   <template type="admin" title="xt_mm_tools_rebuild" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[<xf:set var="$userMapDataBody">
 	<xf:inforow>{{ phrase('xt_mm_rebuild_userMapData_explain') }}</xf:inforow>
 </xf:set>
@@ -72,7 +250,7 @@
 		  arg-body="{$userMapHideBody}"
 		  arg-job="XT\Membermap:UserMapHide" />
 <!--[XF:after_xt_mm_rebuild_userMapHide]-->]]></template>
-  <template type="public" title="xt_mm.less" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[// ############################ Membermap LESS ######################
+  <template type="public" title="xt_mm.less" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[// ############################ Membermap LESS ######################
 .xtMapContainer
 {
 	&.top
@@ -83,6 +261,23 @@
 	{
 		
 	}
+}
+.xt-membermap {
+	background-image: url('styles/default/xt/membermap/loading.gif');
+	background-position: center;
+	background-repeat: no-repeat;
+	height: @xf-xtMMContainerHeight;
+	width:100%;
+}
+
+.xt-mm-widget {
+	.xt-mimimap img {
+		width: 100%;
+	}
+}
+
+.xt-mimimap img {
+	border-radius: @xf-borderRadiusMedium;
 }
 
 .xtMapInfoWindow 
@@ -148,20 +343,29 @@
 		width: 100%;
 		min-width: 0;
 	}
-}	
+}
+
+.xtMM-title
+{
+	margin: 5px 0;
+}
+.xtMM-icon
+{
+	height: 25px;
+}
 
 @media (max-width: @xf-responsiveWide)
 {
 	.xtMapInfoWindow 
 	{
-		min-width: 325px;
+		max-width: 325px;
 	}
 }
 @media (max-width: @xf-responsiveMedium)
 {
 	.xtMapInfoWindow 
 	{
-		min-width: 285px;
+		max-width: 285px;
 	}
 }
 
@@ -189,17 +393,18 @@
 		}
 	}
 }]]></template>
-  <template type="public" title="xt_mm_index" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
+  <template type="public" title="xt_mm_index" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
 <xf:if is="!{$xf.visitor.Profile.location_}">
 	<xf:description>{{ phrase('xt_mm_no_location_in_profile', {'account': link('account/account-details')}) }}</xf:description>
 </xf:if>
 
 <xf:css src="xt_mm.less" />
 <xf:css src="account_avatar.less" />
+<xf:css src="member_tooltip.less" />
 <xf:js prod="xf/avatar-compiled.js" dev="xf/avatar.js" />
 <xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsApiKey}&language={$xf.language.language_code|substr}" />
-<xf:js src="xt/membermap/map.js" min="1" />
-<xf:js src="xt/membermap/markerclusterer.js" min="1" />
+<xf:js src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js" />
+<xf:js src="xt/membermap/map.js?a=1" />
 
 <xf:macro template="metadata_macros" name="canonical_url" arg-canonicalUrl="{{ link('canonical:membermap') }}" />
 
@@ -209,15 +414,15 @@
     </xf:button>
 </xf:pageaction>
 
-<xf:widgetpos id="xt_mm_membermap_sidebar" position="sidebar" />
+<xf:widgetpos id="xt_mm_membermap_sidebar" position="sidebar" context-userdata="{$userData}" />
 
-<xf:widgetpos id="xt_mm_membermap_above" />
+<xf:widgetpos id="xt_mm_membermap_above" context-userdata="{$userData}" />
 
 <div class="block">
 	<div class="block-container">
 		<div class="block-body">
 			<div class="block-row">
-				<div id="membermap" style="height:{{ property('xtMMContainerHeight') ?: 600 }}px; width:100%;" 
+				<div id="membermap" class="xt-membermap"
 					 data-xf-init="xtMembermap" 
 					 data-mapurl="{{ link('xt-membermap/mapdata') }}" 
 					 data-latitude="{{ $xf.options.xtMMdefaultLatLong.lat }}" 
@@ -225,20 +430,30 @@
 					 data-zoom="{{ $xf.options.xtMMdefaultZoom }}" 
 					 data-poi="{{ $xf.options.xtMMShowPOI }}"
 					 data-cluster="{{ $xf.options.xtMMShowCluster }}"
-					 data-maptype="{{ $xf.options.xtMMmapType }}">
+					 data-cluster-path="{$clusterPath}"
+					 data-maptype="{{ $xf.options.xtMMmapType }}" >
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-<xf:widgetpos id="xt_mm_membermap_below" />]]></template>
-  <template type="public" title="xt_mm_macros" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[<xf:macro name="xt_mm_ShowOnMap" arg-hint="" arg-canViewXtMembermap="!">
-	<xf:checkboxrow hint="{{ $hint ? $hint : ''  }}">
-		<xf:option value="1" name="profile[xt_mm_show_on_map]" checked="{$xf.visitor.Profile.xt_mm_show_on_map}"
-				   label="{{ phrase('xt_mm_show_on_map') }}"
-				   hint="{{ phrase('xt_mm_show_on_map_explain') }}" />
-	</xf:checkboxrow>
+<xf:widgetpos id="xt_mm_membermap_below" context-userdata="{$userData}" />]]></template>
+  <template type="public" title="xt_mm_macros" version_id="1000151" version_string="1.0.1 Release Candidate 1"><![CDATA[<xf:macro name="xt_mm_ShowOnMap" arg-hint="" arg-canViewXtMembermap="!" arg-location_image="">
+	<xf:css src="xt_mm.less" />
+	<xf:formrow>
+		<xf:checkbox hint="{{ $hint ? $hint : ''  }}">
+			<xf:option value="1" name="profile[xt_mm_show_on_map]" checked="{$xf.visitor.Profile.xt_mm_show_on_map}"
+					label="{{ phrase('xt_mm_show_on_map') }}"
+					hint="{{ phrase('xt_mm_show_on_map_explain') }}" 
+					/>
+		</xf:checkbox>
+		<div>
+			<div class="xt-mm-minimappreview js-xt-mm-relocate">
+				{{ xt_minimap($xf.visitor, 's') }}
+			</div>
+		</div>
+	</xf:formrow>
 </xf:macro>
 
 <xf:macro name="xt_mm_ShowOnMapRegister" arg-hint="" arg-canViewXtMembermap="!">
@@ -248,49 +463,45 @@
 				   hint="{{ phrase('xt_mm_show_on_map_explain') }}" />
 	</xf:checkboxrow>
 </xf:macro>]]></template>
-  <template type="public" title="xt_mm_useritem" version_id="1000132" version_string="1.0.1 Beta 2"><![CDATA[<div class="xtMapInfoWindow">
+  <template type="public" title="xt_mm_useritem" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[<div class="xtMapInfoWindow">
     <div class="xtItem xtMapInfoWindowItem">
-        <div class="xtItem-avatar itemCoverImage">
-            <div class="listBlockInnerImage">
-                <xf:avatar user="{$user}" size="m" />
-            </div>
-        </div>
 		<div class="xtItem-info">
 			<div class="title"><xf:username user="{$user}" /></div>
-        <div class="user-banner xt-muted"><xf:userbanners user="{$user}" /></div>
-        <div class="user-blurb xt-muted"><xf:userblurb user="{$user}" /></div>
-		<div class="structItem-cell structItem-cell--meta">
-			<dl class="pairs pairs--justified">
-				<dt>{{ phrase('join_date') }}</dt>
-				<dd><xf:date time="$user.register_date" /></dd>
-			</dl>
-
-			<dl class="pairs pairs--justified">
-				<dt>{{ phrase('posts') }}</dt>
-				<dd>{$user.message_count|number}</dd>
-			</dl>
-
-			<dl class="pairs pairs--justified">
-				<dt>{{ phrase('last_activity') }}</dt>
-				<dd><xf:date time="$user.last_activity" /></dd>
-			</dl>
-		</div>
 		</div>
     </div>
 </div>]]></template>
-  <template type="public" title="xt_mm_widget_members_on_map" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[<xf:if is="$userData is not empty">
-	<div class="block">
+  <template type="public" title="xt_mm_widget_map_legend" version_id="1000135" version_string="1.0.1 Beta 5"><![CDATA[<xf:if is="$groupData is not empty">
+	<div class="block"{{ widget_data($widget) }} data-type="xt_membermap_legend">
+		<div class="block-container">
+			<h3 class="block-minorHeader">{{ phrase('xt_mm_map_legend') }}</h3>
+			<div class="block-body">
+				<div class="block-row block-row--minor">
+					<xf:foreach loop="$groupData" value="$group">
+						<dl class="pairs pairs--justified fauxBlockLink">
+							<dt class="xtMM-title">{$group.title}</dt>
+							<dd dir="auto"><img class="xtMM-icon" src="{$group.icon}" /></dd>
+						</dl>
+					</xf:foreach>
+				</div>
+			</div>
+		</div>
+	</div>
+</xf:if>]]></template>
+  <template type="public" title="xt_mm_widget_members_on_map" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[<xf:if is="$userData is not empty">
+	<div class="block"{{ widget_data($widget) }} data-type="xt_membermap">
 		<div class="block-container">
 			<h3 class="block-minorHeader">{{ phrase('xt_mm_map_stats') }}</h3>
 			<div class="block-body">
 				<div class="block-row block-row--minor">
-					<xf:if is="$xf.options.xtMMshowStatsUser == 'name'">
+					<xf:if is="$style == 'name'">
 						<ul class="listInline listInline--comma">
 							<xf:foreach loop="$userData" value="$data">
-								<li><xf:username user="$data.user" rich="true" class="{{ !$data.user.visible ? 'username--invisible' : '' }}" /></li>
+								<xf:trim>
+									<li><xf:username user="$data.user" rich="true" class="{{ !$data.user.visible ? 'username--invisible' : '' }}" /></li>
+								</xf:trim>
 							</xf:foreach>
 						</ul>
-						<xf:elseif is="$xf.options.xtMMshowStatsUser == 'avatar'" />
+					<xf:elseif is="$style == 'avatar'" />
 						<ul class="listHeap">
 							<xf:foreach loop="$userData" value="$data">
 								<li>
@@ -298,6 +509,9 @@
 								</li>
 							</xf:foreach>
 						</ul>
+					</xf:if>					
+					<xf:if is="$unseen">
+						<span href="{{ link('online') }}">{{ phrase('ellipsis_and_x_more', {'count': number($unseen)}) }}</span>
 					</xf:if>
 				</div>
 			</div>
@@ -305,6 +519,20 @@
 				<span class="block-footer-counter">
 					{{ phrase('xt_mm_total_x_members',{'total': number($total)}) }}
 				</span>
+			</div>
+		</div>
+	</div>
+</xf:if>]]></template>
+  <template type="public" title="xt_mm_widget_minimap" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[<xf:if is="$xf.visitor.Profile.xt_mm_show_on_map">
+	<xf:css src="xt_mm.less" />
+	<div class="block"{{ widget_data($widget) }} data-type="xt_membermap_legend">
+		<div class="block-container">
+			<h3 class="block-minorHeader">{{ phrase('xt_mm_minimap') }}</h3>
+			<div class="block-body xt-mm-widget">
+				<div class="block-row block-row--minor">
+					<div><strong>{{ phrase('xt_mm_your_location:') }}</strong></div>
+                    {{ xt_minimap($xf.visitor, 'l') }}
+				</div>
 			</div>
 		</div>
 	</div>

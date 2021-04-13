@@ -6,48 +6,91 @@ use XF\Widget\AbstractWidget;
 
 class MapStatistics extends AbstractWidget
 {
+    protected $defaultOptions = [
+		'limit' => 2,
+		'style' => 'name',
+	];
+
     public function render()
 	{
 		/** @var \XT\Membermap\XF\Entity\User $visitor */
 		$visitor = \XF::visitor();
-		if (!method_exists($visitor, 'canViewXtMembermap') || !$visitor->canViewXtMembermap())
-		{
+
+		if (!method_exists($visitor, 'canViewXtMembermap') || !$visitor->canViewXtMembermap()) {
 			return '';
 		}
 
-        $options = $this->options;
+		$userData = $this->contextParams['userdata'] ?? null;
+
+		$options = $this->options;
 		$limit = $options['limit'];
+		$style = $options['style'];
 
-        /** @var XF\Mvc\Entity\Finder $finder */
-        $finder = $this->finder('XF:UserProfile');
-		$finder
-            ->with('User')
-            ->keyedBy('user_id')
-            ->where('xt_mm_show_on_map', '=', 1)
-            ->where('xt_mm_location_lat', '<>', 0)
-            ->where('xt_mm_location_long', '<>', 0);
+		if (empty($userData))
+		{
+			$finder = $this->getUserProfileRepo()->findMapLocations();
+			$total = $finder->total();
+			if ($limit > 0) 
+			{
+				$UserProfiles = $finder->fetch(max($limit * 2, 10));
+				$UserProfiles = $UserProfiles->slice(0, $limit, true);
+			} 
+			else 
+			{
+				$UserProfiles = $finder->fetch();
+			}
 
-        $UserProfiles = $finder->fetch();
-        $total = count($UserProfiles);
+			foreach ($UserProfiles as $user_id => $userProfile) 
+			{
+				$userData[$user_id] = [
+					'user' => $userProfile->User
+				];
+			}
+		}
+		else
+		{
+			$total = count($userData);
+			if ($limit > 0)
+			{
+				$userData = array_slice($userData, 0 , $limit, true);
+			}
+		}
 
-        $userData = [];
-
-        foreach($UserProfiles as $user_id => $userProfile)
-        {
-            $userData[$user_id] = [
-                'user' => $userProfile->User
-            ];
-        }
+		$unseen = ($limit ? max($total - $limit, 0) : 0);
 
         $viewParams = [
 			'total' => $total,
+			'unseen' => $unseen,
             'userData' => $userData,
+			'style' => $style
 		];
+		
 		return $this->renderer('xt_mm_widget_members_on_map', $viewParams);
 	}
 
-	public function getOptionsTemplate()
+    public function verifyOptions(\XF\Http\Request $request, array &$options, &$error = null)
 	{
-		return;
+		$options = $request->filter([
+			'limit' => 'uint',
+			'style' => 'str',
+		]);
+
+		return true;
+	}
+
+	/**
+	 * @return \XF\Repository\UserGroup
+	 */
+	protected function getUserGroupRepo()
+	{
+		return $this->repository('XF:UserGroup');
+	}
+
+	/**
+	 * @return \XF\Repository\UserProfile
+	 */
+	protected function getUserProfileRepo()
+	{
+		return $this->repository('XF:UserProfile');
 	}
 }

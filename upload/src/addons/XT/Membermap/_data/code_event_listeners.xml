@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <code_event_listeners>
+  <listener event_id="criteria_user" execute_order="10" callback_class="XT\Membermap\Listener" callback_method="criteriaUser" active="1" description="Add the membermap-related criteria."/>
   <listener event_id="entity_pre_save" execute_order="10" callback_class="XT\Membermap\Listener" callback_method="entityPreSaveUserProfile" active="1" hint="XF\Entity\UserProfile" description="calculates location"/>
   <listener event_id="entity_structure" execute_order="10" callback_class="XT\Membermap\Listener" callback_method="userGroupEntityStructure" active="1" hint="XF\Entity\UserGroup" description="Adds Map Pin"/>
   <listener event_id="entity_structure" execute_order="10" callback_class="XT\Membermap\Listener" callback_method="userProfileEntityStructure" active="1" hint="XF\Entity\UserProfile" description="Adds Location Data field"/>
+  <listener event_id="templater_setup" execute_order="10" callback_class="XT\Membermap\Listener" callback_method="templaterSetup" active="1" description="Adds Templater"/>
 </code_event_listeners>

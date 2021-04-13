@@ -2,7 +2,7 @@
 <options>
   <option option_id="xtMMDefaultMapMarkerIcon" edit_format="template" data_type="string">
     <default_value>styles/default/xt/membermap/map_markers/red-dot.png</default_value>
-    <edit_format_params>option_xt_membermap_defaut_pin</edit_format_params>
+    <edit_format_params>template=option_xt_membermap_defaut_pin</edit_format_params>
     <relation group_id="xt_membermap" display_order="100"/>
   </option>
   <option option_id="xtMMGoogleMapsApiKey" edit_format="textbox" data_type="string" validation_class="XT\Membermap\Option\GoogleApi" validation_method="verifyApiKey">
@@ -38,18 +38,5 @@ satellite={{ phrase('xt_mm_satellite') }}
 hybrid={{ phrase('xt_mm_hybrid') }}
 terrain={{ phrase('xt_mm_terrain') }}</edit_format_params>
     <relation group_id="xt_membermap" display_order="212"/>
-  </option>
-  <option option_id="xtMMshowStats" edit_format="radio" data_type="string">
-    <default_value>none</default_value>
-    <edit_format_params>none={{ phrase('none') }}
-sidebar={{ phrase('xt_mm_stats_in_sidebar') }}
-below={{ phrase('xt_mm_stats_below_map') }}</edit_format_params>
-    <relation group_id="xt_membermap" display_order="400"/>
-  </option>
-  <option option_id="xtMMshowStatsUser" edit_format="radio" data_type="string">
-    <default_value>name</default_value>
-    <edit_format_params>name={{ phrase('user_name') }}
-avatar={{ phrase('avatar') }}</edit_format_params>
-    <relation group_id="xt_membermap" display_order="401"/>
   </option>
 </options>

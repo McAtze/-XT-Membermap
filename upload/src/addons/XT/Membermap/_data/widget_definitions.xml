@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <widget_definitions>
-  <widget_definition definition_id="xt_mm_mapStats" definition_class="XT\Membermap\Widget\MapStatistics"/>
+  <widget_definition definition_id="xt_mm_map_legend" definition_class="XT\Membermap\Widget\MapLegend"/>
+  <widget_definition definition_id="xt_mm_members_on_map" definition_class="XT\Membermap\Widget\MapStatistics"/>
+  <widget_definition definition_id="xt_mm_minimap" definition_class="XT\Membermap\Widget\MiniMap"/>
 </widget_definitions>

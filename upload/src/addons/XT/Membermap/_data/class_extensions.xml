@@ -6,4 +6,6 @@
   <extension from_class="XF\Entity\UserGroup" to_class="XT\Membermap\XF\Entity\UserGroup" execute_order="10" active="1"/>
   <extension from_class="XF\Entity\UserProfile" to_class="XT\Membermap\XF\Entity\UserProfile" execute_order="10" active="1"/>
   <extension from_class="XF\Pub\Controller\Account" to_class="XT\Membermap\XF\Pub\Controller\Account" execute_order="10" active="1"/>
+  <extension from_class="XF\Repository\UserGroup" to_class="XT\Membermap\XF\Repository\UserGroup" execute_order="10" active="1"/>
+  <extension from_class="XF\Repository\UserProfile" to_class="XT\Membermap\XF\Repository\UserProfile" execute_order="10" active="1"/>
 </class_extensions>

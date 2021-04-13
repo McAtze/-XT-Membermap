@@ -11,6 +11,7 @@ use XF\Util\Arr;
 
 class Membermap extends \XF\Pub\Controller\AbstractController
 {
+
     public function actionIndex(ParameterBag $params)
     {
         /** @var \XT\Membermap\XF\Entity\User $visitor */
@@ -20,65 +21,84 @@ class Membermap extends \XF\Pub\Controller\AbstractController
 		{
 			return $this->noPermission();
 		}
-        $UserProfiles = $this->findMapLocations()->fetch();
-        $total = count($UserProfiles);
+
+        $UserProfilesFinder = $this->getUserProfileRepo()->findMapLocations();
+        $total = $UserProfilesFinder->total();
+        $UserProfiles = $UserProfilesFinder->fetch();
+
+        $defCluster = 'styles/default/xt/membermap/map_markers/cluster';
+        $clusterPath = $this->getIconDataUrl($defCluster);
 
         $userData = [];
 
         foreach($UserProfiles as $user_id => $userProfile)
         {
+            /** Unset ignored user **/
+            if ($userProfile->isIgnored()) {
+                unset($UserProfiles[$user_id]);
+                continue;
+            }
+            
             $userData[$user_id] = [
-                'user' => $userProfile->User
+                'user' => $userProfile->User,
             ];
         }
 
         $viewParams = [
             'userData' => $userData,
             'total' => $total,
+            'clusterPath' => $clusterPath,
         ];
         return $this->view('XT\Membermap:Index', 'xt_mm_index', $viewParams);
     }
 
     public function actionMapData($canonical = false)
     {
-        $app = \XF::app();
-		$options = $app->options();
-
-        $pather = \XF::app()['request.pather'];
+        $options = \XF::app()->options();
 
         $this->assertPostOnly();
 
-        $UserProfiles = $this->findMapLocations()->fetch();
+        $userGroupMarkers = $this->getUserGroupRepo()->findUserGroupsWithMapMarker()->fetch();
 
-        if($options->xtMMDefaultMapMarkerIcon)
-        {      
-            $iconUrl = htmlspecialchars($pather ? $pather($options->xtMMDefaultMapMarkerIcon, 'base') : $options->xtMMDefaultMapMarkerIcon);
-        }
-        else
-        {
-            $iconUrl = htmlspecialchars($pather ? $pather('styles/default/xt/membermap/map_markers/red-dot.png', 'base') : 'styles/default/xt/membermap/map_markers/red-dot.png');
-        }
+        $UserProfiles = $this->getUserProfileRepo()->findMapLocations()->fetch();
 
-        $clusterPath = htmlspecialchars($pather ? $pather('styles/default/xt/membermap/map_markers/cluster', 'base') : 'styles/default/xt/membermap/map_markers/cluster');
+        /** Get path with function **/
+        $defMarker = $options->xtMMDefaultMapMarkerIcon;
+        $styleMarker = 'styles/default/xt/membermap/map_markers/red-dot.png';
+        $iconUrl = (!empty($defMarker) ? $this->getIconDataUrl($defMarker) : $this->getIconDataUrl($styleMarker));
 
         $mapData = [];
 
         foreach($UserProfiles as $user_id => $userProfile)
         {
+            /** Unset ignored user **/
+            if ($userProfile->isIgnored()) {
+                unset($UserProfiles[$user_id]);
+                continue;
+            }
+            
+            if (!empty($userGroupMarkers[$userProfile->User->display_style_group_id]))
+            {
+                $userGroupMarker = $userGroupMarkers[$userProfile->User->display_style_group_id]->xt_mm_markerPin;
+                $groupIcon = $this->getIconDataUrl($userGroupMarker);
+                $iconMarker = ($groupIcon ?: $iconUrl);
+            }
+            else
+            {
+                $iconMarker = $iconUrl;
+            }
+            
             $mapData[$user_id] = [
                 'coords' => [
                     'lat' => $userProfile->xt_mm_location_lat,
                     'lng' => $userProfile->xt_mm_location_long,
                 ],
                 'iconUrl' => [
-                    'url' => $iconUrl,
+                    'url' => $iconMarker,
                 ],
-                'clusterPath' => $clusterPath,
-                'title' => '',
-                'content' => $this->app->templater()->renderTemplate(
-                    'public:xt_mm_useritem', 
-                    ['user' => $userProfile->User]
-                ),
+                'title' => '$userProfile.User.username',
+                'infoUrl' => $this->buildLink('members',$userProfile->User, ['tooltip' => true]),
+                'content' => '',
             ];
         }
 
@@ -93,6 +113,7 @@ class Membermap extends \XF\Pub\Controller\AbstractController
     }
 
     /**
+     * @deprecated - user repository instead
      * @return XF\Mvc\Entity\Finder
      */
     public function findMapLocations()
@@ -110,24 +131,38 @@ class Membermap extends \XF\Pub\Controller\AbstractController
         return $locationFinder;
     }
 
-    public function getUserGroupId()
+    /**
+     * @param string $iconData icon path
+     * Make $pather as a function
+     * @return string working image path
+     * */
+    protected function getIconDataUrl($iconData)
     {
-        /**
-         * @var Finder $userGroup
-         */
-        $userGroup = \XF::finder('XF:UserGroup')
-            ->where('xt_mm_markerPin', '<>', '');
+        $pather = \XF::app()['request.pather'];
+        $result = htmlspecialchars($pather ? $pather($iconData, 'base') : $iconData);
 
-        return $userGroup;
+        return $result;
     }
-
-    public function getUserGroupMarker(\XF\Entity\User $user = null)
-	{
-		
-	}
 
     public static function getActivityDetails(array $activities)
 	{
 		return \XF::phrase('xt_mm_viewing_membermap');
 	}
+
+    /**
+     * @return \XF\Repository\UserGroup
+     */
+    protected function getUserGroupRepo()
+    {
+        return $this->repository('XF:UserGroup');
+    }
+
+    /**
+     * @return \XF\Repository\UserProfile
+     */
+    protected function getUserProfileRepo()
+    {
+        return $this->repository('XF:UserProfile');
+    }
+
 }
