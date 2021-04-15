@@ -17,6 +17,10 @@
     <default_value>1</default_value>
     <relation group_id="xt_membermap" display_order="300"/>
   </option>
+  <option option_id="xtMMautoComplete" edit_format="onoff" data_type="boolean">
+    <default_value>0</default_value>
+    <relation group_id="xt_membermap" display_order="302"/>
+  </option>
   <option option_id="xtMMdefaultLatLong" edit_format="template" data_type="array">
     <default_value>{"lat":"50.861","long":"9.685"}</default_value>
     <edit_format_params>template=option_xt_mm_default_latlong</edit_format_params>
@@ -30,6 +34,18 @@ long</sub_options>
 max=20
 units=Zoom</edit_format_params>
     <relation group_id="xt_membermap" display_order="211"/>
+  </option>
+  <option option_id="xtMMlogginCalls" edit_format="onofftextbox" data_type="array">
+    <default_value>{"enabled":"1","days":"7"}</default_value>
+    <edit_format_params>onoff=enabled
+value=days
+type=spinbox
+min=1
+default=7
+units={{ phrase('units_days') }}</edit_format_params>
+    <sub_options>enabled
+days</sub_options>
+    <relation group_id="xt_membermap" display_order="401"/>
   </option>
   <option option_id="xtMMmapType" edit_format="select" data_type="string">
     <default_value>roadmap</default_value>

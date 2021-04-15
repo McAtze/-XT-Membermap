@@ -45,7 +45,7 @@ class Setup extends AbstractSetup
 
 		$this->schemaManager()->alterTable('xf_user_group', function (Alter $table) 
 		{
-			$table->addColumn('xt_mm_markerPin', 'varchar', 255)->setDefault('styles/default/xt/membermap/map_markers/red-dot.png');
+			$table->addColumn('xt_mm_markerPin', 'varchar', 255);
 		});
 	}
 
@@ -85,7 +85,7 @@ class Setup extends AbstractSetup
 	{
 		$this->query("
 			ALTER TABLE `xf_user_group` 
-			MODIFY `xt_mm_markerPin` VARCHAR(255) NOT NULL DEFAULT 'styles/default/xt/membermap/map_markers/red-dot.png';
+			MODIFY `xt_mm_markerPin` VARCHAR(255);
 		");
 	}
 
@@ -130,6 +130,11 @@ class Setup extends AbstractSetup
 			$table->dropColumns(['xt_mm_markerPin']);
 		});
 	}
+
+	public function uninstallStep4()
+    {
+        \XF\Util\File::deleteAbstractedDirectory('data://xtminimap/');
+    }
 
 	// ############################################ Data Definitions #########################
 	protected function getDefaultWidgetSetup()

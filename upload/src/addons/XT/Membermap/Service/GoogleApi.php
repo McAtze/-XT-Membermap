@@ -4,6 +4,7 @@ namespace XT\Membermap\Service;
 
 use Exception;
 use XF\Mvc\Entity\Entity;
+use XF\Admin\Controller\AbstractController;
 use XF\Service\AbstractService;
 use XF\Util\Arr;
 
@@ -67,9 +68,8 @@ class GoogleApi extends AbstractService
     public function fetchLocationData($location)
     {
         $serviceID = 'geocode';
-        $address = $location;
         $params = [
-            'address' => $address,
+            'address' => $location,
         ];
 
         $apiUrl = $this->fetchService($serviceID, $params);
@@ -82,16 +82,18 @@ class GoogleApi extends AbstractService
         /** @var \XT\Membermap\XF\Entity\User $visitor */
         $visitorId = \XF::visitor()->user_id;
         
-        $logData = [
-            'user_id' => $visitorId,
-            'request_url' => $apiUrl,
-            'request_status' => $geocodeData->status,
-            'request_data' => $geocodeData->results
-        ];
-
-        $requestLog = $this->em()->create('XT\Membermap:Log');
-        $requestLog->bulkSet($logData);
-        $requestLog->save();
+        if (\XF::options()->xtMMlogginCalls['enabled'])
+        {
+            $logData = [
+                'user_id' => $visitorId,
+                'request_url' => $apiUrl,
+                'request_status' => $geocodeData->status,
+                'request_data' => $geocodeData->results
+            ];    
+            $requestLog = $this->em()->create('XT\Membermap:Log');
+            $requestLog->bulkSet($logData);
+            $requestLog->save();
+        }        
 
         if (
             !empty($geocodeData)
@@ -141,22 +143,24 @@ class GoogleApi extends AbstractService
         ];
         $url = $this->fetchService($serviceID, $params);
 
-        $logData = [
-            'user_id' => $profile->user_id,
-            'request_url' => $url,
-            'request_status' => (isset($url) ? 'OK' : 'ERROR'),
-            'request_data' => [
-                'Latitude' => $profile->xt_mm_location_lat,
-                'Longetude' => $profile->xt_mm_location_long,
-                'Icon' => $icon,
-                'Marker' => $this->markerBuilder($profile->xt_mm_location_lat, $profile->xt_mm_location_long, $icon)
-            ],
-        ];
-
-        $requestLog = $this->em()->create('XT\Membermap:Log');
-        $requestLog->bulkSet($logData);
-        $requestLog->save();
-
+        if (\XF::options()->xtMMlogginCalls['enabled'])
+        {
+            $logData = [
+                'user_id' => $profile->user_id,
+                'request_url' => $url,
+                'request_status' => (isset($url) ? 'OK' : 'ERROR'),
+                'request_data' => [
+                    'Latitude' => $profile->xt_mm_location_lat,
+                    'Longetude' => $profile->xt_mm_location_long,
+                    'Icon' => $icon,
+                    'Marker' => $this->markerBuilder($profile->xt_mm_location_lat, $profile->xt_mm_location_long, $icon)
+                ],
+            ];
+            $requestLog = $this->em()->create('XT\Membermap:Log');
+            $requestLog->bulkSet($logData);
+            $requestLog->save();
+        }
+        
         return $url;
     }
 

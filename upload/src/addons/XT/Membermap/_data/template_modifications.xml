@@ -7,6 +7,14 @@
 	<xf:macro name="xt_mm_macros::xt_mm_ShowOnMap" arg-canViewXtMembermap="{{ $xf.visitor.canViewXtMembermap() }}" arg-location_image="{$location_image}"/>
 </xf:if>]]></replace>
   </modification>
+  <modification type="public" template="account_details" modification_key="xt_membermap_account_details_js" description="Add autocomplete JS" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/$/]]></find>
+    <replace><![CDATA[<xf:include template="xt_mm_autocomplete" />]]></replace>
+  </modification>
+  <modification type="public" template="account_details" modification_key="xt_mm_account_details_autocomplete" description="Add location autocomplete" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:textboxrow name="profile[location]"]]></find>
+    <replace><![CDATA[$0 data-xf-init="xtAutocomplete"]]></replace>
+  </modification>
   <modification type="admin" template="helper_criteria" modification_key="xt_hc_add_criteria" description="Adds criteria" execution_order="10" enabled="1" action="str_replace">
     <find><![CDATA[<!--[XF:user:profile_bottom]-->]]></find>
     <replace><![CDATA[<xf:optgroup label="{{ phrase('location:') }}">
@@ -38,6 +46,15 @@ $0]]></replace>
 	<xf:macro template="xt_mm_macros" name="xt_mm_ShowOnMapRegister" arg-canViewXtMembermap="{{ $xf.visitor.canViewXtMembermap() }}" />
 </xf:if>]]></replace>
   </modification>
+  <modification type="public" template="register_macros" modification_key="xt_mm_register_macros_autocomplete" description="Add location autocomplete" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[label="{{ phrase('location') }}"]]></find>
+    <replace><![CDATA[$0 data-xf-init="xtAutocomplete"]]></replace>
+  </modification>
+  <modification type="public" template="register_macros" modification_key="xt_mm_register_macros_js" description="Add autocomplete JS" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:if is="$xf.options.registrationSetup.requireLocation]]></find>
+    <replace><![CDATA[<xf:include template="xt_mm_autocomplete" />
+	$0]]></replace>
+  </modification>
   <modification type="admin" template="tools_rebuild" modification_key="xt_mm_tools_rebuild" description="Append Membermap rebuilds to the end of the rebuild caches system." execution_order="10" enabled="1" action="str_replace">
     <find><![CDATA[<!--[XF:rebuild_bottom]-->]]></find>
     <replace><![CDATA[$0
@@ -52,6 +69,14 @@ $0]]></replace>
 				   label="{{ phrase('xt_mm_show_on_map') }}" 
 				   hint="{{ phrase('xt_mm_show_on_map_explain') }}" />
 	</xf:checkboxrow>]]></replace>
+  </modification>
+  <modification type="admin" template="user_edit" modification_key="xt_mm_user_edit_autocomplete" description="Add location autocomplete" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:textboxrow name="profile[location]"]]></find>
+    <replace><![CDATA[$0 data-xf-init="xtAutocomplete"]]></replace>
+  </modification>
+  <modification type="admin" template="user_edit" modification_key="xt_mm_user_edit_js" description="Add autocomplete JS" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/$/]]></find>
+    <replace><![CDATA[<xf:include template="public:xt_mm_autocomplete" />]]></replace>
   </modification>
   <modification type="admin" template="user_group_edit" modification_key="xtMMuserGroupEdit" description="Add marker pin asset" execution_order="5" enabled="1" action="str_replace">
     <find><![CDATA[<xf:css src="public:app_user_banners.less" />]]></find>

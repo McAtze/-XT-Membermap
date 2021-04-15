@@ -28,4 +28,19 @@ class Log extends Repository
 			ORDER BY user.username
 		");
 	}
+
+	public function pruneLogs($cutOff = null)
+	{
+		if ($cutOff === null)
+		{
+			if (!$this->options()->xtMMlogginCalls['enabled'])
+			{
+				return 0;
+			}
+
+			$cutOff = \XF::$time - 3600 * $this->options()->xtMMlogginCalls['days'];
+		}
+
+		return $this->db()->delete('xf_xt_mm_log', 'request_date < ?', $cutOff);
+	}
 }

@@ -21,6 +21,6 @@ class UserProfile extends XFCP_UserProfile
 
     public function fetchUserLocationById(int $user_id)
     {
-        return $this->finder('XF:UserProfile')->whereId($user_id);
+        return $this->finder('XF:UserProfile')->whereId('user_id', $user_id);
     }
 }

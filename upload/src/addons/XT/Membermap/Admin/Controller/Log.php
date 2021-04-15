@@ -10,6 +10,8 @@ class Log extends AbstractController
 {
 	public function actionIndex(ParameterBag $params)
 	{
+		$this->assertAdminPermission('viewLogs');
+		
         if ($params->log_id)
 		{
 			$entry = $this->assertLogExists($params->log_id, null, 'requested_log_entry_not_found');

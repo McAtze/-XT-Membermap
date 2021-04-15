@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<cron/>
+<cron>
+  <entry entry_id="xt_mmCleanUpWeekly" cron_class="XT\Membermap\Cron\CleanUp" cron_method="runDailyCleanUp" active="1"><![CDATA[{"day_type":"dom","dom":[-1],"hours":[3],"minutes":[3]}]]></entry>
+</cron>

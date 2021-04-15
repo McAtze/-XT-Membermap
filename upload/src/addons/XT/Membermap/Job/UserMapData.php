@@ -27,15 +27,17 @@ class UserMapData extends AbstractRebuildJob
 		$userProfileRepo = $this->app->repository('XF:UserProfile');
 		$userLocation = $userProfileRepo->fetchUserLocationById($id)->fetchOne();
 
+		//\XF::dump($userLocation);
+
 		if(!empty($userLocation))
 		{
 			/**
 			 * @var \XT\Membermap\Service\GoogleApi $googleService
 			 */
-			$googleService = $this->app->service('XT\Membermap::GoogleApi');
+			$googleService = \XF::app()->service('XT\Membermap::GoogleApi');
 			$locationData = $googleService->fetchLocationData($userLocation);
 
-			if (is_array($locationData) 
+			if (!empty($locationData) 
 				&& array_key_exists('latitude', $locationData) 
 				&& array_key_exists('longitude', $locationData)
 			)

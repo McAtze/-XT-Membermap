@@ -96,7 +96,7 @@ class Membermap extends \XF\Pub\Controller\AbstractController
                 'iconUrl' => [
                     'url' => $iconMarker,
                 ],
-                'title' => '$userProfile.User.username',
+                'title' => $userProfile->User->username,
                 'infoUrl' => $this->buildLink('members',$userProfile->User, ['tooltip' => true]),
                 'content' => '',
             ];

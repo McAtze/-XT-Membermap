@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style_properties>
-  <style_property property_name="xtMMAvatar" group_name="xtMMAppearance" title="Avatar size" property_type="value" value_type="select" display_order="40">
-    <value_parameters>s={{ phrase('small') }}
-m={{ phrase('medium') }}
-l={{ phrase('large') }}</value_parameters>
-    <value>"m"</value>
-  </style_property>
   <style_property property_name="xtMMContainerHeight" group_name="xtMMAppearance" title="Map container height" description="Set the height of the map container." property_type="value" value_type="unit" display_order="30">
     <value_parameters>min=300
 max=900

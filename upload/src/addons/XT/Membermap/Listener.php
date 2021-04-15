@@ -36,7 +36,7 @@ class Listener
 			if ($entity->getPreviousValue('location') != $location || ($entity->getPreviousValue('xt_mm_location_lat') == '0' && $entity->getPreviousValue('xt_mm_location_long') == '0'))
 			{
 				$locationData = $googleService->fetchLocationData($location);
-				if (array_key_exists('latitude', $locationData))
+				if (is_array($locationData) && array_key_exists('latitude', $locationData))
 				{
 					$entity->xt_mm_location_lat = $locationData['latitude'];
 					$entity->xt_mm_location_long = $locationData['longitude'];
