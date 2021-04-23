@@ -6,6 +6,10 @@ use XF\Job\AbstractRebuildJob;
 
 class UserMapData extends AbstractRebuildJob
 {
+	protected $defaultData = [
+		'all' => false
+	];
+
     protected function getNextIds($start, $batch)
 	{
 		$db = $this->app->db();
@@ -23,39 +27,67 @@ class UserMapData extends AbstractRebuildJob
 
 	protected function rebuildById($id)
 	{
-		/** @var \XF\Repository\UserProfile $userProfileRepo */
-		$userProfileRepo = $this->app->repository('XF:UserProfile');
-		$userLocation = $userProfileRepo->fetchUserLocationById($id)->fetchOne();
-
-		//\XF::dump($userLocation);
+		/** @var \XF\Finder\UserProfile $userProfile */
+		$userProfile = $this->app->finder('XF:UserProfile')->whereId($id)->fetchOne();
+        $userLocation = $userProfile->location;
+		$prevUserLat = $userProfile->getPreviousValue('xt_mm_location_lat');
+		$prevUserLong = $userProfile->getPreviousValue('xt_mm_location_long');
 
 		if(!empty($userLocation))
 		{
-			/**
-			 * @var \XT\Membermap\Service\GoogleApi $googleService
-			 */
-			$googleService = \XF::app()->service('XT\Membermap::GoogleApi');
-			$locationData = $googleService->fetchLocationData($userLocation);
-
-			if (!empty($locationData) 
-				&& array_key_exists('latitude', $locationData) 
-				&& array_key_exists('longitude', $locationData)
-			)
+			if($this->data['all'])
 			{
-				$xt_mm_location_lat = $locationData['latitude'];
-				$xt_mm_location_long = $locationData['longitude'];
+				/** @var \XT\Membermap\Service\GoogleApi $googleService */
+				$googleService = \XF::app()->service('XT\Membermap::GoogleApi');
+				$locationData = $googleService->fetchLocationData($userLocation);
 
+				if (is_array($locationData) 
+					&& array_key_exists('latitude', $locationData) 
+					&& array_key_exists('longitude', $locationData)
+				)
+				{
+					$xt_mm_location_lat = $locationData['latitude'];
+					$xt_mm_location_long = $locationData['longitude'];
+
+				}
+				else
+				{
+					$xt_mm_location_lat = 0;
+					$xt_mm_location_long = 0;
+				}
+
+				$this->app->db()->update('xf_user_profile', [
+					'xt_mm_location_lat' => $xt_mm_location_lat,
+					'xt_mm_location_long' => $xt_mm_location_long
+				], 'user_id = ?', $id);
 			}
-			else
+			/** Run Job only if Lat/Long are empty */
+			elseif($prevUserLat == '0' && $prevUserLong == '0')
 			{
-				$xt_mm_location_lat = 0;
-				$xt_mm_location_long = 0;
-			}
+				/** @var \XT\Membermap\Service\GoogleApi $googleService */
+				$googleService = \XF::app()->service('XT\Membermap::GoogleApi');
+				$locationData = $googleService->fetchLocationData($userLocation);
 
-			$this->app->db()->update('xf_user_profile', [
-				'xt_mm_location_lat' => $xt_mm_location_lat,
-				'xt_mm_location_long' => $xt_mm_location_long
-			], 'user_id = ?', $id);
+				if (is_array($locationData) 
+					&& array_key_exists('latitude', $locationData) 
+					&& array_key_exists('longitude', $locationData)
+				)
+				{
+					$xt_mm_location_lat = $locationData['latitude'];
+					$xt_mm_location_long = $locationData['longitude'];
+
+				}
+				else
+				{
+					$xt_mm_location_lat = 0;
+					$xt_mm_location_long = 0;
+				}
+
+				$this->app->db()->update('xf_user_profile', [
+					'xt_mm_location_lat' => $xt_mm_location_lat,
+					'xt_mm_location_long' => $xt_mm_location_long
+				], 'user_id = ?', $id);
+			}
 		}
 	}
 

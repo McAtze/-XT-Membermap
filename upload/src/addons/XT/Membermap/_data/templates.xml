@@ -55,6 +55,25 @@
 		<xf:textbox name="{$inputName}[long]" value="{$option.option_value.long}" />
 	</div>
 </xf:formrow>]]></template>
+  <template type="admin" title="option_xt_mm_markerClusterer" version_id="1000153" version_string="1.0.1 Release Candidate 3"><![CDATA[<xf:checkboxrow
+	hint="{$hintHtml}"
+	explain="{$explainHtml}"
+	html="{$listedHtml}"
+	rowclass="{$rowClass}">
+
+	<xf:option name="{$inputName}[enabled]" selected="$option.option_value.enabled" label="{$option.title}">
+		<xf:dependent>
+			<dl class="inputLabelPair">
+				<dt><label for="{$inputName}_zoom">{{ phrase('xt_mm_clusterer_maxZoom') }}</label></dt>
+				<dd><xf:numberbox name="{$inputName}[maxZoom]" id="{$inputName}_zoom" value="{{ $option.option_value.enabled ? $option.option_value.maxZoom : '15' }}" min="1" /></dd>
+			</dl>
+			<dl class="inputLabelPair">
+				<dt><label for="{$inputName}_size">{{ phrase('xt_mm_clusterer_clusterSize') }}</label></dt>
+				<dd><xf:numberbox name="{$inputName}[clusterSize]" id="{$inputName}_size" value="{{ $option.option_value.enabled ? $option.option_value.clusterSize : '2' }}" min="1" /></dd>
+			</dl>
+		</xf:dependent>
+	</xf:option>
+</xf:checkboxrow>]]></template>
   <template type="admin" title="widget_def_options_xt_mm_members_on_map" version_id="1000135" version_string="1.0.1 Beta 5"><![CDATA[<hr class="formRowSep" />
 
 <xf:numberboxrow name="options[limit]" value="{$options.limit}" min="0"
@@ -114,7 +133,7 @@ ul.xtMapMarkerPreview {
         <xf:submitrow rowtype="simple" icon="delete" />
     </div>
 </xf:form>]]></template>
-  <template type="admin" title="xt_mm_log_list" version_id="1000152" version_string="1.0.1 Release Candidate 2"><![CDATA[<xf:title>{{ phrase('xt_mm_log_list') }}</xf:title>
+  <template type="admin" title="xt_mm_log_list" version_id="1000153" version_string="1.0.1 Release Candidate 3"><![CDATA[<xf:title>{{ phrase('xt_mm_log_list') }}</xf:title>
 
 <xf:if is="!$xf.options.xtMMlogginCalls.enabled">
 	<div class="blockMessage blockMessage--important blockMessage--iconic">
@@ -150,13 +169,13 @@ ul.xtMapMarkerPreview {
 							<col style="width: 9%">
 						</colgroup>
 
-						<xf:datarow rowtype="header">
-							<xf:cell>
+						<xf:datarow rowtype="subsection">
+							<xf:cell class="dataList-cell--min">
 								<xf:checkbox standalone="true">
 									<xf:option check-all="< .block-container" data-xf-init="tooltip" title="{{ phrase('select_all')|for_attr }}" />
 								</xf:checkbox>
 							</xf:cell>
-							<xf:cell>{{ phrase('Request') }}</xf:cell>
+							<xf:cell>{{ phrase('action') }}</xf:cell>
 							<xf:cell>{{ phrase('status') }}</xf:cell>
 							<xf:cell>{{ phrase('user') }}</xf:cell>
 							<xf:cell>{{ phrase('date_time') }}</xf:cell>
@@ -230,8 +249,13 @@ ul.xtMapMarkerPreview {
 	<li><img src="styles/default/xt/membermap/map_markers/orange-dot.png" data-xf-click="xtSetIcon"></li>
 	<li><img src="styles/default/xt/membermap/map_markers/purple-dot.png" data-xf-click="xtSetIcon"></li>
 </ul>]]></template>
-  <template type="admin" title="xt_mm_tools_rebuild" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[<xf:set var="$userMapDataBody">
+  <template type="admin" title="xt_mm_tools_rebuild" version_id="1000153" version_string="1.0.1 Release Candidate 3"><![CDATA[<xf:set var="$userMapDataBody">
 	<xf:inforow>{{ phrase('xt_mm_rebuild_userMapData_explain') }}</xf:inforow>
+	<xf:checkboxrow>
+		<xf:option name="options[all]" value="1"
+			label="{{ phrase('xt_mm_rebuild_all_mapData') }}"
+			hint="{{ phrase('xt_mm_rebuild_all_mapData_explain') }}" />
+	</xf:checkboxrow>
 </xf:set>
 <xf:macro template="tools_rebuild" name="rebuild_job"
 		  arg-header="{{ phrase('xt_mm_rebuild_userMapData') }}"
@@ -256,6 +280,18 @@ ul.xtMapMarkerPreview {
 		  arg-body="{$userMapHideBody}"
 		  arg-job="XT\Membermap:UserMapHide" />
 <!--[XF:after_xt_mm_rebuild_userMapHide]-->]]></template>
+  <template type="admin" title="xt_mm_user_remove_minimap" version_id="1000153" version_string="1.0.1 Release Candidate 3"><![CDATA[<xf:title>{{ phrase('confirm_action') }}</xf:title>
+
+<xf:form action="{{ link('users/xt-remove-minimap', $user) }}" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:inforow rowtype="confirm">
+				{{ phrase('xt_mm_this_will_delete_the_minimap_by_x', {'user': $user.username}) }}
+			</xf:inforow>
+		</div>
+		<xf:submitrow icon="delete" />
+	</div>
+</xf:form>]]></template>
   <template type="public" title="xt_mm.less" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[// ############################ Membermap LESS ######################
 .xtMapContainer
 {
@@ -403,7 +439,7 @@ ul.xtMapMarkerPreview {
 	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsApiKey}&libraries=places" />
 	<xf:js src="xt/membermap/autocomplete.js" />
 </xf:if>]]></template>
-  <template type="public" title="xt_mm_index" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
+  <template type="public" title="xt_mm_index" version_id="1000153" version_string="1.0.1 Release Candidate 3"><![CDATA[<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
 <xf:if is="!{$xf.visitor.Profile.location_}">
 	<xf:description>{{ phrase('xt_mm_no_location_in_profile', {'account': link('account/account-details')}) }}</xf:description>
 </xf:if>
@@ -412,11 +448,11 @@ ul.xtMapMarkerPreview {
 <xf:css src="account_avatar.less" />
 <xf:css src="member_tooltip.less" />
 <xf:js prod="xf/avatar-compiled.js" dev="xf/avatar.js" />
-<xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsApiKey}&language={$xf.language.language_code|substr}" />
+<xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsJsApiKey}&language={$xf.language.language_code|substr}&map_ids={{ property('xtMMmapId') }}" />
 <xf:js src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js" />
-<xf:js src="xt/membermap/map.js?a=1" />
+<xf:js prod="xt/membermap/map.js" dev="xt/membermap/map.min.js" />
 
-<xf:macro template="metadata_macros" name="canonical_url" arg-canonicalUrl="{{ link('canonical:membermap') }}" />
+<xf:macro template="metadata_macros" name="canonical_url" arg-canonicalUrl="{{ link('canonical:xt-membermap') }}" />
 
 <xf:pageaction>
     <xf:button href="{{ link('account/account-details') }}" class="button--cta" fa="fa-map-marked">
@@ -439,9 +475,12 @@ ul.xtMapMarkerPreview {
 					 data-longitude="{{ $xf.options.xtMMdefaultLatLong.long }}" 
 					 data-zoom="{{ $xf.options.xtMMdefaultZoom }}" 
 					 data-poi="{{ $xf.options.xtMMShowPOI }}"
-					 data-cluster="{{ $xf.options.xtMMShowCluster }}"
+					 data-cluster="{{ $xf.options.xtMMShowCluster.enabled }}"
+					 data-max-zoom="{{ $xf.options.xtMMShowCluster.maxZoom }}" 
+					 data-min-cluster-size="{{ $xf.options.xtMMShowCluster.clusterSize }}" 
 					 data-cluster-path="{$clusterPath}"
-					 data-maptype="{{ $xf.options.xtMMmapType }}" >
+					 data-maptype="{{ $xf.options.xtMMmapType }}" 
+					 data-mapid="{{ property('xtMMmapId') }}">
 				</div>
 			</div>
 		</div>

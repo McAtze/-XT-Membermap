@@ -70,6 +70,14 @@ $0]]></replace>
 				   hint="{{ phrase('xt_mm_show_on_map_explain') }}" />
 	</xf:checkboxrow>]]></replace>
   </modification>
+  <modification type="admin" template="user_edit" modification_key="xt_mm_user_edit_action_button" description="Add user edit action button" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:actions_menu:bottom]-->]]></find>
+    <replace><![CDATA[<xf:if is="!$user.is_super_admin">
+	<a href="{{ link('users/xt-remove-minimap', $user) }}" class="menu-linkRow" data-xf-click="overlay">{{ phrase('xt_mm_remove_minimap') }}</a>
+</xf:if>
+
+$0]]></replace>
+  </modification>
   <modification type="admin" template="user_edit" modification_key="xt_mm_user_edit_autocomplete" description="Add location autocomplete" execution_order="10" enabled="1" action="str_replace">
     <find><![CDATA[<xf:textboxrow name="profile[location]"]]></find>
     <replace><![CDATA[$0 data-xf-init="xtAutocomplete"]]></replace>

@@ -3,6 +3,7 @@
 namespace XT\Membermap\XF\Entity;
 
 use XF\Mvc\Entity\Structure;
+use XF\Mvc\Entity\Finder;
 
 class User extends XFCP_User
 {
@@ -24,7 +25,6 @@ class User extends XFCP_User
 
 	public function getMinimapUrl($canonical = false)
 	{
-
 		if (!$this->Profile->xt_mm_show_on_map)
 		{
 			return false;
@@ -37,6 +37,18 @@ class User extends XFCP_User
 			$canonical
 		);
 	}
+
+    public function removeLocationData($save = false)
+    {
+        $this->Profile->xt_mm_show_on_map = 0;
+        $this->Profile->xt_mm_location_lat = 0;
+        $this->Profile->xt_mm_location_long = 0;
+        if ($save)
+        {
+			$this->removeMinimapIfExists();
+			$this->Profile->save();
+        }
+    }
 
 	public function removeMinimapIfExists()
 	{

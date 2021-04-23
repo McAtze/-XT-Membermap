@@ -3,6 +3,8 @@
 namespace XT\Membermap;
 
 use XF\Mvc\Entity\Entity;
+use XF\Service\User\DeleteCleanUp;
+use XF\Service\User\Merge;
 
 class Listener
 {
@@ -40,6 +42,7 @@ class Listener
 				{
 					$entity->xt_mm_location_lat = $locationData['latitude'];
 					$entity->xt_mm_location_long = $locationData['longitude'];
+					$entity->User->getStaticLocationImage();
 				}
 			}
 			else
@@ -47,6 +50,51 @@ class Listener
 				$entity->xt_mm_location_lat = $entity->getPreviousValue('xt_mm_location_lat');
 				$entity->xt_mm_location_long = $entity->getPreviousValue('xt_mm_location_long');
 			}
+		}
+    }
+
+	public static function entityPostSaveUser(\XF\Mvc\Entity\Entity $entity)
+	{
+		$userChanges = ($entity->isChanged(['user_group_id', 'secondary_group_ids']) || $entity->isStateChanged('user_state', 'disabled') === 'enter');
+		
+		if ($userChanges 
+			&& $entity->Profile->xt_mm_show_on_map 
+			&& !$entity->canViewXtMembermap()
+		)
+		{
+			$entity->removeLocationData(true);
+		}
+
+		if ($entity->isChanged(['user_group_id', 'secondary_group_ids', 'permission_combination_id', 'user_state']))
+		{
+			$entity->clearCache('PermissionSet');
+		}
+	}
+
+	public static function entityPostSaveUserBan(\XF\Mvc\Entity\Entity $entity)
+	{
+		$user = $entity->User;		
+		$user->removeLocationData(true);
+	}
+
+	public static function entityPostDeleteUser(\XF\Mvc\Entity\Entity $entity)
+	{
+		$entity->removeMinimapIfExists();
+	}
+
+	public static function userDeleteCleanInit(\XF\Service\User\DeleteCleanUp $deleteService, array &$deletes)
+    {
+        $deletes['xf_xt_mm_log'] = 'user_id = ?';
+    }
+
+    public static function userMergeCombine(\XF\Entity\User $target, \XF\Entity\User $source, \XF\Service\User\Merge $mergeService)
+	{
+		if($target->xt_mm_show_on_map && $source->xt_mm_show_on_map)
+		{
+			$target->xt_mm_show_on_map += $source->xt_mm_show_on_map;
+			$target->xt_mm_location_lat += $source->xt_mm_location_lat;
+			$target->xt_mm_location_long += $source->xt_mm_location_long;
+			$source->removeMinimapIfExists();
 		}
     }
 
@@ -86,5 +134,15 @@ class Listener
 		$templaterSetup = new $class();
 
 		$templater->addFunction('xt_minimap', [$templaterSetup, 'fnXtMinimap']);
+	}
+	
+	/**
+	 * @return \XT\Membermap\XF\Entity\User
+	 */
+	public static function visitor()
+	{
+		/** @var \XT\Membermap\XF\Entity\User $visitor */
+		$visitor = \XF::visitor();
+		return $visitor;
 	}
 }

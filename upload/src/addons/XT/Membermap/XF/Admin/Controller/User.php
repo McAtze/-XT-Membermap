@@ -2,6 +2,10 @@
 
 namespace XT\Membermap\XF\Admin\Controller;
 
+use XF\Mvc\FormAction;
+use XF\Mvc\ParameterBag;
+use XF\Mvc\Entity\Entity;
+
 class User extends XFCP_User
 {
 	protected function userSaveProcess(\XF\Entity\User $user)
@@ -23,4 +27,23 @@ class User extends XFCP_User
 		
 		return $form;
 	}
+
+	public function actionXtRemoveMinimap(ParameterBag $params)
+    {
+        $user = $this->assertUserExists($params->user_id);
+		$this->assertCanEditUser($user);
+
+        if ($this->isPost())
+		{
+			$user->removeMinimapIfExists();
+			return $this->redirect($this->buildLink('users/edit', $user, ['success' => true]));
+		}
+		else
+		{
+			$viewParams = [
+				'user' => $user
+			];
+			return $this->view('XT\Membermap:User\RemoveMinimap', 'xt_mm_user_remove_minimap', $viewParams);
+		}
+    }
 }

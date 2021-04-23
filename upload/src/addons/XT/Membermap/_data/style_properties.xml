@@ -18,4 +18,7 @@ step=10</value_parameters>
     "extra": "word-wrap: normal;"
 }</value>
   </style_property>
+  <style_property property_name="xtMMmapId" group_name="xtMMAppearance" title="Google Maps MapID" description="If you want to style your map like your community, feel free to style your own map at &lt;a href=&quot;https://developers.google.com/maps/documentation/javascript/styling&quot; target=&quot;_blank&quot;&gt;Google Maps Map Management&lt;/a&gt; and insert your MapID." property_type="value" value_type="string" display_order="40">
+    <value>""</value>
+  </style_property>
 </style_properties>

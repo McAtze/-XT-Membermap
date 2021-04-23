@@ -8,12 +8,15 @@
             container: null,
             mapurl: null,
             maptype: null,
+            mapid: null,
             latitude: null,
             longitude: null,
             zoom: null,
             poi: 1,
             cluster: 1,
             clusterPath: null,
+            maxZoom: null,
+            minClusterSize: null,
         },
 
         load: null,
@@ -87,6 +90,7 @@
             var options = {
                 zoom: this.options.zoom,
                 center: {lat: this.options.latitude, lng: this.options.longitude},
+                mapId: this.options.mapid,
                 mapTypeId: this.options.maptype,
                 mapTypeControl: true,
                 mapTypeControlOptions: {
@@ -117,10 +121,11 @@
             });
 
             if (this.options.cluster) {
-                // this.markerCluster = new MarkerClusterer(this.map, this.markers);
                 this.markerCluster = new MarkerClusterer(this.map, this.markers, {
                     averageCenter: true,
-                    // clusterClass: "custom-clustericon",
+                    maxZoom: self.options.maxZoom,
+                    minimumClusterSize: self.options.minClusterSize,
+                    //clusterClass: "custom-clustericon",
                     imagePath: self.options.clusterPath + '/m',
                 });
             }
@@ -131,10 +136,9 @@
                 this.bounds.extend(extendPoint1);
                 this.bounds.extend(extendPoint2);
             }
-
-            //this.map.fitBounds(this.bounds);
-            //this.map.panToBounds(this.bounds);
-
+            
+            this.map.fitBounds(this.bounds);
+            this.map.panToBounds(this.bounds);
         }
     });
 

@@ -13,7 +13,7 @@ class RebuildLocation extends AbstractRebuildCommand
 
 	protected function getRebuildDescription()
 	{
-		return 'Rebuilds the user locatoin data for the membermap.';
+		return 'Rebuilds the user location data for the membermap.';
 	}
 
 	protected function getRebuildClass()

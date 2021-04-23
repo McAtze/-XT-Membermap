@@ -6,6 +6,7 @@ use XF\Mvc\ParameterBag;
 use XF\Mvc\Dispatcher;
 use XF\Mvc\Entity\AbstractCollection;
 use XF\Mvc\Entity\Entity;
+use XF\Mvc\Entity\Finder;
 use XF\Mvc\Router;
 use XF\Util\Arr;
 
@@ -16,13 +17,16 @@ class Membermap extends \XF\Pub\Controller\AbstractController
     {
         /** @var \XT\Membermap\XF\Entity\User $visitor */
 		$visitor = \XF::visitor();
+        $options = \XF::app()->options();
         
 		if (!$visitor->canViewXtMembermap())
 		{
 			return $this->noPermission();
 		}
 
-        $UserProfilesFinder = $this->getUserProfileRepo()->findMapLocations();
+        $activityDays = $options->xtMMuserActivity;
+
+        $UserProfilesFinder = $this->getUserProfileRepo()->findMapLocations($activityDays);
         $total = $UserProfilesFinder->total();
         $UserProfiles = $UserProfilesFinder->fetch();
 
@@ -55,12 +59,12 @@ class Membermap extends \XF\Pub\Controller\AbstractController
     public function actionMapData($canonical = false)
     {
         $options = \XF::app()->options();
+        $activityDays = $options->xtMMuserActivity;
 
         $this->assertPostOnly();
 
         $userGroupMarkers = $this->getUserGroupRepo()->findUserGroupsWithMapMarker()->fetch();
-
-        $UserProfiles = $this->getUserProfileRepo()->findMapLocations()->fetch();
+        $UserProfiles = $this->getUserProfileRepo()->findMapLocations()->fetch($activityDays);
 
         /** Get path with function **/
         $defMarker = $options->xtMMDefaultMapMarkerIcon;
@@ -71,8 +75,10 @@ class Membermap extends \XF\Pub\Controller\AbstractController
 
         foreach($UserProfiles as $user_id => $userProfile)
         {
-            /** Unset ignored user **/
-            if ($userProfile->isIgnored()) {
+            /** Unset ignored users and user with no permission **/
+            $noPerm = !$userProfile->User->canViewXtMembermap();
+            if ($userProfile->isIgnored() OR $noPerm)
+            {
                 unset($UserProfiles[$user_id]);
                 continue;
             }
@@ -110,25 +116,6 @@ class Membermap extends \XF\Pub\Controller\AbstractController
         $reply->setJsonParams($jsonParams);
         
         return $reply;
-    }
-
-    /**
-     * @deprecated - user repository instead
-     * @return XF\Mvc\Entity\Finder
-     */
-    public function findMapLocations()
-    {
-        /**
-         * @var Finder $locationFinder
-         */
-        $locationFinder = \XF::finder('XF:UserProfile')
-            ->with('User')
-            ->keyedBy('user_id')
-            ->where('xt_mm_show_on_map', '=', 1)
-            ->where('xt_mm_location_lat', '<>', 0)
-            ->where('xt_mm_location_long', '<>', 0);
-
-        return $locationFinder;
     }
 
     /**
