@@ -73,14 +73,14 @@
 
             (function (marker, props) 
             {
-                google.maps.event.addListener(marker, "click", function (e) 
+                google.maps.event.addListener(marker, 'click', function (e) 
                 {
                     XF.ajax('post', props.infoUrl, {}, function (data) 
-                    {
-                        self.map.panTo(marker.getPosition())
-                        self.infoWindow.setContent(data.html.content);
-                        self.infoWindow.open(self.map, marker);
-                    });
+                        {
+                            self.map.panTo(marker.getPosition())
+                            self.infoWindow.setContent(data.html.content);
+                            self.infoWindow.open(self.map, marker);
+                        });
                 });
             })(marker, props);
             this.markers.push(marker);
@@ -128,6 +128,11 @@
                     //clusterClass: "custom-clustericon",
                     imagePath: self.options.clusterPath + '/m',
                 });
+            }
+
+            this.oms = new OverlappingMarkerSpiderfier(this.map, {keepSpiderfied : true});    
+            for(var i = 0;i<=this.markers.length-1;i++){
+                this.oms.addMarker(this.markers[i]);
             }
 
            if (this.bounds.getNorthEast().equals(this.bounds.getSouthWest())) {

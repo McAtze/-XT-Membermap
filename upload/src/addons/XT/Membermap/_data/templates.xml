@@ -439,7 +439,7 @@ ul.xtMapMarkerPreview {
 	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsApiKey}&libraries=places" />
 	<xf:js src="xt/membermap/autocomplete.js" />
 </xf:if>]]></template>
-  <template type="public" title="xt_mm_index" version_id="1000153" version_string="1.0.1 Release Candidate 3"><![CDATA[<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
+  <template type="public" title="xt_mm_index" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
 <xf:if is="!{$xf.visitor.Profile.location_}">
 	<xf:description>{{ phrase('xt_mm_no_location_in_profile', {'account': link('account/account-details')}) }}</xf:description>
 </xf:if>
@@ -451,6 +451,7 @@ ul.xtMapMarkerPreview {
 <xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsJsApiKey}&language={$xf.language.language_code|substr}&map_ids={{ property('xtMMmapId') }}" />
 <xf:js src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js" />
 <xf:js prod="xt/membermap/map.js" dev="xt/membermap/map.min.js" />
+<xf:js src="xt/membermap/oms.min.js" />
 
 <xf:macro template="metadata_macros" name="canonical_url" arg-canonicalUrl="{{ link('canonical:xt-membermap') }}" />
 
@@ -480,7 +481,8 @@ ul.xtMapMarkerPreview {
 					 data-min-cluster-size="{{ $xf.options.xtMMShowCluster.clusterSize }}" 
 					 data-cluster-path="{$clusterPath}"
 					 data-maptype="{{ $xf.options.xtMMmapType }}" 
-					 data-mapid="{{ property('xtMMmapId') }}">
+					 data-mapid="{{ property('xtMMmapId') }}"
+					 data-change-location="true" >
 				</div>
 			</div>
 		</div>

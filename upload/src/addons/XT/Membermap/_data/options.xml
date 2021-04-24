@@ -9,7 +9,7 @@
     <default_value></default_value>
     <relation group_id="xt_membermap" display_order="11"/>
   </option>
-  <option option_id="xtMMGoogleMapsJsApiKey" edit_format="textbox" data_type="string" validation_class="XT\Membermap\Option\GoogleApi" validation_method="verifyApiKey">
+  <option option_id="xtMMGoogleMapsJsApiKey" edit_format="textbox" data_type="string">
     <default_value></default_value>
     <relation group_id="xt_membermap" display_order="12"/>
   </option>
