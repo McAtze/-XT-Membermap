@@ -13,6 +13,7 @@
   <phrase title="option.xtMMShowCluster" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[Enable marker cluster]]></phrase>
   <phrase title="option.xtMMShowPOI" version_id="1000012" version_string="1.0.0 Alpha 2"><![CDATA[Show Points of Interest on map]]></phrase>
   <phrase title="option.xtMMautoComplete" version_id="1000152" version_string="1.0.1 Release Candidate 2"><![CDATA[Enable location autocomplete]]></phrase>
+  <phrase title="option.xtMMdefaultCenter" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[Default map center]]></phrase>
   <phrase title="option.xtMMdefaultLatLong" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[Default Lat/Long]]></phrase>
   <phrase title="option.xtMMdefaultZoom" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[Default Map Zoom]]></phrase>
   <phrase title="option.xtMMlogginCalls" version_id="1000152" version_string="1.0.1 Release Candidate 2"><![CDATA[Enable loggin Google Api calls]]></phrase>
@@ -31,6 +32,7 @@ Instructions on generating and retrieving your Google Maps API Keys can be found
   <phrase title="option_explain.xtMMShowPOI" version_id="1000012" version_string="1.0.0 Alpha 2"><![CDATA[When enabled, will include points of interest on maps (this is default standard with google maps). Disable this option if you want to "clean up" the map from looking cluttered.]]></phrase>
   <phrase title="option_explain.xtMMautoComplete" version_id="1000152" version_string="1.0.1 Release Candidate 2"><![CDATA[The ApiKey need access to: Places API<br />
 Instructions on generating and retrieving your Google Maps Places API key can be found <a href="https://developers.google.com/maps/gmp-get-started" target="google">here</a>.]]></phrase>
+  <phrase title="option_explain.xtMMdefaultCenter" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[Normally the empty map is centered on the given Lat/Long above. If there're markers on the map, the map is centered on these markers. When these markers are worldwide the map is shown fully. If you want to center the map always on the default Lat/Long use this settings.]]></phrase>
   <phrase title="option_explain.xtMMdefaultLatLong" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[For detailed information about latitude and longitude check this <a href="https://www.latlong.net/" target="_blank">online lat/long finder</a>.]]></phrase>
   <phrase title="option_explain.xtMMdefaultZoom" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[For detailed informations about the zoom levels check the <a href="https://developers.google.com/maps/documentation/javascript/overview#zoom-levels" target="_blank">google map developer documentation</a>.]]></phrase>
   <phrase title="option_explain.xtMMlogginCalls" version_id="1000152" version_string="1.0.1 Release Candidate 2"><![CDATA[When enabled, all Google Maps Api calls will be logged and stored within the specified number of days.]]></phrase>
@@ -64,6 +66,7 @@ Instructions on generating and retrieving your Google Maps Places API key can be
   <phrase title="widget_pos_desc.xt_mm_membermap_sidebar" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[A position inside the membermap sidebar for various stats and new content widgets.]]></phrase>
   <phrase title="xt_mm_GoogleMapsApi_log_entry" version_id="1000151" version_string="1.0.1 Release Candidate 1"><![CDATA[GoogleMaps Api log entry]]></phrase>
   <phrase title="xt_mm_api_response" version_id="1000151" version_string="1.0.1 Release Candidate 1"><![CDATA[GoogleMaps API Response]]></phrase>
+  <phrase title="xt_mm_change_markerPin" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[Change map marker pin]]></phrase>
   <phrase title="xt_mm_clusterer_clusterSize" version_id="1000153" version_string="1.0.1 Release Candidate 3"><![CDATA[Set cluster marker min cluster size]]></phrase>
   <phrase title="xt_mm_clusterer_maxZoom" version_id="1000153" version_string="1.0.1 Release Candidate 3"><![CDATA[Set cluster marker max zoom]]></phrase>
   <phrase title="xt_mm_edit_location" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[Edit location]]></phrase>
@@ -104,6 +107,8 @@ For more, use the admin search function.]]></phrase>
   <phrase title="xt_mm_this_will_delete_the_minimap_by_x" version_id="1000153" version_string="1.0.1 Release Candidate 3"><![CDATA[This will delete the minimap created by <b>{user}</b>. This action cannot be undone.]]></phrase>
   <phrase title="xt_mm_title" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Membermap]]></phrase>
   <phrase title="xt_mm_total_x_members" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[Total:&nbsp;{total} members on the map]]></phrase>
+  <phrase title="xt_mm_use_the_default_centering" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[Use the default Lat/Long centering above]]></phrase>
+  <phrase title="xt_mm_use_the_marker_centering" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[Use the centering on markers on the map]]></phrase>
   <phrase title="xt_mm_usergroup_marker_pin" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Membermap Marker Pin]]></phrase>
   <phrase title="xt_mm_usergroup_marker_pin_explain" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[]]></phrase>
   <phrase title="xt_mm_viewing_membermap" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[Viewing Membermap]]></phrase>

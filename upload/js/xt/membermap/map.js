@@ -11,6 +11,7 @@
             mapid: null,
             latitude: null,
             longitude: null,
+            center: 'default',
             zoom: null,
             poi: 1,
             cluster: 1,
@@ -142,8 +143,11 @@
                 this.bounds.extend(extendPoint2);
             }
             
-            this.map.fitBounds(this.bounds);
-            this.map.panToBounds(this.bounds);
+            if(this.options.center !== 'default')
+            {
+                this.map.fitBounds(this.bounds);
+                this.map.panToBounds(this.bounds);
+            }
         }
     });
 

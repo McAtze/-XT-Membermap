@@ -22,5 +22,4 @@ class Account extends XFCP_Account
 		
 		return $form;
 	}
-
 }

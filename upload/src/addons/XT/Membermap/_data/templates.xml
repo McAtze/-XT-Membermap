@@ -439,6 +439,26 @@ ul.xtMapMarkerPreview {
 	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsApiKey}&libraries=places" />
 	<xf:js src="xt/membermap/autocomplete.js" />
 </xf:if>]]></template>
+  <template type="public" title="xt_mm_change_markerPin" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[<xf:title>{{ phrase('xt_mm_change_markerPin') }}</xf:title>
+
+<xf:js src="xt/membermap/changeMarker.js" />
+<xf:wrap template="account_wrapper" />
+
+<xf:form action="{{ link('account/xt-membermap') }}" ajax="true" class="block" data-force-flash-message="on">
+	<div class="block-container">
+		<div class="block-body">
+			<div id="accountMap" class="xt-membermap"
+				 data-xf-init="xtMembermap"
+				 data-mapurl="{{ link('account/xt-membermap') }}" 
+				 data-user-lat="{$userLat}"
+				 data-user-long="{$userLong}">
+			</div>
+		</div>
+		<xf:submitrow icon="save" sticky="true" />
+	</div>
+
+	<xf:redirect />
+</xf:form>]]></template>
   <template type="public" title="xt_mm_index" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
 <xf:if is="!{$xf.visitor.Profile.location_}">
 	<xf:description>{{ phrase('xt_mm_no_location_in_profile', {'account': link('account/account-details')}) }}</xf:description>
@@ -448,7 +468,7 @@ ul.xtMapMarkerPreview {
 <xf:css src="account_avatar.less" />
 <xf:css src="member_tooltip.less" />
 <xf:js prod="xf/avatar-compiled.js" dev="xf/avatar.js" />
-<xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsJsApiKey}&language={$xf.language.language_code|substr}&map_ids={{ property('xtMMmapId') }}" />
+<xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsJsApiKey}&region={$xf.language.language_code|substr}&language={$xf.language.language_code|substr}&map_ids={{ property('xtMMmapId') }}" />
 <xf:js src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js" />
 <xf:js prod="xt/membermap/map.js" dev="xt/membermap/map.min.js" />
 <xf:js src="xt/membermap/oms.min.js" />
@@ -469,19 +489,20 @@ ul.xtMapMarkerPreview {
 	<div class="block-container">
 		<div class="block-body">
 			<div class="block-row">
-				<div id="membermap" class="xt-membermap"
+				<div id="membermap" class="xt-membermap" 
 					 data-xf-init="xtMembermap" 
 					 data-mapurl="{{ link('xt-membermap/mapdata') }}" 
 					 data-latitude="{{ $xf.options.xtMMdefaultLatLong.lat }}" 
 					 data-longitude="{{ $xf.options.xtMMdefaultLatLong.long }}" 
+					 data-center="{{ $xf.options.xtMMdefaultCenter }}" 
 					 data-zoom="{{ $xf.options.xtMMdefaultZoom }}" 
-					 data-poi="{{ $xf.options.xtMMShowPOI }}"
-					 data-cluster="{{ $xf.options.xtMMShowCluster.enabled }}"
+					 data-poi="{{ $xf.options.xtMMShowPOI }}" 
+					 data-cluster="{{ $xf.options.xtMMShowCluster.enabled }}" 
 					 data-max-zoom="{{ $xf.options.xtMMShowCluster.maxZoom }}" 
 					 data-min-cluster-size="{{ $xf.options.xtMMShowCluster.clusterSize }}" 
-					 data-cluster-path="{$clusterPath}"
+					 data-cluster-path="{$clusterPath}" 
 					 data-maptype="{{ $xf.options.xtMMmapType }}" 
-					 data-mapid="{{ property('xtMMmapId') }}"
+					 data-mapid="{{ property('xtMMmapId') }}" 
 					 data-change-location="true" >
 				</div>
 			</div>
@@ -490,8 +511,9 @@ ul.xtMapMarkerPreview {
 </div>
 
 <xf:widgetpos id="xt_mm_membermap_below" context-userdata="{$userData}" />]]></template>
-  <template type="public" title="xt_mm_macros" version_id="1000151" version_string="1.0.1 Release Candidate 1"><![CDATA[<xf:macro name="xt_mm_ShowOnMap" arg-hint="" arg-canViewXtMembermap="!" arg-location_image="">
+  <template type="public" title="xt_mm_macros" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[<xf:macro name="xt_mm_ShowOnMap" arg-hint="" arg-canViewXtMembermap="!" arg-location_image="">
 	<xf:css src="xt_mm.less" />
+	<xf:js src="xt/membermap/changeMarker.js" />
 	<xf:formrow>
 		<xf:checkbox hint="{{ $hint ? $hint : ''  }}">
 			<xf:option value="1" name="profile[xt_mm_show_on_map]" checked="{$xf.visitor.Profile.xt_mm_show_on_map}"

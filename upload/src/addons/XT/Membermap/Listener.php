@@ -31,7 +31,6 @@ class Listener
 		{
 			$entity->xt_mm_location_lat = 0;
 			$entity->xt_mm_location_long = 0;
-            $entity->User->removeMinimapIfExists();
 		}
 		elseif ($location && $googleService->isAvaiable())
 		{
@@ -42,7 +41,6 @@ class Listener
 				{
 					$entity->xt_mm_location_lat = $locationData['latitude'];
 					$entity->xt_mm_location_long = $locationData['longitude'];
-					$entity->User->getStaticLocationImage();
 				}
 			}
 			else

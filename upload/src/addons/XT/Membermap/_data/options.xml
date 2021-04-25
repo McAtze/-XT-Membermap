@@ -29,6 +29,12 @@ clusterSize</sub_options>
     <default_value>0</default_value>
     <relation group_id="xt_membermap" display_order="302"/>
   </option>
+  <option option_id="xtMMdefaultCenter" edit_format="radio" data_type="string">
+    <default_value>default</default_value>
+    <edit_format_params>default={{ phrase('xt_mm_use_the_default_centering') }}
+markers={{ phrase('xt_mm_use_the_marker_centering') }}</edit_format_params>
+    <relation group_id="xt_membermap" display_order="211"/>
+  </option>
   <option option_id="xtMMdefaultLatLong" edit_format="template" data_type="array">
     <default_value>{"lat":"50.861","long":"9.685"}</default_value>
     <edit_format_params>template=option_xt_mm_default_latlong</edit_format_params>
@@ -41,7 +47,7 @@ long</sub_options>
     <edit_format_params>min=0
 max=20
 units=Zoom</edit_format_params>
-    <relation group_id="xt_membermap" display_order="211"/>
+    <relation group_id="xt_membermap" display_order="215"/>
   </option>
   <option option_id="xtMMlogginCalls" edit_format="onofftextbox" data_type="array">
     <default_value>{"enabled":"1","days":"7"}</default_value>
@@ -61,7 +67,7 @@ days</sub_options>
 satellite={{ phrase('xt_mm_satellite') }}
 hybrid={{ phrase('xt_mm_hybrid') }}
 terrain={{ phrase('xt_mm_terrain') }}</edit_format_params>
-    <relation group_id="xt_membermap" display_order="212"/>
+    <relation group_id="xt_membermap" display_order="220"/>
   </option>
   <option option_id="xtMMuserActivity" edit_format="spinbox" data_type="integer">
     <default_value>180</default_value>
