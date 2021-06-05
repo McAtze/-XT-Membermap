@@ -24,9 +24,7 @@ class Membermap extends \XF\Pub\Controller\AbstractController
 			return $this->noPermission();
 		}
 
-        $activityDays = $options->xtMMuserActivity;
-
-        $UserProfilesFinder = $this->getUserProfileRepo()->findMapLocations($activityDays);
+        $UserProfilesFinder = $this->getUserProfileRepo()->findMapLocations();
         $total = $UserProfilesFinder->total();
         $UserProfiles = $UserProfilesFinder->fetch();
 
@@ -53,18 +51,18 @@ class Membermap extends \XF\Pub\Controller\AbstractController
             'total' => $total,
             'clusterPath' => $clusterPath,
         ];
+
         return $this->view('XT\Membermap:Index', 'xt_mm_index', $viewParams);
     }
 
     public function actionMapData($canonical = false)
     {
         $options = \XF::app()->options();
-        $activityDays = $options->xtMMuserActivity;
 
         $this->assertPostOnly();
 
         $userGroupMarkers = $this->getUserGroupRepo()->findUserGroupsWithMapMarker()->fetch();
-        $UserProfiles = $this->getUserProfileRepo()->findMapLocations()->fetch($activityDays);
+        $UserProfiles = $this->getUserProfileRepo()->findMapLocations()->fetch();
 
         /** Get path with function **/
         $defMarker = $options->xtMMDefaultMapMarkerIcon;

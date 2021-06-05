@@ -10,6 +10,7 @@ class MiniMap extends AbstractWidget
 	{
 		/** @var \XT\Membermap\XF\Entity\User $visitor */
 		$visitor = \XF::visitor();
+        $visitor->canViewXtMembermap();
 
 		if (!method_exists($visitor, 'canViewXtMembermap') || !$visitor->canViewXtMembermap())
 		{

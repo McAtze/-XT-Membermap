@@ -23,7 +23,9 @@ class UserMapHide extends AbstractRebuildJob
 	protected function rebuildById($id)
 	{
         $this->app->db()->update('xf_user_profile', [
-			'xt_mm_show_on_map' => 0
+			'xt_mm_show_on_map' => 0,
+			'xt_mm_location_lat' => 0,
+			'xt_mm_location_long' => 0
 		], 'user_id = ?', $id);
 	}
 

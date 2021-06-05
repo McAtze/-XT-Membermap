@@ -88,9 +88,14 @@
         },
 
 		initMap: function() {
+            var latitude = parseFloat(this.options.latitude);
+            var longitude = parseFloat(this.options.longitude);
             var options = {
                 zoom: this.options.zoom,
-                center: {lat: this.options.latitude, lng: this.options.longitude},
+                center: {
+                    lat: latitude,
+                    lng: longitude
+                },
                 mapId: this.options.mapid,
                 mapTypeId: this.options.maptype,
                 mapTypeControl: true,
@@ -132,7 +137,8 @@
             }
 
             this.oms = new OverlappingMarkerSpiderfier(this.map, {keepSpiderfied : true});    
-            for(var i = 0;i<=this.markers.length-1;i++){
+            //for(var i = 0;i<=this.markers.length-1;i++)
+            for (var i = 0, len = this.markers.length; i < len; i ++){
                 this.oms.addMarker(this.markers[i]);
             }
 

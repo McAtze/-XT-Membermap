@@ -3,10 +3,14 @@
 namespace XT\Membermap\Service;
 
 use Exception;
+use XF;
+use XF\Entity\User;
+use XF\Entity\UserProfile;
 use XF\Mvc\Entity\Entity;
 use XF\Admin\Controller\AbstractController;
 use XF\Service\AbstractService;
 use XF\Util\Arr;
+use XF\Util\File;
 
 class GoogleApi extends AbstractService
 {
@@ -14,7 +18,7 @@ class GoogleApi extends AbstractService
 
     protected function setup()
     {
-        $this->apiKey = \XF::options()->xtMMGoogleMapsApiKey;
+        $this->apiKey = XF::options()->xtMMGoogleMapsApiKey;
     }
 
     private function getApiKey()
@@ -34,7 +38,6 @@ class GoogleApi extends AbstractService
 
         switch($service) {
             case 'static':
-            case 'staticmap':
                 return $this->serviceList['staticmap'];
                 break;
             case 'geocode':
@@ -45,7 +48,7 @@ class GoogleApi extends AbstractService
                 break;
             default:
                 return false;
-            break;
+                break;
         }
     }
 
@@ -75,14 +78,14 @@ class GoogleApi extends AbstractService
         $apiUrl = $this->fetchService($serviceID, $params);
 
         /** @var \GuzzleHttp\Client $client **/
-        $client = \XF::app()->http()->client();
+        $client = XF::app()->http()->client();
         $geocodeResponse = $client->get($apiUrl)->getBody();
         $geocodeData = \GuzzleHttp\json_decode($geocodeResponse);
 
         /** @var \XT\Membermap\XF\Entity\User $visitor */
-        $visitorId = \XF::visitor()->user_id;
+        $visitorId = XF::visitor()->user_id;
         
-        if (\XF::options()->xtMMlogginCalls['enabled'])
+        if (XF::options()->xtMMlogginCalls['enabled'])
         {
             $logData = [
                 'user_id' => $visitorId,
@@ -111,16 +114,16 @@ class GoogleApi extends AbstractService
     /**
      * @deprecated use User Entity function instead
      */
-    public function getStaticLocationImageUser(\XF\Entity\User $user)
+    public function getStaticLocationImageUser(User $user)
     {
         // try to find a saved image
         $minimapUrl = $user->getMinimapUrl();
         $minimapPath = $user->getAbstractedMinimapPath();
 
-        if (!\XF\Util\File::abstractedPathExists($minimapPath))
+        if (!File::abstractedPathExists($minimapPath))
         {
             $image = $this->fetchStaticLocationImageUser($user->Profile, $user->getMapMarkerIconPath());
-            if (!\XF\Util\File::copyFileToAbstractedPath($image, $minimapPath))
+            if (!File::copyFileToAbstractedPath($image, $minimapPath))
             {
                 $minimapUrl = false;
             }
@@ -130,10 +133,10 @@ class GoogleApi extends AbstractService
     }
 
     /**
-     * @param \XF\Entity\User $user
+     * @param User $user
      * @return binary image;
      */
-    public function fetchStaticLocationImageUser(\XF\Entity\UserProfile $profile, string $icon = '')
+    public function fetchStaticLocationImageUser(UserProfile $profile, string $icon = '')
     {
         $serviceID = 'static';
         $params = [
@@ -143,7 +146,7 @@ class GoogleApi extends AbstractService
         ];
         $url = $this->fetchService($serviceID, $params);
 
-        if (\XF::options()->xtMMlogginCalls['enabled'])
+        if (XF::options()->xtMMlogginCalls['enabled'])
         {
             $logData = [
                 'user_id' => $profile->user_id,
@@ -194,7 +197,7 @@ class GoogleApi extends AbstractService
             $apiUrl = $this->fetchService($serviceID, $params);
 
             /** @var \GuzzleHttp\Client $client **/
-            $client = \XF::app()->http()->client();
+            $client = XF::app()->http()->client();
             $response = $client->get($apiUrl)->getBody();
             $data = \GuzzleHttp\json_decode($response);
 

@@ -87,11 +87,11 @@ class Listener
 
     public static function userMergeCombine(\XF\Entity\User $target, \XF\Entity\User $source, \XF\Service\User\Merge $mergeService)
 	{
-		if($target->xt_mm_show_on_map && $source->xt_mm_show_on_map)
+		if($target->Profile->xt_mm_show_on_map && $source->Profile->xt_mm_show_on_map)
 		{
-			$target->xt_mm_show_on_map += $source->xt_mm_show_on_map;
-			$target->xt_mm_location_lat += $source->xt_mm_location_lat;
-			$target->xt_mm_location_long += $source->xt_mm_location_long;
+			$target->Profile->xt_mm_show_on_map += $source->Profile->xt_mm_show_on_map;
+			$target->Profile->xt_mm_location_lat += $source->Profile->xt_mm_location_lat;
+			$target->Profile->xt_mm_location_long += $source->Profile->xt_mm_location_long;
 			$source->removeMinimapIfExists();
 		}
     }

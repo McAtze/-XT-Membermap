@@ -4,7 +4,9 @@
   <extension from_class="XF\Admin\Controller\UserGroup" to_class="XT\Membermap\XF\Admin\Controller\UserGroup" execute_order="10" active="1"/>
   <extension from_class="XF\Entity\User" to_class="XT\Membermap\XF\Entity\User" execute_order="10" active="1"/>
   <extension from_class="XF\Entity\UserProfile" to_class="XT\Membermap\XF\Entity\UserProfile" execute_order="10" active="1"/>
+  <extension from_class="XF\Job\UserAction" to_class="XT\Membermap\XF\Job\UserAction" execute_order="10" active="1"/>
   <extension from_class="XF\Pub\Controller\Account" to_class="XT\Membermap\XF\Pub\Controller\Account" execute_order="10" active="1"/>
   <extension from_class="XF\Repository\UserGroup" to_class="XT\Membermap\XF\Repository\UserGroup" execute_order="10" active="1"/>
   <extension from_class="XF\Repository\UserProfile" to_class="XT\Membermap\XF\Repository\UserProfile" execute_order="10" active="1"/>
+  <extension from_class="XF\Searcher\User" to_class="XT\Membermap\XF\Searcher\User" execute_order="10" active="1"/>
 </class_extensions>

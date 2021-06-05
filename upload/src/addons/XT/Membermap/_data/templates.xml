@@ -19,6 +19,19 @@
 		<xf:include template="xt_mm_pinselector" />
 	</dd>
 </dl>				   ]]></template>
+  <template type="admin" title="kirby_ausc_helper_user_search_criteria" version_id="1000270" version_string="1.0.2"><![CDATA[<xf:checkboxrow name="criteria[receive_admin_email]" readonly="{$readOnly}"
+	label="{{ phrase('receive_admin_email') }}">
+
+	<xf:option value="0" selected="in_array(0, $criteria.receive_admin_email)">{{ phrase('not_receive_admin_email') }}</xf:option>
+	<xf:option value="1" selected="in_array(1, $criteria.receive_admin_email)">{{ phrase('receive_admin_email') }}</xf:option>
+</xf:checkboxrow>
+
+<xf:checkboxrow name="criteria[terms_privacy]" readonly="{$readOnly}"
+	label="{{ phrase('terms_privacy') }}">
+
+	<xf:option value="privacy_policy_accepted" selected="in_array('privacy_policy_accepted', $criteria.terms_privacy)">{{ phrase('privacy_policy_accepted') }}</xf:option>
+	<xf:option value="terms_accepted" selected="in_array('terms_accepted', $criteria.terms_privacy)">{{ phrase('terms_accepted') }}</xf:option>
+</xf:checkboxrow>]]></template>
   <template type="admin" title="option_xt_membermap_defaut_pin" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[<xf:js src="xt/membermap/admin.js" min="1" />
 <xf:css src="xt_mm.less" />
 
@@ -104,11 +117,11 @@ ul.xtMapMarkerPreview {
 		margin-right: 10px;
 	}
 }]]></template>
-  <template type="admin" title="xt_mm_helper_user_search_criteria" version_id="1000138" version_string="1.0.1 Beta 8"><![CDATA[<xf:checkboxrow name="criteria[location]" readonly="{$readOnly}"
+  <template type="admin" title="xt_mm_helper_user_search_criteria" version_id="1000270" version_string="1.0.2"><![CDATA[<xf:checkboxrow name="criteria[xt_mm_location]" readonly="{$readOnly}"
 	label="{{ phrase('location') }}">
 
-	<xf:option value="0" selected="in_array(0, $criteria.location)">{{ phrase('xt_mm_not_filled_location') }}</xf:option>
-	<xf:option value="1" selected="in_array(1, $criteria.location)">{{ phrase('xt_mm_filled_location') }}</xf:option>
+	<xf:option value="0" selected="in_array(0, $criteria.xt_mm_location)">{{ phrase('xt_mm_not_filled_location') }}</xf:option>
+	<xf:option value="1" selected="in_array(1, $criteria.xt_mm_location)">{{ phrase('xt_mm_filled_location') }}</xf:option>
 </xf:checkboxrow>
 
 <xf:checkboxrow name="criteria[xt_mm_show_on_map]" readonly="{$readOnly}"
@@ -435,8 +448,8 @@ ul.xtMapMarkerPreview {
 		}
 	}
 }]]></template>
-  <template type="public" title="xt_mm_autocomplete" version_id="1000152" version_string="1.0.1 Release Candidate 2"><![CDATA[<xf:if is="$xf.options.xtMMautoComplete">
-	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsApiKey}&libraries=places" />
+  <template type="public" title="xt_mm_autocomplete" version_id="1000170" version_string="1.0.1"><![CDATA[<xf:if is="$xf.options.xtMMautoComplete">
+	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsJsApiKey}&region={$xf.language.language_code|substr(3, 2)}&language={$xf.language.language_code|substr(0, 2)}&libraries=places" />
 	<xf:js src="xt/membermap/autocomplete.js" />
 </xf:if>]]></template>
   <template type="public" title="xt_mm_change_markerPin" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[<xf:title>{{ phrase('xt_mm_change_markerPin') }}</xf:title>
@@ -459,7 +472,12 @@ ul.xtMapMarkerPreview {
 
 	<xf:redirect />
 </xf:form>]]></template>
-  <template type="public" title="xt_mm_index" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
+  <template type="public" title="xt_mm_index" version_id="1000270" version_string="1.0.2"><![CDATA[<xf:set var="$googleJsApiKey" value="{$xf.options.xtMMGoogleMapsJsApiKey}" />
+<xf:set var="$googleMapsId" value="{{ property('xtMMmapId') }}" />
+<xf:set var="$region" value="{$xf.language.language_code|substr(3, 2)}" />
+<xf:set var="$language" value="{$xf.language.language_code|substr(0, 2)}" />
+
+<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
 <xf:if is="!{$xf.visitor.Profile.location_}">
 	<xf:description>{{ phrase('xt_mm_no_location_in_profile', {'account': link('account/account-details')}) }}</xf:description>
 </xf:if>
@@ -468,18 +486,32 @@ ul.xtMapMarkerPreview {
 <xf:css src="account_avatar.less" />
 <xf:css src="member_tooltip.less" />
 <xf:js prod="xf/avatar-compiled.js" dev="xf/avatar.js" />
-<xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsJsApiKey}&region={$xf.language.language_code|substr}&language={$xf.language.language_code|substr}&map_ids={{ property('xtMMmapId') }}" />
+<xf:if is="$googleMapsId">
+	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$googleJsApiKey}&region={$region}&language={$language}&map_ids={$googleMapsId}" />
+<xf:else />
+	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$googleJsApiKey}&region={$region}&language={$language}" />
+</xf:if>
 <xf:js src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js" />
 <xf:js prod="xt/membermap/map.js" dev="xt/membermap/map.min.js" />
 <xf:js src="xt/membermap/oms.min.js" />
 
 <xf:macro template="metadata_macros" name="canonical_url" arg-canonicalUrl="{{ link('canonical:xt-membermap') }}" />
 
-<xf:pageaction>
-    <xf:button href="{{ link('account/account-details') }}" class="button--cta" fa="fa-map-marked">
-        {{ phrase('xt_mm_edit_location')}}
-    </xf:button>
-</xf:pageaction>
+<xf:if is="$xf.visitor.user_id">
+	<xf:pageaction>
+		<xf:button href="{{ link('account/account-details') }}" class="button--cta" fa="fa-map-marked">
+			{{ phrase('xt_mm_edit_location')}}
+		</xf:button>
+	</xf:pageaction>
+<xf:else />
+	<xf:if is="$xf.options.registrationSetup.enabled">
+		<xf:pageaction>
+			<xf:button href="{{ link('login') }}" class="button--link button--wrap" overlay="true">
+				{{ phrase('xt_mm_log_in_or_register') }}
+			</xf:button>
+		</xf:pageaction>
+	</xf:if>	
+</xf:if>
 
 <xf:widgetpos id="xt_mm_membermap_sidebar" position="sidebar" context-userdata="{$userData}" />
 

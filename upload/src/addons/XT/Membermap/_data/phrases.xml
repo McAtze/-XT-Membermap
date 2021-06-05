@@ -37,7 +37,7 @@ Instructions on generating and retrieving your Google Maps Places API key can be
   <phrase title="option_explain.xtMMdefaultZoom" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[For detailed informations about the zoom levels check the <a href="https://developers.google.com/maps/documentation/javascript/overview#zoom-levels" target="_blank">google map developer documentation</a>.]]></phrase>
   <phrase title="option_explain.xtMMlogginCalls" version_id="1000152" version_string="1.0.1 Release Candidate 2"><![CDATA[When enabled, all Google Maps Api calls will be logged and stored within the specified number of days.]]></phrase>
   <phrase title="option_explain.xtMMmapType" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[For more information about map types take a look at the <a href="https://developers.google.com/maps/documentation/javascript/maptypes" target="_blank">google maps documentation</a>.]]></phrase>
-  <phrase title="option_explain.xtMMuserActivity" version_id="1000153" version_string="1.0.1 Release Candidate 3"><![CDATA[A user must have been active during the last X days to shown on the map.]]></phrase>
+  <phrase title="option_explain.xtMMuserActivity" version_id="1000155" version_string="1.0.1 Release Candidate 5"><![CDATA[If enabled, a user must have been active during the last X days to shown on the map.]]></phrase>
   <phrase title="option_group.xt_membermap" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[[XT] Membermap]]></phrase>
   <phrase title="option_group_description.xt_membermap" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Options that control the Membermap add-on.]]></phrase>
   <phrase title="permission.xt_membermap_view" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[View membermap]]></phrase>
@@ -66,6 +66,8 @@ Instructions on generating and retrieving your Google Maps Places API key can be
   <phrase title="widget_pos_desc.xt_mm_membermap_sidebar" version_id="1000134" version_string="1.0.1 Beta 4"><![CDATA[A position inside the membermap sidebar for various stats and new content widgets.]]></phrase>
   <phrase title="xt_mm_GoogleMapsApi_log_entry" version_id="1000151" version_string="1.0.1 Release Candidate 1"><![CDATA[GoogleMaps Api log entry]]></phrase>
   <phrase title="xt_mm_api_response" version_id="1000151" version_string="1.0.1 Release Candidate 1"><![CDATA[GoogleMaps API Response]]></phrase>
+  <phrase title="xt_mm_batch_empty_location" version_id="1000270" version_string="1.0.2"><![CDATA[Empty location field]]></phrase>
+  <phrase title="xt_mm_batch_hiding_from_map" version_id="1000270" version_string="1.0.2"><![CDATA[Hiding from Membermap]]></phrase>
   <phrase title="xt_mm_change_markerPin" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[Change map marker pin]]></phrase>
   <phrase title="xt_mm_clusterer_clusterSize" version_id="1000153" version_string="1.0.1 Release Candidate 3"><![CDATA[Set cluster marker min cluster size]]></phrase>
   <phrase title="xt_mm_clusterer_maxZoom" version_id="1000153" version_string="1.0.1 Release Candidate 3"><![CDATA[Set cluster marker max zoom]]></phrase>
@@ -73,6 +75,7 @@ Instructions on generating and retrieving your Google Maps Places API key can be
   <phrase title="xt_mm_filled_location" version_id="1000138" version_string="1.0.1 Beta 8"><![CDATA[User has filled out location field]]></phrase>
   <phrase title="xt_mm_hiding_on_map" version_id="1000138" version_string="1.0.1 Beta 8"><![CDATA[User is hiding from map]]></phrase>
   <phrase title="xt_mm_hybrid" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[Hybrid - displays a mixture of normal and satellite views.]]></phrase>
+  <phrase title="xt_mm_log_in_or_register" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[You must login or register to edit your location]]></phrase>
   <phrase title="xt_mm_log_list" version_id="1000137" version_string="1.0.1 Beta 7"><![CDATA[[XT] Membermap Google API Request Logs]]></phrase>
   <phrase title="xt_mm_logs_disabled" version_id="1000152" version_string="1.0.1 Release Candidate 2"><![CDATA[If you want to log the Google Api calls, you need to enable these in the <a href="?options/groups/xt_membermap/">options</a>. Be aware this is an advanced option.<br />
 For more, use the admin search function.]]></phrase>

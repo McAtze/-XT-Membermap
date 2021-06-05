@@ -35,8 +35,8 @@ clusterSize</sub_options>
 markers={{ phrase('xt_mm_use_the_marker_centering') }}</edit_format_params>
     <relation group_id="xt_membermap" display_order="211"/>
   </option>
-  <option option_id="xtMMdefaultLatLong" edit_format="template" data_type="array">
-    <default_value>{"lat":"50.861","long":"9.685"}</default_value>
+  <option option_id="xtMMdefaultLatLong" edit_format="template" data_type="array" validation_class="\XT\Membermap\Option\GoogleLatLng" validation_method="verifyOption">
+    <default_value>{"lat":"54.525963","long":"15.255119"}</default_value>
     <edit_format_params>template=option_xt_mm_default_latlong</edit_format_params>
     <sub_options>lat
 long</sub_options>
@@ -69,10 +69,16 @@ hybrid={{ phrase('xt_mm_hybrid') }}
 terrain={{ phrase('xt_mm_terrain') }}</edit_format_params>
     <relation group_id="xt_membermap" display_order="220"/>
   </option>
-  <option option_id="xtMMuserActivity" edit_format="spinbox" data_type="integer">
-    <default_value>180</default_value>
-    <edit_format_params>min=1
+  <option option_id="xtMMuserActivity" edit_format="onofftextbox" data_type="array">
+    <default_value>{"enabled":"1","days":"180"}</default_value>
+    <edit_format_params>onoff=enabled
+value=days
+type=spinbox
+min=1
+default=180
 units={{ phrase('units_days') }}</edit_format_params>
+    <sub_options>enabled
+days</sub_options>
     <relation group_id="xt_membermap" display_order="303"/>
   </option>
 </options>
