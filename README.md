@@ -32,13 +32,20 @@ A membermap based on user location field with opt-in.
 - XenForo 2.2.0+
 
 ### Screenshots
-
+#### Backend
 ![Options](https://github.com/McAtze/-XT-Membermap/blob/main/screenshots/Options.png)
+![StyleProperties](https://github.com/McAtze/-XT-Membermap/blob/main/screenshots/StyleProperties.png)
+![SearchForUsers](https://github.com/McAtze/-XT-Membermap/blob/main/screenshots/SearchForUsers.png)
+![BatchUpdateUsersConfirm](https://github.com/McAtze/-XT-Membermap/blob/main/screenshots/BatchUpdateUsersConfirm.png)
 ![Permissions](https://github.com/McAtze/-XT-Membermap/blob/main/screenshots/Permissions.png)
 ![RebuildMapData](https://github.com/McAtze/-XT-Membermap/blob/main/screenshots/RebuildMapData.png)
 ![AccountEdit](https://github.com/McAtze/-XT-Membermap/blob/main/screenshots/AccountEdit_OptIn.png)
+
+#### UserAccount/Profile
 ![AccountEdit](https://github.com/McAtze/-XT-Membermap/blob/main/screenshots/AccountEdit_OptOut.png)
 ![AdminUserEdit](https://github.com/McAtze/-XT-Membermap/blob/main/screenshots/AdminUserEdit.png)
+
+#### Frontend
 ![Membermap](https://github.com/McAtze/-XT-Membermap/blob/main/screenshots/MembermapView.png)
 ![Membermap](https://github.com/McAtze/-XT-Membermap/blob/main/screenshots/MembermapUserView.png)
 ![MembermapBelow](https://github.com/McAtze/-XT-Membermap/blob/main/screenshots/MembermapBelow.png)
