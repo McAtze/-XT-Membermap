@@ -2,16 +2,13 @@
 <phrases>
   <phrase title="admin_navigation.xtMMLog" version_id="1000137" version_string="1.0.1 Beta 7"><![CDATA[[XT] Membermap API Logs]]></phrase>
   <phrase title="cron_entry.xt_mmCleanUpWeekly" version_id="1000152" version_string="1.0.1 Release Candidate 2"><![CDATA[[XT] Membermap: Daily clean up]]></phrase>
-  <phrase title="custom_bb_code_desc.test" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[]]></phrase>
-  <phrase title="custom_bb_code_example.test" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[]]></phrase>
-  <phrase title="custom_bb_code_output.test" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[]]></phrase>
-  <phrase title="custom_bb_code_title.test" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[test]]></phrase>
   <phrase title="nav.xt_membermap" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Member Map]]></phrase>
   <phrase title="option.xtMMDefaultMapMarkerIcon" version_id="1000012" version_string="1.0.0 Alpha 2"><![CDATA[Default map marker icon]]></phrase>
   <phrase title="option.xtMMGoogleMapsApiKey" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Google Maps API Key]]></phrase>
   <phrase title="option.xtMMGoogleMapsJsApiKey" version_id="1000153" version_string="1.0.1 Release Candidate 3"><![CDATA[Google Maps JavaScript API Key]]></phrase>
   <phrase title="option.xtMMShowCluster" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[Enable marker cluster]]></phrase>
   <phrase title="option.xtMMShowPOI" version_id="1000012" version_string="1.0.0 Alpha 2"><![CDATA[Show Points of Interest on map]]></phrase>
+  <phrase title="option.xtMMaccountMap" version_id="1000270" version_string="1.0.2"><![CDATA[Enable minimap in "About user" section]]></phrase>
   <phrase title="option.xtMMautoComplete" version_id="1000152" version_string="1.0.1 Release Candidate 2"><![CDATA[Enable location autocomplete]]></phrase>
   <phrase title="option.xtMMdefaultCenter" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[Default map center]]></phrase>
   <phrase title="option.xtMMdefaultLatLong" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[Default Lat/Long]]></phrase>
@@ -30,6 +27,7 @@ Instructions on generating and retrieving your Google Maps API Keys can be found
 <b>MaxZoom</b>: The maximum zoom level at which clustering is enabled or 0 if clustering is to be enabled at all zoom levels.<br>
 <b>MinClusterSize</b>: The minimum number of markers needed in a cluster before the markers are hidden and a cluster marker appears.]]></phrase>
   <phrase title="option_explain.xtMMShowPOI" version_id="1000012" version_string="1.0.0 Alpha 2"><![CDATA[When enabled, will include points of interest on maps (this is default standard with google maps). Disable this option if you want to "clean up" the map from looking cluttered.]]></phrase>
+  <phrase title="option_explain.xtMMaccountMap" version_id="1000270" version_string="1.0.2"><![CDATA[If enabled, the minimap created for every user with location will be shown in the user account "About" section. It is also just available if the user has set a location and enabled the option "Show me on Membermap".]]></phrase>
   <phrase title="option_explain.xtMMautoComplete" version_id="1000152" version_string="1.0.1 Release Candidate 2"><![CDATA[The ApiKey need access to: Places API<br />
 Instructions on generating and retrieving your Google Maps Places API key can be found <a href="https://developers.google.com/maps/gmp-get-started" target="google">here</a>.]]></phrase>
   <phrase title="option_explain.xtMMdefaultCenter" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[Normally the empty map is centered on the given Lat/Long above. If there're markers on the map, the map is centered on these markers. When these markers are worldwide the map is shown fully. If you want to center the map always on the default Lat/Long use this settings.]]></phrase>
@@ -40,6 +38,7 @@ Instructions on generating and retrieving your Google Maps Places API key can be
   <phrase title="option_explain.xtMMuserActivity" version_id="1000155" version_string="1.0.1 Release Candidate 5"><![CDATA[If enabled, a user must have been active during the last X days to shown on the map.]]></phrase>
   <phrase title="option_group.xt_membermap" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[[XT] Membermap]]></phrase>
   <phrase title="option_group_description.xt_membermap" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Options that control the Membermap add-on.]]></phrase>
+  <phrase title="permission.xt_membermap_show" version_id="1000370" version_string="1.0.3"><![CDATA[Show on membermap]]></phrase>
   <phrase title="permission.xt_membermap_view" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[View membermap]]></phrase>
   <phrase title="permission_interface.xt_membermap" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[[XT] Membermap permission]]></phrase>
   <phrase title="style_prop.xtMMContainerHeight" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Map container height]]></phrase>
@@ -75,10 +74,12 @@ Instructions on generating and retrieving your Google Maps Places API key can be
   <phrase title="xt_mm_filled_location" version_id="1000138" version_string="1.0.1 Beta 8"><![CDATA[User has filled out location field]]></phrase>
   <phrase title="xt_mm_hiding_on_map" version_id="1000138" version_string="1.0.1 Beta 8"><![CDATA[User is hiding from map]]></phrase>
   <phrase title="xt_mm_hybrid" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[Hybrid - displays a mixture of normal and satellite views.]]></phrase>
+  <phrase title="xt_mm_latitude" version_id="1000370" version_string="1.0.3"><![CDATA[Latitude]]></phrase>
   <phrase title="xt_mm_log_in_or_register" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[You must login or register to edit your location]]></phrase>
   <phrase title="xt_mm_log_list" version_id="1000137" version_string="1.0.1 Beta 7"><![CDATA[[XT] Membermap Google API Request Logs]]></phrase>
   <phrase title="xt_mm_logs_disabled" version_id="1000152" version_string="1.0.1 Release Candidate 2"><![CDATA[If you want to log the Google Api calls, you need to enable these in the <a href="?options/groups/xt_membermap/">options</a>. Be aware this is an advanced option.<br />
 For more, use the admin search function.]]></phrase>
+  <phrase title="xt_mm_longitude" version_id="1000370" version_string="1.0.3"><![CDATA[Longitude]]></phrase>
   <phrase title="xt_mm_map_legend" version_id="1000135" version_string="1.0.1 Beta 5"><![CDATA[Membermap legend]]></phrase>
   <phrase title="xt_mm_map_stats" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[Membermap statistics]]></phrase>
   <phrase title="xt_mm_maximum_users" version_id="1000135" version_string="1.0.1 Beta 5"><![CDATA[Maximum users]]></phrase>
@@ -112,10 +113,15 @@ For more, use the admin search function.]]></phrase>
   <phrase title="xt_mm_total_x_members" version_id="1000133" version_string="1.0.1 Beta 3"><![CDATA[Total:&nbsp;{total} members on the map]]></phrase>
   <phrase title="xt_mm_use_the_default_centering" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[Use the default Lat/Long centering above]]></phrase>
   <phrase title="xt_mm_use_the_marker_centering" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[Use the centering on markers on the map]]></phrase>
+  <phrase title="xt_mm_use_the_visitor_centering" version_id="1000370" version_string="1.0.3"><![CDATA[Use the centering on marker of the viewing visitor]]></phrase>
   <phrase title="xt_mm_usergroup_marker_pin" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Membermap Marker Pin]]></phrase>
   <phrase title="xt_mm_usergroup_marker_pin_explain" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[]]></phrase>
   <phrase title="xt_mm_viewing_membermap" version_id="1000131" version_string="1.0.1 Beta 1"><![CDATA[Viewing Membermap]]></phrase>
   <phrase title="xt_mm_widget_display_avatar_explain" version_id="1000135" version_string="1.0.1 Beta 5"><![CDATA[Show users as avatar.]]></phrase>
+  <phrase title="xt_mm_widget_display_latlong" version_id="1000370" version_string="1.0.3"><![CDATA[Show the Lat/lng on the Minimap]]></phrase>
+  <phrase title="xt_mm_widget_display_location" version_id="1000370" version_string="1.0.3"><![CDATA[Show location on Minimap]]></phrase>
   <phrase title="xt_mm_widget_display_user_name_explain" version_id="1000135" version_string="1.0.1 Beta 5"><![CDATA[Show users as username.]]></phrase>
+  <phrase title="xt_mm_your_latitude" version_id="1000370" version_string="1.0.3"><![CDATA[Your Latitude]]></phrase>
   <phrase title="xt_mm_your_location" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[Your location]]></phrase>
+  <phrase title="xt_mm_your_longitude" version_id="1000370" version_string="1.0.3"><![CDATA[Your Longitude]]></phrase>
 </phrases>

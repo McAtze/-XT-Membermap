@@ -3,22 +3,20 @@
 namespace XT\Membermap\Pub\Controller;
 
 use XF\Mvc\ParameterBag;
-use XF\Mvc\Dispatcher;
-use XF\Mvc\Entity\AbstractCollection;
-use XF\Mvc\Entity\Entity;
-use XF\Mvc\Entity\Finder;
-use XF\Mvc\Router;
-use XF\Util\Arr;
+use XF\Pub\Controller\AbstractController;
+use XF\Repository\UserGroup;
+use XF\Repository\UserProfile;
 
-class Membermap extends \XF\Pub\Controller\AbstractController
+use XT\Membermap\XF\Entity\User;
+
+class Membermap extends AbstractController
 {
-
     public function actionIndex(ParameterBag $params)
     {
-        /** @var \XT\Membermap\XF\Entity\User $visitor */
+        /** @var User $visitor */
 		$visitor = \XF::visitor();
         $options = \XF::app()->options();
-        
+
 		if (!$visitor->canViewXtMembermap())
 		{
 			return $this->noPermission();
@@ -35,8 +33,11 @@ class Membermap extends \XF\Pub\Controller\AbstractController
 
         foreach($UserProfiles as $user_id => $userProfile)
         {
-            /** Unset ignored user **/
-            if ($userProfile->isIgnored()) {
+            /** Unset ignored users and user with no permission **/
+            $noView = !$userProfile->User->canViewXtMembermap();
+            $noShow = !$userProfile->User->canShowXtMembermap();
+            if ($userProfile->isIgnored() || $noView || $noShow)
+            {
                 unset($UserProfiles[$user_id]);
                 continue;
             }
@@ -57,6 +58,7 @@ class Membermap extends \XF\Pub\Controller\AbstractController
 
     public function actionMapData($canonical = false)
     {
+        $visitor = \XF::visitor();
         $options = \XF::app()->options();
 
         $this->assertPostOnly();
@@ -74,8 +76,9 @@ class Membermap extends \XF\Pub\Controller\AbstractController
         foreach($UserProfiles as $user_id => $userProfile)
         {
             /** Unset ignored users and user with no permission **/
-            $noPerm = !$userProfile->User->canViewXtMembermap();
-            if ($userProfile->isIgnored() OR $noPerm)
+            $noView = !$userProfile->User->canViewXtMembermap();
+            $noShow = !$userProfile->User->canShowXtMembermap();
+            if ($userProfile->isIgnored() || $noView || $noShow)
             {
                 unset($UserProfiles[$user_id]);
                 continue;
@@ -91,19 +94,22 @@ class Membermap extends \XF\Pub\Controller\AbstractController
             {
                 $iconMarker = $iconUrl;
             }
-            
-            $mapData[$user_id] = [
-                'coords' => [
-                    'lat' => $userProfile->xt_mm_location_lat,
-                    'lng' => $userProfile->xt_mm_location_long,
-                ],
-                'iconUrl' => [
-                    'url' => $iconMarker,
-                ],
-                'title' => $userProfile->User->username,
-                'infoUrl' => $this->buildLink('members',$userProfile->User, ['tooltip' => true]),
-                'content' => '',
-            ];
+
+            if($visitor->user_id)
+            {
+                $mapData[$user_id] = [
+                    'coords' => [
+                        'lat' => $userProfile->xt_mm_location_lat,
+                        'lng' => $userProfile->xt_mm_location_long,
+                    ],
+                    'iconUrl' => [
+                        'url' => $iconMarker,
+                    ],
+                    'title' => $userProfile->User->username,
+                    'infoUrl' => $this->buildLink('members',$userProfile->User, ['tooltip' => true]),
+                    'content' => '',
+                ];
+            }
         }
 
         $jsonParams = [
@@ -112,7 +118,7 @@ class Membermap extends \XF\Pub\Controller\AbstractController
 
         $reply = $this->view('XT\Membermap:MapData','', []);
         $reply->setJsonParams($jsonParams);
-        
+
         return $reply;
     }
 
@@ -135,7 +141,7 @@ class Membermap extends \XF\Pub\Controller\AbstractController
 	}
 
     /**
-     * @return \XF\Repository\UserGroup
+     * @return UserGroup
      */
     protected function getUserGroupRepo()
     {
@@ -143,7 +149,7 @@ class Membermap extends \XF\Pub\Controller\AbstractController
     }
 
     /**
-     * @return \XF\Repository\UserProfile
+     * @return UserProfile
      */
     protected function getUserProfileRepo()
     {

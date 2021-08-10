@@ -15,20 +15,20 @@
     <find><![CDATA[<xf:textboxrow name="profile[location]"]]></find>
     <replace><![CDATA[$0 data-xf-init="xtAutocomplete"]]></replace>
   </modification>
-  <modification type="admin" template="helper_criteria" modification_key="xt_hc_add_criteria" description="Adds criteria" execution_order="10" enabled="0" action="str_replace">
+  <modification type="admin" template="helper_criteria" modification_key="xt_hc_add_criteria" description="Adds criteria" execution_order="10" enabled="1" action="str_replace">
     <find><![CDATA[<!--[XF:user:profile_bottom]-->]]></find>
     <replace><![CDATA[<xf:optgroup label="{{ phrase('location:') }}">
     <xf:option name="user_criteria[location][rule]" value="location" selected="{$criteria.location}"
-               label="{{ phrase('xt_mm_user_has_filled_in_location') }}" />
+               label="{{ phrase('xt_mm_filled_location') }}" />
 
     <xf:option name="user_criteria[not_location][rule]" value="not_location" selected="{$criteria.not_location}"
-               label="{{ phrase('xt_mm_user_has_not_filled_in_location') }}" />
+               label="{{ phrase('xt_mm_not_filled_location') }}" />
  
     <xf:option name="user_criteria[xt_mm_show_in_map][rule]" value="xt_mm_show_in_map" selected="{$criteria.xt_mm_show_in_map}"
-               label="{{ phrase('xt_mm_user_show_in_map') }}" />
+               label="{{ phrase('xt_mm_showing_on_map') }}" />
 
     <xf:option name="user_criteria[xt_mm_hide_in_map][rule]" value="xt_mm_hide_in_map" selected="{$criteria.xt_mm_hide_in_map}"
-               label="{{ phrase('xt_mm_user_hide_in_map') }}" />
+               label="{{ phrase('xt_mm_hiding_on_map') }}" />
 </xf:optgroup>
 
 $0]]></replace>
@@ -38,6 +38,22 @@ $0]]></replace>
     <replace><![CDATA[<xf:include template="xt_mm_helper_user_search_criteria" />
 
 $0]]></replace>
+  </modification>
+  <modification type="public" template="member_about" modification_key="xt_mm_minimap_aboutAccount" description="Insert Minimap in Account &quot;About&quot; tabpane" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:if is="$xf.options.geoLocationUrl">
+									<a href="{{ link('misc/location-info', '', {'location': $user.Profile.location}) }}" rel="nofollow noreferrer" target="_blank" class="u-concealed">{$user.Profile.location}</a>
+								<xf:else />
+									{$user.Profile.location}
+								</xf:if>]]></find>
+    <replace><![CDATA[$0
+
+<xf:if is="$xf.options.xtMMaccountMap && $xf.visitor.canViewXtMembermap()">
+	<div class="xt-mm-minimappreview js-xt-mm-relocate">
+		<a href="{{ link('xt-membermap') }}" rel="nofollow noreferrer" class="u-concealed">
+			{{ xt_minimap($xf.visitor, 's') }}
+		</a>
+	</div>
+</xf:if>]]></replace>
   </modification>
   <modification type="public" template="register_form" modification_key="InsertShowOnMap" description="Insert show on map checkbox" execution_order="5" enabled="1" action="str_replace">
     <find><![CDATA[arg-value="{$fields.location}" />]]></find>

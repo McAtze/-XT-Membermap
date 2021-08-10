@@ -15,9 +15,10 @@ class MapStatistics extends AbstractWidget
 	{
 		/** @var \XT\Membermap\XF\Entity\User $visitor */
 		$visitor = \XF::visitor();
-		$visitor->canViewXtMembermap();
+		$noView = !$visitor->canViewXtMembermap();
+		$noShow = !$visitor->canShowXtMembermap();
 
-		if (!method_exists($visitor, 'canViewXtMembermap') || !$visitor->canViewXtMembermap()) {
+		if (!method_exists($visitor, 'canViewXtMembermap') || $noView || $noShow) {
 			return '';
 		}
 

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language title="Deutsch (Du)" date_format="j M Y" time_format="H:i" currency_format="{value} {symbol}" week_start="1" decimal_point="," thousands_separator="." label_separator=":" comma_separator=", " ellipsis="…" parenthesis_open="(" parenthesis_close=")" language_code="de-DE" text_direction="LTR" user_selectable="" addon_id="XT/Membermap" base_version_id="1000370" export_version="2">
+  <phrase title="admin_navigation.xtMMLog" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[[XT] Mitgliederkarte API-Protokolle]]></phrase>
+  <phrase title="cron_entry.xt_mmCleanUpWeekly" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[[XT] Mitgliederkarte: Tägliche Aufräumarbeiten]]></phrase>
+  <phrase title="nav.xt_membermap" addon_id="XT/Membermap" version_id="1000270" version_string="1.0.2"><![CDATA[Mitgliederkarte]]></phrase>
+  <phrase title="option.xtMMDefaultMapMarkerIcon" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Symbol für die Standard-Kartenmarkierung]]></phrase>
+  <phrase title="option.xtMMGoogleMapsApiKey" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Google Maps API-Schlüssel]]></phrase>
+  <phrase title="option.xtMMGoogleMapsJsApiKey" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Google Maps JavaScript API-Schlüssel]]></phrase>
+  <phrase title="option.xtMMShowCluster" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Marker-Cluster aktivieren]]></phrase>
+  <phrase title="option.xtMMShowPOI" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Sehenswertes (POI) auf der Karte anzeigen]]></phrase>
+  <phrase title="option.xtMMaccountMap" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Minikarte im Profilreiter "Informationen" aktivieren]]></phrase>
+  <phrase title="option.xtMMautoComplete" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Automatische Standortvervollständigung aktivieren]]></phrase>
+  <phrase title="option.xtMMdefaultCenter" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Zentrierung der Standardkarte]]></phrase>
+  <phrase title="option.xtMMdefaultLatLong" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Standard Breiten-/Längengrad]]></phrase>
+  <phrase title="option.xtMMdefaultZoom" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Standard-Zoom der Karte]]></phrase>
+  <phrase title="option.xtMMlogginCalls" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Google API-Aufrufe protokollieren]]></phrase>
+  <phrase title="option.xtMMmapType" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Art der Standardkarte]]></phrase>
+  <phrase title="option.xtMMuserActivity" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Aktivität des Benutzers in den letzten X Tagen]]></phrase>
+  <phrase title="option_explain.xtMMDefaultMapMarkerIcon" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Du kannst deine Standard-Kartenmarkierung hier festlegen. Du kannst unten zwischen den Standardsätzen wechseln oder deine eigene Standardmarkierung hochladen. Diese kann pro Benutzergruppe geändert werden.]]></phrase>
+  <phrase title="option_explain.xtMMGoogleMapsApiKey" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Gib hier deinen Google Maps API-Schlüssel ein.<br />
+Der API-Schlüssel benötigt Zugriff auf: Geocoding API, Maps Static API und Places API.<br />
+Eine Anleitung zum Erstellen und Abrufen eines Google Maps API-Schlüssel findest du <a href="https://developers.google.com/maps/gmp-get-started" target="google">hier</a>.]]></phrase>
+  <phrase title="option_explain.xtMMGoogleMapsJsApiKey" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Gib hier deinen Google Maps JavaScript API-Schlüssel ein.<br />
+Dies ist der öffentliche API-Schlüssel, der in den Templates angezeigt wird, daher solltest du diesen in deiner Google-Konsole einschränken.<br />
+Eine Anleitung zum Erstellen und Abrufen des Google Maps API-Schlüssels findest du <a href="https://developers.google.com/maps/gmp-get-started" target="google">hier</a>.]]></phrase>
+  <phrase title="option_explain.xtMMShowCluster" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Die Zahl auf einem Cluster gibt an, wie viele Marker er enthält. Wenn du in einen der Cluster hineinzoomst, verringert sich die Zahl auf dem Cluster, und du kannst die einzelnen Marker auf der Karte sehen. Wenn du aus der Karte herauszoomst, werden die Markierungen wieder zu Clustern zusammengefasst.<br>
+<b>Max. Zoom</b>: Die maximale Zoomstufe, bei der das Clustering aktiviert wird, oder 0, wenn das Clustering bei allen Zoomstufen aktiviert werden soll.<br>
+<b>Min. Clustergröße </b>: Die minimale Anzahl von Markern in einem Cluster, bevor die Marker ausgeblendet werden und ein Clustermarker erscheint.]]></phrase>
+  <phrase title="option_explain.xtMMShowPOI" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Wenn aktiviert, werden interessante Punkte (POI) auf den Karten angezeigt (dies ist der Standard bei Google Maps). Deaktiviere diese Funktion, wenn du die Karte "aufräumen" willst, damit sie nicht unübersichtlich aussieht.]]></phrase>
+  <phrase title="option_explain.xtMMaccountMap" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Wenn aktiviert, wird die Minikarte, die für jeden Benutzer mit Standort erstellt wurde, im Abschnitt „Informationen" des Benutzerkontos angezeigt. Sie ist auch nur verfügbar, wenn der Benutzer einen Standort festgelegt und die Einstellung „Auf der Mitgliederkarte anzeigen" aktiviert hat.]]></phrase>
+  <phrase title="option_explain.xtMMautoComplete" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Der API-Schlüssel benötigt Zugriff auf: Places API<br />
+Eine Anleitung zum Erstellen und Abrufen des Google Maps Places API-Schlüssels findest du <a href="https://developers.google.com/maps/gmp-get-started" target="_blank">hier</a>.]]></phrase>
+  <phrase title="option_explain.xtMMdefaultCenter" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Normalerweise wird die leere Karte auf die oben angegebene Länge-/Breitengradangabe zentriert. Wenn Markierungen auf der Karte vorhanden sind, wird die Karte auf diese Markierungen zentriert. Wenn diese Markierungen weltweit sind, wird die Karte vollständig angezeigt. Wenn du die Karte immer auf den Standard Längen-/Breitengrad zentrieren willst, verwende diese Einstellung.]]></phrase>
+  <phrase title="option_explain.xtMMdefaultLatLong" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Ausführliche Informationen über Längen- und Breitengrade findest du in diesem <a href="https://www.latlong.net/" target="_blank">Online Längen-/Breitengrad-Finder</a>.]]></phrase>
+  <phrase title="option_explain.xtMMdefaultZoom" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Detaillierte Informationen zu den Zoomstufen findest du in der <a href="https://developers.google.com/maps/documentation/javascript/overview#zoom-levels" target="_blank" >Google Maps Entwicklerdokumentation</a>.]]></phrase>
+  <phrase title="option_explain.xtMMlogginCalls" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Wenn aktiviert, werden alle Google Maps API-Aufrufe protokolliert und innerhalb der angegebenen Anzahl von Tagen gespeichert.]]></phrase>
+  <phrase title="option_explain.xtMMmapType" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Weitere Informationen über Kartentypen findest du in der <a href="https://developers.google.com/maps/documentation/javascript/maptypes" target="_blank">Google Maps Dokumentation</a>.]]></phrase>
+  <phrase title="option_explain.xtMMuserActivity" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Wenn aktiviert, muss ein Nutzer in den letzten X Tagen aktiv gewesen sein, um auf der Karte angezeigt zu werden.]]></phrase>
+  <phrase title="option_group.xt_membermap" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[[XT] Mitgliederkarte]]></phrase>
+  <phrase title="option_group_description.xt_membermap" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Mit Hilfe dieser Einstellungen können die grundsätzlichen Basisdaten zum Add-on festgelegt werden.]]></phrase>
+  <phrase title="permission.xt_membermap_show" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Kann auf der Mitgliederkarte gesehen werden]]></phrase>
+  <phrase title="permission.xt_membermap_view" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Kann Mitgliederkarte sehen]]></phrase>
+  <phrase title="permission_interface.xt_membermap" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Allgemeine Rechte für [XT] Mitgliederkarte]]></phrase>
+  <phrase title="style_prop.xtMMContainerHeight" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Höhe des Containers für die Karte]]></phrase>
+  <phrase title="style_prop.xtMMinfoWindow" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Info-Fenster]]></phrase>
+  <phrase title="style_prop.xtMMinfoWindowItem" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Eintrag im Info-Fenster]]></phrase>
+  <phrase title="style_prop.xtMMmapId" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Google Maps MapID]]></phrase>
+  <phrase title="style_prop_desc.xtMMContainerHeight" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Legt die Höhe des Containers, in dem die Karte dargestellt wird, fest.]]></phrase>
+  <phrase title="style_prop_desc.xtMMinfoWindow" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xtMMinfoWindowItem" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xtMMmapId" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Wenn du deine Karte wie dein Forum gestalten möchtest, kannst du deine eigene Karte auf <a href="https://developers.google.com/maps/documentation/javascript/styling" target="_blank">Google Maps Map Management</a> gestalten und hier deine MapID eingeben.]]></phrase>
+  <phrase title="style_prop_group.xtMMAppearance" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[[XT] Mitgliederkarte]]></phrase>
+  <phrase title="style_prop_group_desc.xtMMAppearance" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[In diesem Bereich kann das Erscheinungsbild des AddOns [XT] Mitgliederkarte verändert werden.]]></phrase>
+  <phrase title="widget_def.xt_mm_map_legend" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[XT: Mitgliederkarte Legende]]></phrase>
+  <phrase title="widget_def.xt_mm_members_on_map" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[XT: Statistik der Mitgliederkarte]]></phrase>
+  <phrase title="widget_def.xt_mm_minimap" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[XT: Minikarte]]></phrase>
+  <phrase title="widget_def_desc.xt_mm_map_legend" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Zeigt eine Legende der Symbole auf der Karte, auf Grundlage der Benutzergruppen, an.]]></phrase>
+  <phrase title="widget_def_desc.xt_mm_members_on_map" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Zeigt alle Mitglieder auf der Karte als Namens- oder Avatarliste an.]]></phrase>
+  <phrase title="widget_def_desc.xt_mm_minimap" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Zeigt eine statische Minikarte mit dem Standort des Besuchers an, wenn er auf der Karte sichtbar ist.]]></phrase>
+  <phrase title="widget_pos.xt_mm_membermap_above" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[[XT] Mitgliederkarte: Oberhalb der Karte]]></phrase>
+  <phrase title="widget_pos.xt_mm_membermap_below" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[[XT] Mitgliederkarte: Unterhalb der Karte]]></phrase>
+  <phrase title="widget_pos.xt_mm_membermap_sidebar" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[[XT] Mitgliederkarte: In der Sidebar der Karte]]></phrase>
+  <phrase title="widget_pos_desc.xt_mm_membermap_above" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Eine Position innerhalb des Hauptinhaltsbereichs der Mitgliederkarte oberhalb der Karte.]]></phrase>
+  <phrase title="widget_pos_desc.xt_mm_membermap_below" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Eine Position innerhalb des Hauptinhaltsbereichs der Mitgliederkarte unterhalb der Karte.]]></phrase>
+  <phrase title="widget_pos_desc.xt_mm_membermap_sidebar" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Eine Position innerhalb der Mitgliederkarte-Sidebar für verschiedene Widgets für Statistiken und neue Inhalte.]]></phrase>
+  <phrase title="xt_mm_GoogleMapsApi_log_entry" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[GoogleMaps API-Protokolleintrag]]></phrase>
+  <phrase title="xt_mm_api_response" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[GoogleMaps API-Antwort]]></phrase>
+  <phrase title="xt_mm_batch_empty_location" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Standortfeld leeren]]></phrase>
+  <phrase title="xt_mm_batch_hiding_from_map" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Aus der Mitgliederkarte entfernen]]></phrase>
+  <phrase title="xt_mm_change_markerPin" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Kartenmarkierung ändern]]></phrase>
+  <phrase title="xt_mm_clusterer_clusterSize" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Minimale Clustergröße für Clustermarker]]></phrase>
+  <phrase title="xt_mm_clusterer_maxZoom" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Maximalen Zoom für Clustermarker]]></phrase>
+  <phrase title="xt_mm_edit_location" addon_id="XT/Membermap" version_id="1000270" version_string="1.0.2"><![CDATA[Standort bearbeiten]]></phrase>
+  <phrase title="xt_mm_filled_location" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Benutzer hat das Standortfeld ausgefüllt]]></phrase>
+  <phrase title="xt_mm_hiding_on_map" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Benutzer ist NICHT auf der Mitgliederkarte]]></phrase>
+  <phrase title="xt_mm_hybrid" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Hybrid - zeigt eine Mischung aus normalen und Satellitenansichten an.]]></phrase>
+  <phrase title="xt_mm_latitude" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Breitengrad]]></phrase>
+  <phrase title="xt_mm_log_in_or_register" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Du musst dich einloggen oder registrieren, um deinen Standort zu bearbeiten]]></phrase>
+  <phrase title="xt_mm_log_list" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[[XT] Mitgliederkarte GoogleMaps API-Protokolle]]></phrase>
+  <phrase title="xt_mm_logs_disabled" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Wenn du die Google API-Aufrufe protokollieren möchtest, musst du diese in den <a href="?options/groups/xt_membermap/">Einstellungen</a> aktivieren. Beachte, dass dies eine erweiterte Einstellung ist.<br />
+Weitere Informationen findest du in der Admin-Suchfunktion.]]></phrase>
+  <phrase title="xt_mm_longitude" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Längengrad]]></phrase>
+  <phrase title="xt_mm_map_legend" addon_id="XT/Membermap" version_id="1000270" version_string="1.0.2"><![CDATA[Legende der Mitgliederkarte]]></phrase>
+  <phrase title="xt_mm_map_stats" addon_id="XT/Membermap" version_id="1000270" version_string="1.0.2"><![CDATA[Statistik der Mitgliederkarte]]></phrase>
+  <phrase title="xt_mm_maximum_users" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Maximale Anzahl an Benutzern]]></phrase>
+  <phrase title="xt_mm_maximum_users_explain" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Um zu verhindern, dass das 'Mitgliederkarte'-Widget bei einem stark frequentierten Forum zu groß wird, kannst du die Anzahl der Namen hier eingrenzen und ein "... und X weitere"-Eintrag mit der restlichen Anzahl an Nutzer hinzufügen. Verwende den Wert 0 um die Einschränkung zu deaktivieren.]]></phrase>
+  <phrase title="xt_mm_membermap" addon_id="XT/Membermap" version_id="1000270" version_string="1.0.2"><![CDATA[[XT] Mitgliederkarte]]></phrase>
+  <phrase title="xt_mm_minimap" addon_id="XT/Membermap" version_id="1000270" version_string="1.0.2"><![CDATA[Minikarte]]></phrase>
+  <phrase title="xt_mm_no_location_in_profile" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Du hast keinen Standort in deinen Kontodetails angegeben. Um deinen Standort auf der Karte anzuzeigen, fülle bitte das Standortfeld in deinem <a href="{account}">Benutzerkonto</a> aus.]]></phrase>
+  <phrase title="xt_mm_not_filled_location" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Benutzer hat das Standortfeld NICHT ausgefüllt]]></phrase>
+  <phrase title="xt_mm_rebuild_all_mapData" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[ALLE Standortdaten neu erstellen]]></phrase>
+  <phrase title="xt_mm_rebuild_all_mapData_explain" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Wenn du ALLE Standortdaten neu erstellen möchtest und nicht nur die leeren Standortdaten, aktiviere dieses Kästchen. Beachte die Google API-Aufrufe, dies könnte zusätzliche Kosten verursachen.]]></phrase>
+  <phrase title="xt_mm_rebuild_userMapData" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[[XT] Mitgliederkarte: Benutzer Breiten-/Längenangaben neu erstellen]]></phrase>
+  <phrase title="xt_mm_rebuild_userMapData_explain" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Wenn du eine Massenneuerstellung aller Standortdaten starten möchtest, klicke auf "Jetzt neu erstellen".]]></phrase>
+  <phrase title="xt_mm_rebuild_userMapHide" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[[XT] Mitgliederkarte: ALLE Benutzer in der Karte ausblenden]]></phrase>
+  <phrase title="xt_mm_rebuild_userMapHide_explain" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Wenn du alle Benutzer auf der Karte ausblenden möchtest, klicke auf "Jetzt neu erstellen".]]></phrase>
+  <phrase title="xt_mm_rebuild_userMapShow" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[[XT] Mitgliederkarte: ALLE Benutzer auf der Karte anzeigen]]></phrase>
+  <phrase title="xt_mm_rebuild_userMapShow_explain" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Wenn du alle Benutzer in der Karte anzeigen lassen möchtest, klicke auf "Jetzt neu erstellen".]]></phrase>
+  <phrase title="xt_mm_rebuilding_userMapData" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Standortdaten neu erstellen]]></phrase>
+  <phrase title="xt_mm_remove_minimap" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Minikarte entfernen]]></phrase>
+  <phrase title="xt_mm_roadmap" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Straßenkarte - zeigt die Standardansicht der Straßenkarte an. Dies ist der Standardkartentyp.]]></phrase>
+  <phrase title="xt_mm_satellite" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Satellit - zeigt Satellitenbilder von Google Earth an.]]></phrase>
+  <phrase title="xt_mm_set_different_location_manually" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Abweichenden Standort manuell festlegen]]></phrase>
+  <phrase title="xt_mm_show_on_map" addon_id="XT/Membermap" version_id="1000270" version_string="1.0.2"><![CDATA[Auf der Mitgliederkarte anzeigen]]></phrase>
+  <phrase title="xt_mm_show_on_map_explain" addon_id="XT/Membermap" version_id="1000270" version_string="1.0.2"><![CDATA[Wenn aktiviert, können andere Benutzer deinen Standort auf der Mitgliederkarte sehen.]]></phrase>
+  <phrase title="xt_mm_showing_on_map" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Benutzer ist auf der Mitgliederkarte]]></phrase>
+  <phrase title="xt_mm_stats_below_map" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Unterhalb der Karte anzeigen]]></phrase>
+  <phrase title="xt_mm_stats_in_sidebar" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[In der Sidebar anzeigen]]></phrase>
+  <phrase title="xt_mm_terrain" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Terrain - zeigt eine physische Karte auf der Grundlage von Geländeinformationen an.]]></phrase>
+  <phrase title="xt_mm_the_api_code_seems_to_be_invalid" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Es scheint, dass der API-Schlüssel nicht gültig ist oder eine der benötigten Funktionen nicht verwendet werden darf.]]></phrase>
+  <phrase title="xt_mm_this_will_delete_the_minimap_by_x" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Dadurch wird die von <b>{user}</b> erstellte Minikarte gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.]]></phrase>
+  <phrase title="xt_mm_title" addon_id="XT/Membermap" version_id="1000270" version_string="1.0.2"><![CDATA[Mitgliederkarte]]></phrase>
+  <phrase title="xt_mm_total_x_members" addon_id="XT/Membermap" version_id="1000270" version_string="1.0.2"><![CDATA[Gesamt:&nbsp;{total} Mitglieder auf der Karte]]></phrase>
+  <phrase title="xt_mm_use_the_default_centering" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Verwende die obige Standardzentrierung Breite-/Längegrad]]></phrase>
+  <phrase title="xt_mm_use_the_marker_centering" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Verwende die Zentrierung auf Markierungen auf der Karte]]></phrase>
+  <phrase title="xt_mm_use_the_visitor_centering" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Verwende die Zentrierung auf den Marker des Betrachters]]></phrase>
+  <phrase title="xt_mm_usergroup_marker_pin" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Markierung für die Mitgliederkarte]]></phrase>
+  <phrase title="xt_mm_usergroup_marker_pin_explain" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Du kannst hier die Standardmarkierung auf der Karte für diese Benutzergruppe überschreiben.]]></phrase>
+  <phrase title="xt_mm_viewing_membermap" addon_id="XT/Membermap" version_id="1000270" version_string="1.0.2"><![CDATA[Betrachtet die Mitgliederkarte]]></phrase>
+  <phrase title="xt_mm_widget_display_avatar_explain" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Die Benutzer als Avatar anzeigen.]]></phrase>
+  <phrase title="xt_mm_widget_display_latlong" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Breiten-/Längengrad in der Minikarte anzeigen]]></phrase>
+  <phrase title="xt_mm_widget_display_location" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Standort in der Minikarte anzeigen]]></phrase>
+  <phrase title="xt_mm_widget_display_user_name_explain" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Die Benutzer als Benutzernamen anzeigen.]]></phrase>
+  <phrase title="xt_mm_your_latitude" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Dein Breitengrad]]></phrase>
+  <phrase title="xt_mm_your_location" addon_id="XT/Membermap" version_id="1000270" version_string="1.0.2"><![CDATA[Dein Standort]]></phrase>
+  <phrase title="xt_mm_your_longitude" addon_id="XT/Membermap" version_id="1000370" version_string="1.0.3"><![CDATA[Dein Längengrad]]></phrase>
+</language>

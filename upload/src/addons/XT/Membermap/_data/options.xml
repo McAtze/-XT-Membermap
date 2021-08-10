@@ -25,14 +25,19 @@ clusterSize</sub_options>
     <default_value>1</default_value>
     <relation group_id="xt_membermap" display_order="300"/>
   </option>
+  <option option_id="xtMMaccountMap" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="xt_membermap" display_order="505"/>
+  </option>
   <option option_id="xtMMautoComplete" edit_format="onoff" data_type="boolean">
     <default_value>0</default_value>
-    <relation group_id="xt_membermap" display_order="302"/>
+    <relation group_id="xt_membermap" display_order="501"/>
   </option>
   <option option_id="xtMMdefaultCenter" edit_format="radio" data_type="string">
     <default_value>default</default_value>
     <edit_format_params>default={{ phrase('xt_mm_use_the_default_centering') }}
-markers={{ phrase('xt_mm_use_the_marker_centering') }}</edit_format_params>
+markers={{ phrase('xt_mm_use_the_marker_centering') }}
+visitor={{ phrase('xt_mm_use_the_visitor_centering') }}</edit_format_params>
     <relation group_id="xt_membermap" display_order="211"/>
   </option>
   <option option_id="xtMMdefaultLatLong" edit_format="template" data_type="array" validation_class="\XT\Membermap\Option\GoogleLatLng" validation_method="verifyOption">
@@ -79,6 +84,6 @@ default=180
 units={{ phrase('units_days') }}</edit_format_params>
     <sub_options>enabled
 days</sub_options>
-    <relation group_id="xt_membermap" display_order="303"/>
+    <relation group_id="xt_membermap" display_order="520"/>
   </option>
 </options>

@@ -148,8 +148,9 @@
                 this.bounds.extend(extendPoint1);
                 this.bounds.extend(extendPoint2);
             }
-            
-            if(this.options.center !== 'default')
+
+            var oc = this.options.center;
+            if(oc === 'markers')
             {
                 this.map.fitBounds(this.bounds);
                 this.map.panToBounds(this.bounds);

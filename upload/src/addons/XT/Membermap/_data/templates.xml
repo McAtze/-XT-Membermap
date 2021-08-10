@@ -19,19 +19,6 @@
 		<xf:include template="xt_mm_pinselector" />
 	</dd>
 </dl>				   ]]></template>
-  <template type="admin" title="kirby_ausc_helper_user_search_criteria" version_id="1000270" version_string="1.0.2"><![CDATA[<xf:checkboxrow name="criteria[receive_admin_email]" readonly="{$readOnly}"
-	label="{{ phrase('receive_admin_email') }}">
-
-	<xf:option value="0" selected="in_array(0, $criteria.receive_admin_email)">{{ phrase('not_receive_admin_email') }}</xf:option>
-	<xf:option value="1" selected="in_array(1, $criteria.receive_admin_email)">{{ phrase('receive_admin_email') }}</xf:option>
-</xf:checkboxrow>
-
-<xf:checkboxrow name="criteria[terms_privacy]" readonly="{$readOnly}"
-	label="{{ phrase('terms_privacy') }}">
-
-	<xf:option value="privacy_policy_accepted" selected="in_array('privacy_policy_accepted', $criteria.terms_privacy)">{{ phrase('privacy_policy_accepted') }}</xf:option>
-	<xf:option value="terms_accepted" selected="in_array('terms_accepted', $criteria.terms_privacy)">{{ phrase('terms_accepted') }}</xf:option>
-</xf:checkboxrow>]]></template>
   <template type="admin" title="option_xt_membermap_defaut_pin" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[<xf:js src="xt/membermap/admin.js" min="1" />
 <xf:css src="xt_mm.less" />
 
@@ -54,7 +41,7 @@
 		<xf:include template="xt_mm_pinselector" />
 	</dd>
 </dl>]]></template>
-  <template type="admin" title="option_xt_mm_default_latlong" version_id="1000112" version_string="1.0.1 Alpha 2"><![CDATA[<xf:formrow rowtype="input"
+  <template type="admin" title="option_xt_mm_default_latlong" version_id="1000370" version_string="1.0.3"><![CDATA[<xf:formrow rowtype="input"
 	label="{$option.title}"
 	hint="{$hintHtml}"
 	explain="{$explainHtml}"
@@ -62,9 +49,9 @@
 	rowclass="{$rowClass}">
 
 	<div class="inputGroup inputGroup--numbers">
-		<span class="inputGroup-text">Latitude</span>
+		<span class="inputGroup-text">{{ phrase('xt_mm_latitude') }}</span>
 		<xf:textbox name="{$inputName}[lat]" value="{$option.option_value.lat}" />
-		<span class="inputGroup-text">Longitude</span>
+		<span class="inputGroup-text">{{ phrase('xt_mm_longitude') }}</span>
 		<xf:textbox name="{$inputName}[long]" value="{$option.option_value.long}" />
 	</div>
 </xf:formrow>]]></template>
@@ -103,6 +90,12 @@
 		label="{{ phrase('avatar') }}"
 		hint="{{ phrase('xt_mm_widget_display_avatar_explain') }}" />
 </xf:radiorow>]]></template>
+  <template type="admin" title="widget_def_options_xt_mm_minimap" version_id="1000370" version_string="1.0.3"><![CDATA[<hr class="formRowSep" />
+
+<xf:checkboxrow>
+	<xf:option name="options[xt_mm_location]" selected="$options.xt_mm_location">{{ phrase('xt_mm_widget_display_location') }}</xf:option>
+	<xf:option name="options[xt_mm_latlong]" selected="$options.xt_mm_latlong">{{ phrase('xt_mm_widget_display_latlong') }}</xf:option>
+</xf:checkboxrow>]]></template>
   <template type="admin" title="xt_mm.less" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[.xt--mm-imagepreview {
     background-size: contain;
 	background-repeat: no-repeat;
@@ -472,10 +465,18 @@ ul.xtMapMarkerPreview {
 
 	<xf:redirect />
 </xf:form>]]></template>
-  <template type="public" title="xt_mm_index" version_id="1000270" version_string="1.0.2"><![CDATA[<xf:set var="$googleJsApiKey" value="{$xf.options.xtMMGoogleMapsJsApiKey}" />
+  <template type="public" title="xt_mm_index" version_id="1000370" version_string="1.0.3"><![CDATA[<xf:set var="$googleJsApiKey" value="{$xf.options.xtMMGoogleMapsJsApiKey}" />
 <xf:set var="$googleMapsId" value="{{ property('xtMMmapId') }}" />
 <xf:set var="$region" value="{$xf.language.language_code|substr(3, 2)}" />
 <xf:set var="$language" value="{$xf.language.language_code|substr(0, 2)}" />
+<xf:set var="$defaultCenter" value="{{ $xf.options.xtMMdefaultCenter }}" />
+<xf:if is="$defaultCenter == 'visitor'">
+	<xf:set var="$defaultLat" value="{$xf.visitor.Profile.xt_mm_location_lat}" />
+	<xf:set var="$defaultLng" value="{$xf.visitor.Profile.xt_mm_location_long}" />
+<xf:else />
+	<xf:set var="$defaultLat" value="{{ $xf.options.xtMMdefaultLatLong.lat }}" />
+	<xf:set var="$defaultLng" value="{{ $xf.options.xtMMdefaultLatLong.long }}" />
+</xf:if>
 
 <xf:title>{{ phrase('xt_mm_title') }}</xf:title>
 <xf:if is="!{$xf.visitor.Profile.location_}">
@@ -524,9 +525,9 @@ ul.xtMapMarkerPreview {
 				<div id="membermap" class="xt-membermap" 
 					 data-xf-init="xtMembermap" 
 					 data-mapurl="{{ link('xt-membermap/mapdata') }}" 
-					 data-latitude="{{ $xf.options.xtMMdefaultLatLong.lat }}" 
-					 data-longitude="{{ $xf.options.xtMMdefaultLatLong.long }}" 
-					 data-center="{{ $xf.options.xtMMdefaultCenter }}" 
+					 data-latitude="{$defaultLat}" 
+					 data-longitude="{$defaultLng}" 
+					 data-center="{$defaultCenter}" 
 					 data-zoom="{{ $xf.options.xtMMdefaultZoom }}" 
 					 data-poi="{{ $xf.options.xtMMShowPOI }}" 
 					 data-cluster="{{ $xf.options.xtMMShowCluster.enabled }}" 
@@ -628,14 +629,35 @@ ul.xtMapMarkerPreview {
 		</div>
 	</div>
 </xf:if>]]></template>
-  <template type="public" title="xt_mm_widget_minimap" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[<xf:if is="$xf.visitor.Profile.xt_mm_show_on_map">
+  <template type="public" title="xt_mm_widget_minimap" version_id="1000370" version_string="1.0.3"><![CDATA[<xf:if is="$xf.visitor.Profile.xt_mm_show_on_map">
 	<xf:css src="xt_mm.less" />
 	<div class="block"{{ widget_data($widget) }} data-type="xt_membermap_legend">
 		<div class="block-container">
 			<h3 class="block-minorHeader">{{ phrase('xt_mm_minimap') }}</h3>
 			<div class="block-body xt-mm-widget">
 				<div class="block-row block-row--minor">
-					<div><strong>{{ phrase('xt_mm_your_location:') }}</strong></div>
+					<xf:if is="$location">
+						<dl class="pairs pairs--justified">
+							<dt>{{ phrase('xt_mm_your_location') }}</dt>
+							<dd>
+								<xf:if is="$xf.options.geoLocationUrl">
+									<a href="{{ link('misc/location-info', '', {'location': $user.Profile.location}) }}" rel="nofollow noreferrer" target="_blank" class="u-concealed">{$user.Profile.location}</a>
+									<xf:else />
+									{$user.Profile.location}
+								</xf:if>
+							</dd>
+						</dl>
+					</xf:if>
+					<xf:if is="$latlong">
+						<dl class="pairs pairs--justified">
+							<dt>{{ phrase('xt_mm_your_latitude') }}</dt>
+							<dd>{$user.Profile.xt_mm_location_lat}</dd>
+						</dl>
+						<dl class="pairs pairs--justified">
+							<dt>{{ phrase('xt_mm_your_longitude') }}</dt>
+							<dd>{$user.Profile.xt_mm_location_long}</dd>
+						</dl>
+					</xf:if>					
                     {{ xt_minimap($xf.visitor, 'l') }}
 				</div>
 			</div>

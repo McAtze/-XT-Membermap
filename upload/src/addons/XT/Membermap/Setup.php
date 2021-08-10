@@ -45,7 +45,7 @@ class Setup extends AbstractSetup
 
 		$this->schemaManager()->alterTable('xf_user_group', function (Alter $table) 
 		{
-			$table->addColumn('xt_mm_markerPin', 'varchar', 255);
+			$table->addColumn('xt_mm_markerPin', 'varchar', 255)->setDefault('');
 		});
 	}
 
@@ -73,39 +73,46 @@ class Setup extends AbstractSetup
 	// ################################ UPGRADE TO 1.0.1 B3 ##################
 	public function upgrade1000133Step1()
 	{
-		$this->query("
-			ALTER TABLE `xf_user_profile` 
-			MODIFY `xt_mm_location_lat` DOUBLE(40,30) DEFAULT 0,
-			MODIFY `xt_mm_location_long` DOUBLE(40,30) DEFAULT 0;
-		");
+        $this->schemaManager()->alterTable('xf_user_profile', function(Alter $table)
+        {
+            $table->changeColumn('xt_mm_location_lat', 'double(40,30)')->setDefault(0)->after('location');
+            $table->changeColumn('xt_mm_location_long', 'double(40,30)')->setDefault(0)->after('xt_mm_location_lat');
+        });
 	}
 
 	// ################################ UPGRADE TO 1.0.1 B5 ##################
 	public function upgrade1000135Step1()
 	{
-		$this->query("
-			ALTER TABLE `xf_user_group` 
-			MODIFY `xt_mm_markerPin` VARCHAR(255);
-		");
+        $this->schemaManager()->alterTable('xf_user_group', function (Alter $table)
+        {
+            $table->changeColumn('xt_mm_markerPin', 'varchar', 255);
+        });
 	}
 
 	// ################################ UPGRADE TO 1.0.1 B8 ##################
 	public function upgrade1000138Step1()
 	{
-		$this->query("
-		CREATE TABLE xf_xt_mm_log (
-			log_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-			user_id INT UNSIGNED NOT NULL,
-			request_date INT UNSIGNED NOT NULL,
-			request_url TEXT NOT NULL,
-			request_status TEXT NOT NULL,
-			request_data MEDIUMBLOB NOT NULL,
-			PRIMARY KEY (log_id),
-			KEY request_date (request_date),
-			KEY user_id_request_date (user_id, request_date)
-		) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci
-		");
+        $this->schemaManager()->createTable('xf_xt_mm_log', function(Create $table)
+        {
+            $table->addColumn('log_id', 'int')->autoIncrement();
+            $table->addColumn('user_id', 'int');
+            $table->addColumn('request_date', 'int');
+            $table->addColumn('request_url', 'text');
+            $table->addColumn('request_status', 'text');
+            $table->addColumn('request_data', 'mediumblob');
+            $table->addKey('request_date');
+            $table->addKey(['user_id', 'request_date']);
+        });
 	}
+
+    // ################################ UPGRADE TO 1.0.3 ##################
+    public function upgrade1000370Step1()
+    {
+        $this->schemaManager()->alterTable('xf_user_group', function (Alter $table)
+        {
+            $table->changeColumn('xt_mm_markerPin', 'varchar', 255)->setDefault('');
+        });
+    }
 
 	// ############################################ UNINSTALL #########################
 	public function uninstallStep1()
@@ -189,7 +196,6 @@ class Setup extends AbstractSetup
 		if (!$previousVersion)
 		{
 			$this->applyGlobalPermission('xt_membermap', 'view', 'general', 'viewProfile');
-	
 			$applied = true;
 		}
 

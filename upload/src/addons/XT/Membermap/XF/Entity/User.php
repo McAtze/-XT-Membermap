@@ -12,6 +12,11 @@ class User extends XFCP_User
 		return $this->hasPermission('xt_membermap', 'view');
 	}
 
+    public function canShowXtMembermap()
+    {
+        return $this->hasPermission('xt_membermap', 'show');
+    }
+
 	public function getAbstractedMinimapPath()
 	{
 		$userId = $this->user_id;

@@ -10,12 +10,12 @@ class MapLegend extends AbstractWidget
 	{
 		/** @var \XT\Membermap\XF\Entity\User $visitor */
 		$visitor = \XF::visitor();
-        $visitor->canViewXtMembermap();
-        
-		if (!method_exists($visitor, 'canViewXtMembermap') || !$visitor->canViewXtMembermap())
-		{
-			return '';
-		}
+        $noView = !$visitor->canViewXtMembermap();
+        $noShow = !$visitor->canShowXtMembermap();
+
+        if (!method_exists($visitor, 'canViewXtMembermap') || $noView || $noShow) {
+            return '';
+        }
 
         $pather = \XF::app()['request.pather'];
 

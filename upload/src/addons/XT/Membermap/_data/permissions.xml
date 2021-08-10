@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <permissions>
+  <permission permission_group_id="xt_membermap" permission_id="show" permission_type="flag" interface_group_id="xt_membermap" display_order="2"/>
   <permission permission_group_id="xt_membermap" permission_id="view" permission_type="flag" interface_group_id="xt_membermap" display_order="1"/>
 </permissions>
