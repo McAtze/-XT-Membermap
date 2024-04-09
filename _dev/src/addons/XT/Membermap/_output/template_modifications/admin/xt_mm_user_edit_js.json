@@ -1,0 +1,9 @@
+{
+    "template": "user_edit",
+    "description": "Add autocomplete JS",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/$/",
+    "replace": "<xf:include template=\"public:xt_mm_autocomplete\" />"
+}

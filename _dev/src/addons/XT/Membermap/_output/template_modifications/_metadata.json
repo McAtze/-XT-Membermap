@@ -1,0 +1,35 @@
+{
+    "admin/xt_hc_add_criteria.json": {
+        "hash": "83054a5c5866e7df42d4cb67391d426b"
+    },
+    "admin/xt_mm_helper_user_search_criteria.json": {
+        "hash": "e6d81b8867f9c4eeda09a31d3eb45ac8"
+    },
+    "admin/xt_mm_user_batch_update_confirm.json": {
+        "hash": "aaabee85b2a8b66c9398145843ad0c53"
+    },
+    "admin/xt_mm_user_edit_action_button.json": {
+        "hash": "cd3f5fc6344a32df54c4df447eaeb03a"
+    },
+    "admin/xt_mm_user_edit_autocomplete.json": {
+        "hash": "365d8c56c5eb8cf3d33dbf00465ffa31"
+    },
+    "admin/xt_mm_user_edit_js.json": {
+        "hash": "81e47d2ba38be8782f89929f74054ed7"
+    },
+    "public/xt_membermap_account_details_js.json": {
+        "hash": "0dfb3de1852b7cb7a270d50370d7f5d7"
+    },
+    "public/xt_mm_account_details_autocomplete.json": {
+        "hash": "d7027c0fbc3790fd6ce7799fc6407f2d"
+    },
+    "public/xt_mm_minimap_aboutAccount.json": {
+        "hash": "a59c99947fa8a55c1442e7153a7886bd"
+    },
+    "public/xt_mm_register_macros_autocomplete.json": {
+        "hash": "c923417eb4c7f0c0fec621f135c06f36"
+    },
+    "public/xt_mm_register_macros_js.json": {
+        "hash": "18434d95eb911a09a2694468e692ed21"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "template": "user_batch_update_confirm",
+    "description": "Insert UserBatchUpdate Actions",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:option name=\"actions[disable_activity_summary_email]\">{{ phrase('disable_activity_summary_email') }}</xf:option>",
+    "replace": "$0\n<xf:option name=\"actions[xt_mm_empty_location]\">{{ phrase('xt_mm_batch_empty_location') }}</xf:option>\n<xf:option name=\"actions[xt_mm_hiding_from_map]\">{{ phrase('xt_mm_batch_hiding_from_map') }}</xf:option>"
+}

@@ -1,0 +1,18 @@
+<xf:title>{{ phrase('xt_mm_GoogleMapsApi_log_entry') }}</xf:title>
+
+<div class="block">
+	<div class="block-container">
+		<div class="block-body block-row">
+			<span class="u-ltr">{$entry.request_url}</span>
+			<ul class="listInline listInline--bullet u-muted">
+				<li>{{ phrase('generated_by:') }} {{ $entry.User ? '<a href="' . link('users/edit', $entry) . '">' . $entry.User.username . '</a>' : phrase('unknown_account') }}</li>
+				<li><xf:date time="{$entry.request_date}" /></li>
+			</ul>
+		</div>
+
+		<h3 class="block-minorHeader">{{ phrase('xt_mm_api_response') }}</h3>
+		<div class="block-body block-body--contained block-row" dir="ltr">
+			{{ dump($entry.request_data) }}
+		</div>
+	</div>
+</div>

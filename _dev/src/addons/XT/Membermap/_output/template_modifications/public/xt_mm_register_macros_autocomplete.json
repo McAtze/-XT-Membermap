@@ -1,0 +1,9 @@
+{
+    "template": "register_macros",
+    "description": "Add location autocomplete",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "label=\"{{ phrase('location') }}\"",
+    "replace": "$0 data-xf-init=\"xtAutocomplete\""
+}

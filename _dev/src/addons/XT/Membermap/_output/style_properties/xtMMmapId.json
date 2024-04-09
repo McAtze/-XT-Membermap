@@ -1,0 +1,13 @@
+{
+    "group_name": "xtMMAppearance",
+    "title": "Google Maps MapID",
+    "description": "If you want to style your map like your community, feel free to style your own map at <a href=\"https://developers.google.com/maps/documentation/javascript/styling\" target=\"_blank\">Google Maps Map Management</a> and insert your MapID.",
+    "property_type": "value",
+    "css_components": [],
+    "value_type": "string",
+    "value_parameters": "",
+    "depends_on": "",
+    "value_group": "",
+    "property_value": "",
+    "display_order": 40
+}

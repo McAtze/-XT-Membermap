@@ -1,0 +1,3 @@
+Input your Google Maps API Key here. <br />
+The ApiKey need access to: Geocoding API, Maps Static API and Places API<br />
+Instructions on generating and retrieving your Google Maps Geocoding API key can be found <a href="https://developers.google.com/maps/gmp-get-started" target="google">here</a>.

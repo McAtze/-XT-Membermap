@@ -1,0 +1,38 @@
+{
+    "xtMMDefaultMapMarkerIcon.json": {
+        "hash": "1120ff4789d0f93fb2737ee6aece1501"
+    },
+    "xtMMGoogleMapsApiKey.json": {
+        "hash": "180578081bc9db68ff4ab3090fb4e1f7"
+    },
+    "xtMMGoogleMapsJsApiKey.json": {
+        "hash": "528dd25b8b52fdac5a71cd06dca6a8d9"
+    },
+    "xtMMShowCluster.json": {
+        "hash": "530462fa34c58ef20d456304bf0e7f6f"
+    },
+    "xtMMaccountMap.json": {
+        "hash": "697934a3502312120b926481ab528833"
+    },
+    "xtMMautoComplete.json": {
+        "hash": "590e3fceb39ea8d14c6f22812ae68029"
+    },
+    "xtMMdefaultCenter.json": {
+        "hash": "579edc7277c00f87e11319139737b110"
+    },
+    "xtMMdefaultLatLong.json": {
+        "hash": "d42a59afb20775631237ef8f97756dc4"
+    },
+    "xtMMdefaultZoom.json": {
+        "hash": "b739e1de0b13e949a8ea579b54d19a63"
+    },
+    "xtMMlogginCalls.json": {
+        "hash": "038722911d20b152b9456b0a59ed6e45"
+    },
+    "xtMMmapType.json": {
+        "hash": "3336b8dadc3dcee31519590e9c05a9f4"
+    },
+    "xtMMuserActivity.json": {
+        "hash": "d409945e398c1e7254d31b61bd7e7d30"
+    }
+}

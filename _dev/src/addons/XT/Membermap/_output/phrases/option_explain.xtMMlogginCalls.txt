@@ -1,0 +1,1 @@
+When enabled, all Google Maps Api calls will be logged and stored within the specified number of days.

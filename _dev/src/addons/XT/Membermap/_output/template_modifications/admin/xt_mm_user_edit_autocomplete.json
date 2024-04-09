@@ -1,0 +1,9 @@
+{
+    "template": "user_edit",
+    "description": "Add location autocomplete",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:textboxrow name=\"profile[location]\"",
+    "replace": "$0 data-xf-init=\"xtAutocomplete\""
+}

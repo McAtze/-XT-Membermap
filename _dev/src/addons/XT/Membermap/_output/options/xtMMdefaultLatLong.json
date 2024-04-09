@@ -1,0 +1,16 @@
+{
+    "edit_format": "template",
+    "edit_format_params": "template=option_xt_mm_default_latlong",
+    "data_type": "array",
+    "sub_options": [
+        "lat",
+        "long"
+    ],
+    "validation_class": "\\XT\\Membermap\\Option\\GoogleLatLng",
+    "validation_method": "verifyOption",
+    "advanced": false,
+    "default_value": "{\"lat\":\"54.525963\",\"long\":\"15.255119\"}",
+    "relations": {
+        "xt_membermap": 210
+    }
+}

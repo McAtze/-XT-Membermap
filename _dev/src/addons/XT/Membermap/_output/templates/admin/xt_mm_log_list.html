@@ -1,0 +1,91 @@
+<xf:title>{{ phrase('xt_mm_log_list') }}</xf:title>
+
+<xf:if is="!$xf.options.xtMMlogginCalls.enabled">
+	<div class="blockMessage blockMessage--important blockMessage--iconic">
+		{{ phrase('xt_mm_logs_disabled') }}
+	</div>
+<xf:else />
+	<xf:form action="{{ link('xt-api-logs') }}" class="block">
+		<div class="block-container">
+			<div class="block-body block-row">
+				<span>
+					{{ phrase('filter_by_user:') }}
+					<xf:select name="user_id" value="{$userId}" class="input--inline">
+						<xf:option value="0">{{ phrase('any') }}</xf:option>
+						<xf:options source="$logUsers" />
+					</xf:select>
+				</span>
+
+				<xf:button type="submit">{{ phrase('filter') }}</xf:button>
+			</div>
+		</div>
+	</xf:form>
+	
+	<xf:if is="$logs is not empty">
+		<xf:form action="{{ link('xt-api-logs/mass-delete') }}" ajax="true" class="block">
+			<div class="block-container">
+				<div class="block-body">
+					<xf:datalist data-xf-init="responsive-data-list">
+						<colgroup>
+							<col>
+							<col style="width: 15%">
+							<col style="width: 5%">
+							<col style="width: 5%">
+							<col style="width: 9%">
+						</colgroup>
+
+						<xf:datarow rowtype="subsection">
+							<xf:cell class="dataList-cell--min">
+								<xf:checkbox standalone="true">
+									<xf:option check-all="< .block-container" data-xf-init="tooltip" title="{{ phrase('select_all')|for_attr }}" />
+								</xf:checkbox>
+							</xf:cell>
+							<xf:cell>{{ phrase('action') }}</xf:cell>
+							<xf:cell>{{ phrase('status') }}</xf:cell>
+							<xf:cell>{{ phrase('user') }}</xf:cell>
+							<xf:cell>{{ phrase('date_time') }}</xf:cell>
+						</xf:datarow>
+
+						<xf:foreach loop="$logs" value="$log">
+							<xf:datarow>
+								<xf:toggle name="delete[]" value="{$log.log_id}" />
+								<xf:cell class="u-ltr"><a href="{{ link('xt-api-logs', $log) }}" data-xf-click="overlay">{$log.request_url_short}</a></xf:cell>
+								<xf:cell>{$log.request_status}</xf:cell>
+								<xf:cell>
+									<xf:if is="$log.User">
+										<xf:username user="$log.User" href="{{ link('users/edit', $log.User) }}" />
+									<xf:else />
+										{{ phrase('unknown_account') }}
+									</xf:if>
+								</xf:cell>
+								<xf:cell><xf:date time="{$log.request_date}" /></xf:cell>
+							</xf:datarow>
+						</xf:foreach>
+
+					</xf:datalist>
+
+				</div>
+				<div class="block-footer block-footer--split">
+					<span class="block-footer-counter">{{ display_totals($logs, $total) }}</span>
+
+					<span class="block-footer-select">
+						<xf:checkbox standalone="true">
+							<xf:option check-all="< .block-container" label="{{ phrase('select_all') }}" />
+						</xf:checkbox>
+					</span>
+
+					<span class="block-footer-controls">
+						<xf:button type="submit" icon="delete" />
+					</span>
+				</div>
+			</div>
+
+			<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+				link="xt-api-logs" params="{$linkFilters}"
+				wrapperclass="block-outer block-outer--after" />
+
+		</xf:form>
+	<xf:else />	
+		<div class="blockMessage">{{ phrase('no_records_matched') }}</div>
+	</xf:if>
+</xf:if>

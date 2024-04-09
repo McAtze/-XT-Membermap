@@ -1,0 +1,1 @@
+If enabled, a user must have been active during the last X days to shown on the map.

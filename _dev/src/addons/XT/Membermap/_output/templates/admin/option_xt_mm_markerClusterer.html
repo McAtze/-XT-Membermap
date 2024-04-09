@@ -1,0 +1,19 @@
+<xf:checkboxrow
+	hint="{$hintHtml}"
+	explain="{$explainHtml}"
+	html="{$listedHtml}"
+	rowclass="{$rowClass}">
+
+	<xf:option name="{$inputName}[enabled]" selected="$option.option_value.enabled" label="{$option.title}">
+		<xf:dependent>
+			<dl class="inputLabelPair">
+				<dt><label for="{$inputName}_zoom">{{ phrase('xt_mm_clusterer_maxZoom') }}</label></dt>
+				<dd><xf:numberbox name="{$inputName}[maxZoom]" id="{$inputName}_zoom" value="{{ $option.option_value.enabled ? $option.option_value.maxZoom : '15' }}" min="1" /></dd>
+			</dl>
+			<dl class="inputLabelPair">
+				<dt><label for="{$inputName}_size">{{ phrase('xt_mm_clusterer_clusterSize') }}</label></dt>
+				<dd><xf:numberbox name="{$inputName}[clusterSize]" id="{$inputName}_size" value="{{ $option.option_value.enabled ? $option.option_value.clusterSize : '2' }}" min="1" /></dd>
+			</dl>
+		</xf:dependent>
+	</xf:option>
+</xf:checkboxrow>

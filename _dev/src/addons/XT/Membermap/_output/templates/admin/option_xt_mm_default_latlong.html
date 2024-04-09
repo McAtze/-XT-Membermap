@@ -1,0 +1,14 @@
+<xf:formrow rowtype="input"
+	label="{$option.title}"
+	hint="{$hintHtml}"
+	explain="{$explainHtml}"
+	html="{$listedHtml}"
+	rowclass="{$rowClass}">
+
+	<div class="inputGroup inputGroup--numbers">
+		<span class="inputGroup-text">{{ phrase('xt_mm_latitude') }}</span>
+		<xf:textbox name="{$inputName}[lat]" value="{$option.option_value.lat}" />
+		<span class="inputGroup-text">{{ phrase('xt_mm_longitude') }}</span>
+		<xf:textbox name="{$inputName}[long]" value="{$option.option_value.long}" />
+	</div>
+</xf:formrow>

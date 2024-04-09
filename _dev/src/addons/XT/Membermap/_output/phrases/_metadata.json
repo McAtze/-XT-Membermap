@@ -1,0 +1,302 @@
+{
+    "admin_navigation.xtMMLog.txt": {
+        "global_cache": false,
+        "version_id": 1000137,
+        "version_string": "1.0.1 Beta 7",
+        "hash": "ca612282d85207ac2e8f41baa703f7be"
+    },
+    "cron_entry.xt_mmCleanUpWeekly.txt": {
+        "global_cache": false,
+        "version_id": 1000152,
+        "version_string": "1.0.1 Release Candidate 2",
+        "hash": "c5f8b9fd722278dd1ce3fc3ad5840136"
+    },
+    "option.xtMMGoogleMapsJsApiKey.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "3c38c6bc863f161a896862fc4ae6a436"
+    },
+    "option.xtMMaccountMap.txt": {
+        "global_cache": false,
+        "version_id": 1000270,
+        "version_string": "1.0.2",
+        "hash": "602681a88af3cc3d3042289804def162"
+    },
+    "option.xtMMautoComplete.txt": {
+        "global_cache": false,
+        "version_id": 1000152,
+        "version_string": "1.0.1 Release Candidate 2",
+        "hash": "7e1fd9ae86d4a2c1c370d06f7dec4941"
+    },
+    "option.xtMMdefaultCenter.txt": {
+        "global_cache": false,
+        "version_id": 1000154,
+        "version_string": "1.0.1 Release Candidate 4",
+        "hash": "754ef14da8dafda915f4c90812c0afb4"
+    },
+    "option.xtMMlogginCalls.txt": {
+        "global_cache": false,
+        "version_id": 1000152,
+        "version_string": "1.0.1 Release Candidate 2",
+        "hash": "6406363bb157f1e2d6e7d402954ead88"
+    },
+    "option.xtMMuserActivity.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "06ecfb7d83a0ef5bd395d5c144ca55ac"
+    },
+    "option_explain.xtMMDefaultMapMarkerIcon.txt": {
+        "global_cache": false,
+        "version_id": 1000151,
+        "version_string": "1.0.1 Release Candidate 1",
+        "hash": "785c4a601e5de8e619cbc94e60f0e041"
+    },
+    "option_explain.xtMMGoogleMapsApiKey.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "a10c80e17ff089447d5fe5350514a8ef"
+    },
+    "option_explain.xtMMGoogleMapsJsApiKey.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "507b2e9544b3b57b63ddad00b85dff46"
+    },
+    "option_explain.xtMMShowCluster.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "db99d5464f3b24b2abe0e162cf0f58ac"
+    },
+    "option_explain.xtMMaccountMap.txt": {
+        "global_cache": false,
+        "version_id": 1000270,
+        "version_string": "1.0.2",
+        "hash": "8d92fcf716c79d8c550c79aaf8e55339"
+    },
+    "option_explain.xtMMautoComplete.txt": {
+        "global_cache": false,
+        "version_id": 1000152,
+        "version_string": "1.0.1 Release Candidate 2",
+        "hash": "b79c1c978ce4308ef2cc647acf77b58b"
+    },
+    "option_explain.xtMMdefaultCenter.txt": {
+        "global_cache": false,
+        "version_id": 1000154,
+        "version_string": "1.0.1 Release Candidate 4",
+        "hash": "06d074a0f72f8a12a8591c1e5aa4e61d"
+    },
+    "option_explain.xtMMlogginCalls.txt": {
+        "global_cache": false,
+        "version_id": 1000152,
+        "version_string": "1.0.1 Release Candidate 2",
+        "hash": "a78c98a9044f1b7959ab91302d263093"
+    },
+    "option_explain.xtMMuserActivity.txt": {
+        "global_cache": false,
+        "version_id": 1000155,
+        "version_string": "1.0.1 Release Candidate 5",
+        "hash": "1ca6b365306e817fb03b6a8dcf34fe3f"
+    },
+    "permission.xt_membermap_show.txt": {
+        "global_cache": false,
+        "version_id": 1000370,
+        "version_string": "1.0.3",
+        "hash": "06e34416c504d0d11982abed4e7695db"
+    },
+    "style_prop.xtMMmapId.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "bbc0e8da1590c2fc8b2ac3fea5c9f7fb"
+    },
+    "style_prop_desc.xtMMmapId.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "f16652f955c848af4c434f45013ca0d1"
+    },
+    "xt_mm_GoogleMapsApi_log_entry.txt": {
+        "global_cache": false,
+        "version_id": 1000151,
+        "version_string": "1.0.1 Release Candidate 1",
+        "hash": "46c17f09a18bb286cb12758ded3e01d8"
+    },
+    "xt_mm_api_response.txt": {
+        "global_cache": false,
+        "version_id": 1000151,
+        "version_string": "1.0.1 Release Candidate 1",
+        "hash": "c83d225ecded2f0ca70728e881bdfebe"
+    },
+    "xt_mm_batch_empty_location.txt": {
+        "global_cache": false,
+        "version_id": 1000270,
+        "version_string": "1.0.2",
+        "hash": "e6a20dce168395ae9a23ca13f81e6c68"
+    },
+    "xt_mm_batch_hiding_from_map.txt": {
+        "global_cache": false,
+        "version_id": 1000270,
+        "version_string": "1.0.2",
+        "hash": "5557dc94de52274f00c2e041b562ee56"
+    },
+    "xt_mm_change_markerPin.txt": {
+        "global_cache": false,
+        "version_id": 1000154,
+        "version_string": "1.0.1 Release Candidate 4",
+        "hash": "90e090cad583e147281cb0f4aecf0e7c"
+    },
+    "xt_mm_clusterer_clusterSize.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "59ac3683f242a765f01f046c3bd01994"
+    },
+    "xt_mm_clusterer_maxZoom.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "6076a3664b863aa139e2802c33097d0a"
+    },
+    "xt_mm_filled_location.txt": {
+        "global_cache": false,
+        "version_id": 1000138,
+        "version_string": "1.0.1 Beta 8",
+        "hash": "cc9bc478d0ee442f582803ae65110484"
+    },
+    "xt_mm_hiding_on_map.txt": {
+        "global_cache": false,
+        "version_id": 1000138,
+        "version_string": "1.0.1 Beta 8",
+        "hash": "428c753792a862860d93e019ed6f60a1"
+    },
+    "xt_mm_latitude.txt": {
+        "global_cache": false,
+        "version_id": 1000370,
+        "version_string": "1.0.3",
+        "hash": "3b0eb7469ba9c95f3a05c4cef1f6aac4"
+    },
+    "xt_mm_log_in_or_register.txt": {
+        "global_cache": false,
+        "version_id": 1000154,
+        "version_string": "1.0.1 Release Candidate 4",
+        "hash": "3dd2d27beb35b55e307ca5576b57f2c9"
+    },
+    "xt_mm_log_list.txt": {
+        "global_cache": false,
+        "version_id": 1000137,
+        "version_string": "1.0.1 Beta 7",
+        "hash": "4b7e513341decbd646ad088a4bcf5d46"
+    },
+    "xt_mm_logs_disabled.txt": {
+        "global_cache": false,
+        "version_id": 1000152,
+        "version_string": "1.0.1 Release Candidate 2",
+        "hash": "28163fecbfa49931fe1f5a45129ec86e"
+    },
+    "xt_mm_longitude.txt": {
+        "global_cache": false,
+        "version_id": 1000370,
+        "version_string": "1.0.3",
+        "hash": "9b4dabc50f0b8ccba1c8981831abdad8"
+    },
+    "xt_mm_membermap.txt": {
+        "global_cache": false,
+        "version_id": 1000138,
+        "version_string": "1.0.1 Beta 8",
+        "hash": "8ff6b1ca691002cbb0c77734ed217f6c"
+    },
+    "xt_mm_not_filled_location.txt": {
+        "global_cache": false,
+        "version_id": 1000138,
+        "version_string": "1.0.1 Beta 8",
+        "hash": "091809b4ffdf358278bcaa2847efa88d"
+    },
+    "xt_mm_rebuild_all_mapData.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "0e267bb4170f14aff846741f6ea82c41"
+    },
+    "xt_mm_rebuild_all_mapData_explain.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "89e09a01628c1cf10521679184cd88e7"
+    },
+    "xt_mm_rebuilding_userMapData.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "fa19aa7fe6df63be16b3b970e5deb0d1"
+    },
+    "xt_mm_remove_minimap.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "7e1bc50ac30790adffef4a07519ac5b0"
+    },
+    "xt_mm_set_different_location_manually.txt": {
+        "global_cache": false,
+        "version_id": 1000138,
+        "version_string": "1.0.1 Beta 8",
+        "hash": "25026e9e23d9d861ec3b78fc238d55d4"
+    },
+    "xt_mm_showing_on_map.txt": {
+        "global_cache": false,
+        "version_id": 1000138,
+        "version_string": "1.0.1 Beta 8",
+        "hash": "1f349a33b508cc307e96138ecd2f31e6"
+    },
+    "xt_mm_this_will_delete_the_minimap_by_x.txt": {
+        "global_cache": false,
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "ab2069ae26644e886dd204030099d095"
+    },
+    "xt_mm_use_the_default_centering.txt": {
+        "global_cache": false,
+        "version_id": 1000154,
+        "version_string": "1.0.1 Release Candidate 4",
+        "hash": "03fa806b5a74c02249f920325fe30a65"
+    },
+    "xt_mm_use_the_marker_centering.txt": {
+        "global_cache": false,
+        "version_id": 1000154,
+        "version_string": "1.0.1 Release Candidate 4",
+        "hash": "c1d661f6b1bfde8ae2cd1d5feea77fc1"
+    },
+    "xt_mm_use_the_visitor_centering.txt": {
+        "global_cache": false,
+        "version_id": 1000370,
+        "version_string": "1.0.3",
+        "hash": "13bd1beb1643c2d157293208b2eef7c1"
+    },
+    "xt_mm_widget_display_latlong.txt": {
+        "global_cache": false,
+        "version_id": 1000370,
+        "version_string": "1.0.3",
+        "hash": "211b22cad8e9975dd7c072af74e4d4e1"
+    },
+    "xt_mm_widget_display_location.txt": {
+        "global_cache": false,
+        "version_id": 1000370,
+        "version_string": "1.0.3",
+        "hash": "0ae1d91205dc79ba696df96c2451dfd6"
+    },
+    "xt_mm_your_latitude.txt": {
+        "global_cache": false,
+        "version_id": 1000370,
+        "version_string": "1.0.3",
+        "hash": "0329ed23e0afdd03b8247b7bd5fa7ee8"
+    },
+    "xt_mm_your_longitude.txt": {
+        "global_cache": false,
+        "version_id": 1000370,
+        "version_string": "1.0.3",
+        "hash": "32ef6b0db4bd5c5bbffebd170fb79160"
+    }
+}

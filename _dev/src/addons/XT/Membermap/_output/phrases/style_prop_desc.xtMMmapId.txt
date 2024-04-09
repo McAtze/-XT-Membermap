@@ -1,0 +1,1 @@
+If you want to style your map like your community, feel free to style your own map at <a href="https://developers.google.com/maps/documentation/javascript/styling" target="_blank">Google Maps Map Management</a> and insert your MapID.

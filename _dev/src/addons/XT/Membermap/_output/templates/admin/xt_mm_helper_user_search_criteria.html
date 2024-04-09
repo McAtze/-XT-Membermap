@@ -1,0 +1,13 @@
+<xf:checkboxrow name="criteria[xt_mm_location]" readonly="{$readOnly}"
+	label="{{ phrase('location') }}">
+
+	<xf:option value="0" selected="in_array(0, $criteria.xt_mm_location)">{{ phrase('xt_mm_not_filled_location') }}</xf:option>
+	<xf:option value="1" selected="in_array(1, $criteria.xt_mm_location)">{{ phrase('xt_mm_filled_location') }}</xf:option>
+</xf:checkboxrow>
+
+<xf:checkboxrow name="criteria[xt_mm_show_on_map]" readonly="{$readOnly}"
+	label="{{ phrase('xt_mm_membermap') }}">
+
+	<xf:option value="0" selected="in_array(0, $criteria.xt_mm_show_on_map)">{{ phrase('xt_mm_hiding_on_map') }}</xf:option>
+	<xf:option value="1" selected="in_array(1, $criteria.xt_mm_show_on_map)">{{ phrase('xt_mm_showing_on_map') }}</xf:option>
+</xf:checkboxrow>

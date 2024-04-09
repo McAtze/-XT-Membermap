@@ -1,0 +1,79 @@
+<xf:set var="$googleJsApiKey" value="{$xf.options.xtMMGoogleMapsJsApiKey}" />
+<xf:set var="$googleMapsId" value="{{ property('xtMMmapId') }}" />
+<xf:set var="$region" value="{$xf.language.language_code|substr(3, 2)}" />
+<xf:set var="$language" value="{$xf.language.language_code|substr(0, 2)}" />
+<xf:set var="$defaultCenter" value="{{ $xf.options.xtMMdefaultCenter }}" />
+<xf:if is="$defaultCenter == 'visitor'">
+	<xf:set var="$defaultLat" value="{$xf.visitor.Profile.xt_mm_location_lat}" />
+	<xf:set var="$defaultLng" value="{$xf.visitor.Profile.xt_mm_location_long}" />
+<xf:else />
+	<xf:set var="$defaultLat" value="{{ $xf.options.xtMMdefaultLatLong.lat }}" />
+	<xf:set var="$defaultLng" value="{{ $xf.options.xtMMdefaultLatLong.long }}" />
+</xf:if>
+
+<xf:title>{{ phrase('xt_mm_title') }}</xf:title>
+<xf:if is="!{$xf.visitor.Profile.location_}">
+	<xf:description>{{ phrase('xt_mm_no_location_in_profile', {'account': link('account/account-details')}) }}</xf:description>
+</xf:if>
+
+<xf:css src="xt_mm.less" />
+<xf:css src="account_avatar.less" />
+<xf:css src="member_tooltip.less" />
+<xf:js prod="xf/avatar-compiled.js" dev="xf/avatar.js" />
+<xf:if is="$googleMapsId">
+	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$googleJsApiKey}&region={$region}&language={$language}&map_ids={$googleMapsId}" />
+<xf:else />
+	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$googleJsApiKey}&region={$region}&language={$language}" />
+</xf:if>
+<xf:js src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js" />
+<xf:js prod="xt/membermap/map.js" dev="xt/membermap/map.min.js" />
+<xf:js src="xt/membermap/oms.min.js" />
+
+<xf:macro template="metadata_macros" name="canonical_url" arg-canonicalUrl="{{ link('canonical:xt-membermap') }}" />
+
+<xf:if is="$xf.visitor.user_id">
+	<xf:pageaction>
+		<xf:button href="{{ link('account/account-details') }}" class="button--cta" fa="fa-map-marked">
+			{{ phrase('xt_mm_edit_location')}}
+		</xf:button>
+	</xf:pageaction>
+<xf:else />
+	<xf:if is="$xf.options.registrationSetup.enabled">
+		<xf:pageaction>
+			<xf:button href="{{ link('login') }}" class="button--link button--wrap" overlay="true">
+				{{ phrase('xt_mm_log_in_or_register') }}
+			</xf:button>
+		</xf:pageaction>
+	</xf:if>	
+</xf:if>
+
+<xf:widgetpos id="xt_mm_membermap_sidebar" position="sidebar" context-userdata="{$userData}" />
+
+<xf:widgetpos id="xt_mm_membermap_above" context-userdata="{$userData}" />
+
+<div class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="block-row">
+				<div id="membermap" class="xt-membermap" 
+					 data-xf-init="xtMembermap" 
+					 data-mapurl="{{ link('xt-membermap/mapdata') }}" 
+					 data-latitude="{$defaultLat}" 
+					 data-longitude="{$defaultLng}" 
+					 data-center="{$defaultCenter}" 
+					 data-zoom="{{ $xf.options.xtMMdefaultZoom }}" 
+					 data-poi="{{ $xf.options.xtMMShowPOI }}" 
+					 data-cluster="{{ $xf.options.xtMMShowCluster.enabled }}" 
+					 data-max-zoom="{{ $xf.options.xtMMShowCluster.maxZoom }}" 
+					 data-min-cluster-size="{{ $xf.options.xtMMShowCluster.clusterSize }}" 
+					 data-cluster-path="{$clusterPath}" 
+					 data-maptype="{{ $xf.options.xtMMmapType }}" 
+					 data-mapid="{{ property('xtMMmapId') }}" 
+					 data-change-location="true" >
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<xf:widgetpos id="xt_mm_membermap_below" context-userdata="{$userData}" />

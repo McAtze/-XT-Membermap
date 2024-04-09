@@ -1,0 +1,2 @@
+If you want to log the Google Api calls, you need to enable these in the <a href="?options/groups/xt_membermap/">options</a>. Be aware this is an advanced option.<br />
+For more, use the admin search function.

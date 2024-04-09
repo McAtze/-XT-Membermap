@@ -1,0 +1,31 @@
+<xf:set var="$userMapDataBody">
+	<xf:inforow>{{ phrase('xt_mm_rebuild_userMapData_explain') }}</xf:inforow>
+	<xf:checkboxrow>
+		<xf:option name="options[all]" value="1"
+			label="{{ phrase('xt_mm_rebuild_all_mapData') }}"
+			hint="{{ phrase('xt_mm_rebuild_all_mapData_explain') }}" />
+	</xf:checkboxrow>
+</xf:set>
+<xf:macro template="tools_rebuild" name="rebuild_job"
+		  arg-header="{{ phrase('xt_mm_rebuild_userMapData') }}"
+		  arg-body="{$userMapDataBody}"
+		  arg-job="XT\Membermap:UserMapData" />
+<!--[XF:after_xt_mm_rebuild_userMapData]-->
+
+<xf:set var="$userMapShowBody">
+	<xf:inforow>{{ phrase('xt_mm_rebuild_userMapShow_explain') }}</xf:inforow>
+</xf:set>
+<xf:macro template="tools_rebuild" name="rebuild_job"
+		  arg-header="{{ phrase('xt_mm_rebuild_userMapShow') }}"
+		  arg-body="{$userMapShowBody}"
+		  arg-job="XT\Membermap:UserMapShow" />
+<!--[XF:after_xt_mm_rebuild_userMapShow]-->
+
+<xf:set var="$userMapHideBody">
+	<xf:inforow>{{ phrase('xt_mm_rebuild_userMapHide_explain') }}</xf:inforow>
+</xf:set>
+<xf:macro template="tools_rebuild" name="rebuild_job"
+		  arg-header="{{ phrase('xt_mm_rebuild_userMapHide') }}"
+		  arg-body="{$userMapHideBody}"
+		  arg-job="XT\Membermap:UserMapHide" />
+<!--[XF:after_xt_mm_rebuild_userMapHide]-->

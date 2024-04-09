@@ -1,0 +1,1 @@
+Normally the empty map is centered on the given Lat/Long above. If there're markers on the map, the map is centered on these markers. When these markers are worldwide the map is shown fully. If you want to center the map always on the default Lat/Long use this settings.

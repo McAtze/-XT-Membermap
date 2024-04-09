@@ -1,0 +1,13 @@
+{
+    "edit_format": "select",
+    "edit_format_params": "roadmap={{ phrase('xt_mm_roadmap') }}\nsatellite={{ phrase('xt_mm_satellite') }}\nhybrid={{ phrase('xt_mm_hybrid') }}\nterrain={{ phrase('xt_mm_terrain') }}",
+    "data_type": "string",
+    "sub_options": [],
+    "validation_class": "",
+    "validation_method": "",
+    "advanced": false,
+    "default_value": "roadmap",
+    "relations": {
+        "xt_membermap": 220
+    }
+}

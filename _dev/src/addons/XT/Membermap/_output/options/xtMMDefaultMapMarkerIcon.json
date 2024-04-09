@@ -1,0 +1,13 @@
+{
+    "edit_format": "template",
+    "edit_format_params": "template=option_xt_membermap_defaut_pin",
+    "data_type": "string",
+    "sub_options": [],
+    "validation_class": "",
+    "validation_method": "",
+    "advanced": false,
+    "default_value": "styles/default/xt/membermap/map_markers/red-dot.png",
+    "relations": {
+        "xt_membermap": 100
+    }
+}

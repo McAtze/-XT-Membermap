@@ -1,0 +1,72 @@
+{
+    "admin/option_xt_mm_default_latlong.html": {
+        "version_id": 1000370,
+        "version_string": "1.0.3",
+        "hash": "a993375c6cc2828397dc0ffb84bc77b5"
+    },
+    "admin/option_xt_mm_markerClusterer.html": {
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "3f898177b1e74dcede5aac0b672d9d90"
+    },
+    "admin/widget_def_options_xt_mm_minimap.html": {
+        "version_id": 1000370,
+        "version_string": "1.0.3",
+        "hash": "a653f76c770ae4e26aa8f82d355536a7"
+    },
+    "admin/xt_mm_helper_user_search_criteria.html": {
+        "version_id": 1000270,
+        "version_string": "1.0.2",
+        "hash": "ddbe085de34baefa3abf9371b696bac6"
+    },
+    "admin/xt_mm_log_delete.html": {
+        "version_id": 1000151,
+        "version_string": "1.0.1 Release Candidate 1",
+        "hash": "cff8fc21716e76d9e4e74e2d8010776e"
+    },
+    "admin/xt_mm_log_list.html": {
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "b4d19f3b63fed5826a73c38621344d3a"
+    },
+    "admin/xt_mm_log_view.html": {
+        "version_id": 1000151,
+        "version_string": "1.0.1 Release Candidate 1",
+        "hash": "60a4c67249a24c92db88a97de6292e17"
+    },
+    "admin/xt_mm_tools_rebuild.html": {
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "b5c692e9c022ebe20f1db2585da8c4e3"
+    },
+    "admin/xt_mm_user_remove_minimap.html": {
+        "version_id": 1000153,
+        "version_string": "1.0.1 Release Candidate 3",
+        "hash": "b25da40fd8da2a03da44d8e8cc64854c"
+    },
+    "public/xt_mm_autocomplete.html": {
+        "version_id": 1000170,
+        "version_string": "1.0.1",
+        "hash": "abe837cdb8b722f2cfa817744e91d930"
+    },
+    "public/xt_mm_change_markerPin.html": {
+        "version_id": 1000154,
+        "version_string": "1.0.1 Release Candidate 4",
+        "hash": "ef52149a202104a4b7fe7795f94596a4"
+    },
+    "public/xt_mm_index.html": {
+        "version_id": 1000370,
+        "version_string": "1.0.3",
+        "hash": "9989c56420667047106ff770e72f6ce8"
+    },
+    "public/xt_mm_macros.html": {
+        "version_id": 1000154,
+        "version_string": "1.0.1 Release Candidate 4",
+        "hash": "ccdddfdc05ff5afcfd559ec1eedc1d98"
+    },
+    "public/xt_mm_widget_minimap.html": {
+        "version_id": 1000370,
+        "version_string": "1.0.3",
+        "hash": "5e4a47fb40ae4a251f4fa62447bdf6ea"
+    }
+}

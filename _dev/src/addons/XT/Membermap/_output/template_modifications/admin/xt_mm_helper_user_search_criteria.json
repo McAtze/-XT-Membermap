@@ -1,0 +1,9 @@
+{
+    "template": "helper_user_search_criteria",
+    "description": "Add search criteria",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:checkboxrow name=\"criteria[user_state]\" readonly=\"{$readOnly}\"",
+    "replace": "<xf:include template=\"xt_mm_helper_user_search_criteria\" />\n\n$0"
+}

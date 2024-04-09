@@ -1,0 +1,1 @@
+If you want to rebuild ALL location data instead of just the empty location data check this box. Be aware the google api calls. This could cause costs.

@@ -1,0 +1,9 @@
+{
+    "template": "user_edit",
+    "description": "Add user edit action button",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<!--[XF:actions_menu:bottom]-->",
+    "replace": "<xf:if is=\"!$user.is_super_admin\">\n\t<a href=\"{{ link('users/xt-remove-minimap', $user) }}\" class=\"menu-linkRow\" data-xf-click=\"overlay\">{{ phrase('xt_mm_remove_minimap') }}</a>\n</xf:if>\n\n$0"
+}

@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Job\\UserAction",
+    "to_class": "XT\\Membermap\\XF\\Job\\UserAction",
+    "execute_order": 10,
+    "active": true
+}

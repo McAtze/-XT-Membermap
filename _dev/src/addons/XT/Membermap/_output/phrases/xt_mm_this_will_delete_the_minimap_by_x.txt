@@ -1,0 +1,1 @@
+This will delete the minimap created by <b>{user}</b>. This action cannot be undone.

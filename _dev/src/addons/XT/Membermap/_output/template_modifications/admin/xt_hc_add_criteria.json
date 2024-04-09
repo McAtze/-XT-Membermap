@@ -1,0 +1,9 @@
+{
+    "template": "helper_criteria",
+    "description": "Adds criteria",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<!--[XF:user:profile_bottom]-->",
+    "replace": "<xf:optgroup label=\"{{ phrase('location:') }}\">\n    <xf:option name=\"user_criteria[location][rule]\" value=\"location\" selected=\"{$criteria.location}\"\n               label=\"{{ phrase('xt_mm_filled_location') }}\" />\n\n    <xf:option name=\"user_criteria[not_location][rule]\" value=\"not_location\" selected=\"{$criteria.not_location}\"\n               label=\"{{ phrase('xt_mm_not_filled_location') }}\" />\n \n    <xf:option name=\"user_criteria[xt_mm_show_in_map][rule]\" value=\"xt_mm_show_in_map\" selected=\"{$criteria.xt_mm_show_in_map}\"\n               label=\"{{ phrase('xt_mm_showing_on_map') }}\" />\n\n    <xf:option name=\"user_criteria[xt_mm_hide_in_map][rule]\" value=\"xt_mm_hide_in_map\" selected=\"{$criteria.xt_mm_hide_in_map}\"\n               label=\"{{ phrase('xt_mm_hiding_on_map') }}\" />\n</xf:optgroup>\n\n$0"
+}

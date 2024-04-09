@@ -1,0 +1,3 @@
+Input your Google Maps JavaScript API Key here. <br />
+This is the public Api key shown in the template, so it is better to restrict these on at your Google Console.<br />
+Instructions on generating and retrieving your Google Maps API Keys can be found <a href="https://developers.google.com/maps/gmp-get-started" target="google">here</a>.

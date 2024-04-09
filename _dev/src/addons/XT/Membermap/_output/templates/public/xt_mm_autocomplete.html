@@ -1,0 +1,4 @@
+<xf:if is="$xf.options.xtMMautoComplete">
+	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsJsApiKey}&region={$xf.language.language_code|substr(3, 2)}&language={$xf.language.language_code|substr(0, 2)}&libraries=places" />
+	<xf:js src="xt/membermap/autocomplete.js" />
+</xf:if>

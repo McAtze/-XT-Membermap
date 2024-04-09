@@ -1,0 +1,9 @@
+{
+    "event_id": "entity_post_save",
+    "execute_order": 10,
+    "callback_class": "XT\\Membermap\\Listener",
+    "callback_method": "entityPostSaveUser",
+    "active": true,
+    "hint": "XF\\Entity\\User",
+    "description": "Check if UserState or UserGroup is changed"
+}

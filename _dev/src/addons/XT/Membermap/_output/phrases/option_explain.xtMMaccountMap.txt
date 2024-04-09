@@ -1,0 +1,1 @@
+If enabled, the minimap created for every user with location will be shown in the user account "About" section. It is also just available if the user has set a location and enabled the option "Show me on Membermap".

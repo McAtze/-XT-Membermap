@@ -1,0 +1,13 @@
+{
+    "edit_format": "radio",
+    "edit_format_params": "default={{ phrase('xt_mm_use_the_default_centering') }}\nmarkers={{ phrase('xt_mm_use_the_marker_centering') }}\nvisitor={{ phrase('xt_mm_use_the_visitor_centering') }}",
+    "data_type": "string",
+    "sub_options": [],
+    "validation_class": "",
+    "validation_method": "",
+    "advanced": false,
+    "default_value": "default",
+    "relations": {
+        "xt_membermap": 211
+    }
+}

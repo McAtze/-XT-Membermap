@@ -1,0 +1,11 @@
+{
+    "parent_navigation_id": "members",
+    "display_order": 1,
+    "navigation_type_id": "basic",
+    "type_config": {
+        "link": "{{ link('xt-membermap') }}",
+        "display_condition": "$xf.visitor.canViewXtMembermap()",
+        "extra_attributes": []
+    },
+    "enabled": true
+}

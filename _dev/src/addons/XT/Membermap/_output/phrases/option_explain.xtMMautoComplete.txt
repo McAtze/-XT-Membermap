@@ -1,0 +1,2 @@
+The ApiKey need access to: Places API<br />
+Instructions on generating and retrieving your Google Maps Places API key can be found <a href="https://developers.google.com/maps/gmp-get-started" target="google">here</a>.

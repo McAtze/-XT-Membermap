@@ -1,0 +1,9 @@
+{
+    "template": "register_macros",
+    "description": "Add autocomplete JS",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:if is=\"$xf.options.registrationSetup.requireLocation",
+    "replace": "<xf:include template=\"xt_mm_autocomplete\" />\n\t$0"
+}

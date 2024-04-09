@@ -1,0 +1,9 @@
+{
+    "event_id": "user_delete_clean_init",
+    "execute_order": 10,
+    "callback_class": "XT\\Membermap\\Listener",
+    "callback_method": "userDeleteCleanInit",
+    "active": true,
+    "hint": "",
+    "description": "Register the clean up queries that need to run when a user is deleted."
+}

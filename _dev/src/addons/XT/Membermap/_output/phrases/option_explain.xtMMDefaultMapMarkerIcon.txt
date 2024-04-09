@@ -1,0 +1,1 @@
+Choose your default map marker. You can switch below between the default sets or upload your own default marker. These can be changed per user group.

@@ -1,0 +1,35 @@
+<xf:if is="$xf.visitor.Profile.xt_mm_show_on_map">
+	<xf:css src="xt_mm.less" />
+	<div class="block"{{ widget_data($widget) }} data-type="xt_membermap_legend">
+		<div class="block-container">
+			<h3 class="block-minorHeader">{{ phrase('xt_mm_minimap') }}</h3>
+			<div class="block-body xt-mm-widget">
+				<div class="block-row block-row--minor">
+					<xf:if is="$location">
+						<dl class="pairs pairs--justified">
+							<dt>{{ phrase('xt_mm_your_location') }}</dt>
+							<dd>
+								<xf:if is="$xf.options.geoLocationUrl">
+									<a href="{{ link('misc/location-info', '', {'location': $user.Profile.location}) }}" rel="nofollow noreferrer" target="_blank" class="u-concealed">{$user.Profile.location}</a>
+									<xf:else />
+									{$user.Profile.location}
+								</xf:if>
+							</dd>
+						</dl>
+					</xf:if>
+					<xf:if is="$latlong">
+						<dl class="pairs pairs--justified">
+							<dt>{{ phrase('xt_mm_your_latitude') }}</dt>
+							<dd>{$user.Profile.xt_mm_location_lat}</dd>
+						</dl>
+						<dl class="pairs pairs--justified">
+							<dt>{{ phrase('xt_mm_your_longitude') }}</dt>
+							<dd>{$user.Profile.xt_mm_location_long}</dd>
+						</dl>
+					</xf:if>					
+                    {{ xt_minimap($xf.visitor, 'l') }}
+				</div>
+			</div>
+		</div>
+	</div>
+</xf:if>
