@@ -7,6 +7,10 @@
     "js/xt/membermap/admin.js",
     "js/xt/membermap/autocomplete.js",
     "js/xt/membermap/map.js",
-    "js/xt/membermap/changeMarker.js"
+    "js/xt/membermap/changeMarker.js",
+    "js/xt/membermap/oms.js"
+  ],
+  "exec": [
+    "echo '{title} version {version_string} ({version_id}) has been built successfully!' > 'src/addons/XT/Membermap/_build/built.txt'"
   ]
 }

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <options>
-  <option option_id="xtMMDefaultMapMarkerIcon" edit_format="template" data_type="string">
+  <option option_id="xtMMDefaultMapMarkerIcon" edit_format="template" data_type="string" advanced="0">
     <default_value>styles/default/xt/membermap/map_markers/red-dot.png</default_value>
     <edit_format_params>template=option_xt_membermap_defaut_pin</edit_format_params>
     <relation group_id="xt_membermap" display_order="100"/>
   </option>
-  <option option_id="xtMMGoogleMapsApiKey" edit_format="textbox" data_type="string" validation_class="XT\Membermap\Option\GoogleApi" validation_method="verifyApiKey">
+  <option option_id="xtMMGoogleMapsApiKey" edit_format="textbox" data_type="string" validation_class="XT\Membermap\Option\GoogleApi" validation_method="verifyApiKey" advanced="0">
     <default_value></default_value>
     <relation group_id="xt_membermap" display_order="11"/>
   </option>
-  <option option_id="xtMMGoogleMapsJsApiKey" edit_format="textbox" data_type="string">
+  <option option_id="xtMMGoogleMapsJsApiKey" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
     <relation group_id="xt_membermap" display_order="12"/>
   </option>
-  <option option_id="xtMMShowCluster" edit_format="template" data_type="array">
+  <option option_id="xtMMShowCluster" edit_format="template" data_type="array" advanced="0">
     <default_value>{"enabled":"1","maxZoom":"15","clusterSize":"2"}</default_value>
     <edit_format_params>option_xt_mm_markerClusterer</edit_format_params>
     <sub_options>enabled
@@ -21,40 +21,40 @@ maxZoom
 clusterSize</sub_options>
     <relation group_id="xt_membermap" display_order="301"/>
   </option>
-  <option option_id="xtMMShowPOI" edit_format="onoff" data_type="boolean">
+  <option option_id="xtMMShowPOI" edit_format="onoff" data_type="boolean" advanced="0">
     <default_value>1</default_value>
     <relation group_id="xt_membermap" display_order="300"/>
   </option>
-  <option option_id="xtMMaccountMap" edit_format="onoff" data_type="boolean">
+  <option option_id="xtMMaccountMap" edit_format="onoff" data_type="boolean" advanced="0">
     <default_value>1</default_value>
     <relation group_id="xt_membermap" display_order="505"/>
   </option>
-  <option option_id="xtMMautoComplete" edit_format="onoff" data_type="boolean">
+  <option option_id="xtMMautoComplete" edit_format="onoff" data_type="boolean" advanced="0">
     <default_value>0</default_value>
     <relation group_id="xt_membermap" display_order="501"/>
   </option>
-  <option option_id="xtMMdefaultCenter" edit_format="radio" data_type="string">
+  <option option_id="xtMMdefaultCenter" edit_format="radio" data_type="string" advanced="0">
     <default_value>default</default_value>
     <edit_format_params>default={{ phrase('xt_mm_use_the_default_centering') }}
 markers={{ phrase('xt_mm_use_the_marker_centering') }}
 visitor={{ phrase('xt_mm_use_the_visitor_centering') }}</edit_format_params>
     <relation group_id="xt_membermap" display_order="211"/>
   </option>
-  <option option_id="xtMMdefaultLatLong" edit_format="template" data_type="array" validation_class="\XT\Membermap\Option\GoogleLatLng" validation_method="verifyOption">
+  <option option_id="xtMMdefaultLatLong" edit_format="template" data_type="array" validation_class="\XT\Membermap\Option\GoogleLatLng" validation_method="verifyOption" advanced="0">
     <default_value>{"lat":"54.525963","long":"15.255119"}</default_value>
     <edit_format_params>template=option_xt_mm_default_latlong</edit_format_params>
     <sub_options>lat
 long</sub_options>
     <relation group_id="xt_membermap" display_order="210"/>
   </option>
-  <option option_id="xtMMdefaultZoom" edit_format="spinbox" data_type="unsigned_integer">
+  <option option_id="xtMMdefaultZoom" edit_format="spinbox" data_type="unsigned_integer" advanced="0">
     <default_value>4</default_value>
     <edit_format_params>min=0
 max=20
 units=Zoom</edit_format_params>
     <relation group_id="xt_membermap" display_order="215"/>
   </option>
-  <option option_id="xtMMlogginCalls" edit_format="onofftextbox" data_type="array">
+  <option option_id="xtMMlogginCalls" edit_format="onofftextbox" data_type="array" advanced="0">
     <default_value>{"enabled":"1","days":"7"}</default_value>
     <edit_format_params>onoff=enabled
 value=days
@@ -66,7 +66,7 @@ units={{ phrase('units_days') }}</edit_format_params>
 days</sub_options>
     <relation group_id="xt_membermap" display_order="401"/>
   </option>
-  <option option_id="xtMMmapType" edit_format="select" data_type="string">
+  <option option_id="xtMMmapType" edit_format="select" data_type="string" advanced="0">
     <default_value>roadmap</default_value>
     <edit_format_params>roadmap={{ phrase('xt_mm_roadmap') }}
 satellite={{ phrase('xt_mm_satellite') }}
@@ -74,7 +74,7 @@ hybrid={{ phrase('xt_mm_hybrid') }}
 terrain={{ phrase('xt_mm_terrain') }}</edit_format_params>
     <relation group_id="xt_membermap" display_order="220"/>
   </option>
-  <option option_id="xtMMuserActivity" edit_format="onofftextbox" data_type="array">
+  <option option_id="xtMMuserActivity" edit_format="onofftextbox" data_type="array" advanced="0">
     <default_value>{"enabled":"1","days":"180"}</default_value>
     <edit_format_params>onoff=enabled
 value=days

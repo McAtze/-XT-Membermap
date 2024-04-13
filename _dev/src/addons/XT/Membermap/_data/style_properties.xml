@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style_properties>
-  <style_property property_name="xtMMContainerHeight" group_name="xtMMAppearance" title="Map container height" description="Set the height of the map container." property_type="value" value_type="unit" display_order="30">
+  <style_property property_name="xtMMContainerHeight" group_name="xtMMAppearance" title="Map container height" description="Set the height of the map container." property_type="value" value_type="unit" has_variations="0" display_order="30">
     <value_parameters>min=300
 max=900
 step=10</value_parameters>
     <value>"600px"</value>
   </style_property>
-  <style_property property_name="xtMMinfoWindow" group_name="xtMMAppearance" title="Info window" property_type="css" display_order="100" css_components="text,background,border,border_radius,border_width_simple,border_color_simple,border_radius_simple,padding,extra">
+  <style_property property_name="xtMMinfoWindow" group_name="xtMMAppearance" title="Info window" property_type="css" has_variations="0" display_order="100" css_components="text,background,border,border_radius,border_width_simple,border_color_simple,border_radius_simple,padding,extra">
     <value>{
     "extra": "max-width: 350px;\nwidth: 100%;"
 }</value>
   </style_property>
-  <style_property property_name="xtMMinfoWindowItem" group_name="xtMMAppearance" title="Info window item" property_type="css" display_order="110" css_components="text,background,border,border_radius,border_width_simple,border_color_simple,border_radius_simple,padding,extra">
+  <style_property property_name="xtMMinfoWindowItem" group_name="xtMMAppearance" title="Info window item" property_type="css" has_variations="0" display_order="110" css_components="text,background,border,border_radius,border_width_simple,border_color_simple,border_radius_simple,padding,extra">
     <value>{
     "font-size": "13px",
     "font-weight": "@xf-fontWeightNormal",
     "extra": "word-wrap: normal;"
 }</value>
   </style_property>
-  <style_property property_name="xtMMmapId" group_name="xtMMAppearance" title="Google Maps MapID" description="If you want to style your map like your community, feel free to style your own map at &lt;a href=&quot;https://developers.google.com/maps/documentation/javascript/styling&quot; target=&quot;_blank&quot;&gt;Google Maps Map Management&lt;/a&gt; and insert your MapID." property_type="value" value_type="string" display_order="40">
+  <style_property property_name="xtMMmapId" group_name="xtMMAppearance" title="Google Maps MapID" description="If you want to style your map like your community, feel free to style your own map at &lt;a href=&quot;https://developers.google.com/maps/documentation/javascript/styling&quot; target=&quot;_blank&quot;&gt;Google Maps Map Management&lt;/a&gt; and insert your MapID." property_type="value" value_type="string" has_variations="0" display_order="40">
     <value>""</value>
   </style_property>
 </style_properties>
