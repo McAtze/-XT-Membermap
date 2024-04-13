@@ -1,0 +1,1 @@
+For detailed information about latitude and longitude check this <a href="https://www.latlong.net/" target="_blank">online lat/long finder</a>.

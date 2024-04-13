@@ -1,0 +1,1 @@
+You have not entered a location in your account details. To show your location on the map, please fill out the location field in your <a href="{account}">account</a>.

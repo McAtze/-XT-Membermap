@@ -1,0 +1,1 @@
+For more information about map types take a look at the <a href="https://developers.google.com/maps/documentation/javascript/maptypes" target="_blank">google maps documentation</a>.

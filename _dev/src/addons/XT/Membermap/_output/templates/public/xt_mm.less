@@ -1,0 +1,143 @@
+// ############################ Membermap LESS ######################
+.xtMapContainer
+{
+	&.top
+	{
+		padding-bottom: 10px
+	}
+	&.bottom
+	{
+		
+	}
+}
+.xt-membermap {
+	background-image: url('styles/default/xt/membermap/loading.gif');
+	background-position: center;
+	background-repeat: no-repeat;
+	height: @xf-xtMMContainerHeight;
+	width:100%;
+}
+
+.xt-mm-widget {
+	.xt-mimimap img {
+		width: 100%;
+	}
+}
+
+.xt-mimimap img {
+	border-radius: @xf-borderRadiusMedium;
+}
+
+.xtMapInfoWindow 
+{
+	.xf-xtMMinfoWindow();
+}
+	
+.xtMapInfoWindowItem
+{
+	.xf-xtMMinfoWindowItem();
+	
+	.itemCoverImage
+	{
+		padding: @xf-paddingLarge;
+		
+		&.left
+		{
+			float: left;
+			margin-right: 10px;
+		}
+		.thumbImage
+		{
+			width: 100%;
+			vertical-align: middle;
+		}
+		.listBlockInner
+		{
+			padding-right: 0px;
+		}
+		.listBlockInnerImage
+		{
+			
+		}
+	}
+	.title 
+	{
+		font-size: 13pt;
+		font-weight: bold;
+		padding: 5px 0;	 
+	}
+	.user-banner,
+	.user-blurb
+	{
+		margin-bottom: @xf-paddingSmall;
+	}
+	.xt-muted
+	{
+		color: @xf-textColorMuted;
+	}		
+}
+
+.xtItem
+{
+	display: flex;
+
+	.xtItem-avatar
+	{
+		flex: 0 0 100px;
+	}
+	.xtItem-info
+	{
+		flex: 1 1 auto;
+		width: 100%;
+		min-width: 0;
+	}
+}
+
+.xtMM-title
+{
+	margin: 5px 0;
+}
+.xtMM-icon
+{
+	height: 25px;
+}
+
+@media (max-width: @xf-responsiveWide)
+{
+	.xtMapInfoWindow 
+	{
+		max-width: 325px;
+	}
+}
+@media (max-width: @xf-responsiveMedium)
+{
+	.xtMapInfoWindow 
+	{
+		max-width: 285px;
+	}
+}
+
+@media (max-width: @xf-responsiveNarrow)
+{
+	.xtMapInfoWindow 
+	{
+		min-width: 0;
+		width: 100%;
+	}
+	.xtItem
+	{
+		.xtItem-info
+		{
+			display: none;
+		}
+	}
+	.xtMapInfoWindowItem
+	{
+		.user-banner,
+		.user-blurb,
+		.structItem-cell
+		{
+			display: none;
+		}
+	}
+}

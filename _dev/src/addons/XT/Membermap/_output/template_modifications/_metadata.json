@@ -1,9 +1,18 @@
 {
+    "admin/xtMMuserEdit.json": {
+        "hash": "ac1022ce63ecb25ad6420355003c1a0c"
+    },
+    "admin/xtMMuserGroupEdit.json": {
+        "hash": "ae588b32eaa37f039474d8e38f57907b"
+    },
     "admin/xt_hc_add_criteria.json": {
         "hash": "83054a5c5866e7df42d4cb67391d426b"
     },
     "admin/xt_mm_helper_user_search_criteria.json": {
         "hash": "e6d81b8867f9c4eeda09a31d3eb45ac8"
+    },
+    "admin/xt_mm_tools_rebuild.json": {
+        "hash": "69b91d5a24257b3a3f7b91b2647aea3c"
     },
     "admin/xt_mm_user_batch_update_confirm.json": {
         "hash": "aaabee85b2a8b66c9398145843ad0c53"
@@ -16,6 +25,12 @@
     },
     "admin/xt_mm_user_edit_js.json": {
         "hash": "81e47d2ba38be8782f89929f74054ed7"
+    },
+    "public/AddMapPrivacy.json": {
+        "hash": "9bad3a0d2f4abef0ed194da33cb017ac"
+    },
+    "public/InsertShowOnMap.json": {
+        "hash": "07238d789d28b249cdfc1b0ce6c815f0"
     },
     "public/xt_membermap_account_details_js.json": {
         "hash": "0dfb3de1852b7cb7a270d50370d7f5d7"

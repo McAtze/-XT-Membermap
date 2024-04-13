@@ -1,0 +1,1 @@
+If you want to set all users hidden in map press 'Rebuild now'.

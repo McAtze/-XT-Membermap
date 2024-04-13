@@ -1,0 +1,1 @@
+If you want to set all users shown in map press 'Rebuild now'.

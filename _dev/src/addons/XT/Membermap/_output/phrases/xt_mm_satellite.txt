@@ -1,0 +1,1 @@
+Satellite - displays Google Earth satellite images.

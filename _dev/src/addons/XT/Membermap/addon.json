@@ -2,25 +2,23 @@
     "legacy_addon_id": "",
     "title": "[XT] Membermap",
     "description": "A membermap with Google Maps Api based on user location field with opt-in.",
-    "version_id": 1000370,
-    "version_string": "1.0.3",
+    "version_id": 1000371,
+    "version_string": "1.0.3.1",
     "dev": "McAtze & Hoffi",
-    "dev_url": "https://xenforo.com/community/members/mcatze.553/",
+    "dev_url": "https://www.xendach.de/resources/xt-membermap.389/",
     "faq_url": "https://xenforo.com/community/resources/xt-membermap.8352/field?field=faq",
-    "support_url": "https://xenforo.com/community/threads/xt-membermap.193479/",
+    "support_url": "https://www.xendach.de/threads/xt-membermap.7383/",
     "extra_urls": {
-        "Github": "https://github.com/McAtze/-XT-Membermap",
-        "Donate to Hoffi": "https://paypal.me/blutschwert/5",
-        "Donate to McAtze": "https://paypal.me/itmaku"
+        "Github": "https://github.com/McAtze/-XT-Membermap"
     },
     "require": {
         "XF": [
-            2020010,
+            2020070,
             "XenForo 2.2.0+"
         ],
         "php": [
-            "7.2.0",
-            "PHP 7.2.0+"
+            "8.0.0",
+            "PHP 8.0.0+"
         ]
     },
     "icon": "fa-map-marked-alt"

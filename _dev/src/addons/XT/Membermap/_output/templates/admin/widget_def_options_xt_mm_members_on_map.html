@@ -1,0 +1,16 @@
+<hr class="formRowSep" />
+
+<xf:numberboxrow name="options[limit]" value="{$options.limit}" min="0"
+	label="{{ phrase('xt_mm_maximum_users') }}"
+	explain="{{ phrase('xt_mm_maximum_users_explain') }}" />
+
+<xf:radiorow name="options[style]" value="{{ $options.style ?: 'name' }}"
+	label="{{ phrase('display_style') }}">
+
+	<xf:option value="name"
+		label="{{ phrase('user_name') }}"
+		hint="{{ phrase('xt_mm_widget_display_user_name_explain') }}" />
+	<xf:option value="avatar"
+		label="{{ phrase('avatar') }}"
+		hint="{{ phrase('xt_mm_widget_display_avatar_explain') }}" />
+</xf:radiorow>

@@ -1,0 +1,22 @@
+<xf:js src="xt/membermap/admin.js" min="1" />
+<xf:css src="xt_mm.less" />
+
+<xf:assetuploadrow asset="xtmembermap" 
+		label="{$option.title}"
+		hint="{$hintHtml}"
+		explain="{$explainHtml}"
+		rowclass="{$rowClass}"
+		name="{$inputName}"
+		value="{$option.option_value}" 
+		html="{$listedHtml}"
+		placeholder="path/to/image.png" 
+		class="xt--mm-imagepreview" 
+		data-xf-init="xtAssetImage"
+	/>
+<dl class="formRow">
+	<dt>
+	</dt>
+	<dd style="padding-top:0;">
+		<xf:include template="xt_mm_pinselector" />
+	</dd>
+</dl>

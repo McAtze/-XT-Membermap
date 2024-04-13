@@ -1,11 +1,12 @@
 {
-    "additional_files": [
-        "js/xt/membermap",
-        "styles/default/xt/membermap"
-    ],
-    "minify": [
-        "js/xt/membermap/admin.js",
-        "js/xt/membermap/autocomplete.js",
-        "js/xt/membermap/map.js"
-    ]
+  "additional_files": [
+    "js/xt/membermap",
+    "styles/default/xt/membermap"
+  ],
+  "minify": [
+    "js/xt/membermap/admin.js",
+    "js/xt/membermap/autocomplete.js",
+    "js/xt/membermap/map.js",
+    "js/xt/membermap/changeMarker.js"
+  ]
 }

@@ -1,0 +1,28 @@
+{
+    "group_name": "xtMMAppearance",
+    "title": "Info window item",
+    "description": "",
+    "property_type": "css",
+    "css_components": [
+        "text",
+        "background",
+        "border",
+        "border_radius",
+        "border_width_simple",
+        "border_color_simple",
+        "border_radius_simple",
+        "padding",
+        "extra"
+    ],
+    "value_type": "",
+    "value_parameters": "",
+    "has_variations": false,
+    "depends_on": "",
+    "value_group": "",
+    "property_value": {
+        "font-size": "13px",
+        "font-weight": "@xf-fontWeightNormal",
+        "extra": "word-wrap: normal;"
+    },
+    "display_order": 110
+}

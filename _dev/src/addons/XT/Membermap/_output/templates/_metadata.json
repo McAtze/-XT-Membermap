@@ -1,4 +1,14 @@
 {
+    "admin/admin_xt_membermap_defaut_pin.html": {
+        "version_id": 1000136,
+        "version_string": "1.0.1 Beta 6",
+        "hash": "c648674a8348527e274c5a1e3fdecc56"
+    },
+    "admin/option_xt_membermap_defaut_pin.html": {
+        "version_id": 1000136,
+        "version_string": "1.0.1 Beta 6",
+        "hash": "20954e6bd4be8f10281bfc71a91d0996"
+    },
     "admin/option_xt_mm_default_latlong.html": {
         "version_id": 1000370,
         "version_string": "1.0.3",
@@ -9,10 +19,20 @@
         "version_string": "1.0.1 Release Candidate 3",
         "hash": "3f898177b1e74dcede5aac0b672d9d90"
     },
+    "admin/widget_def_options_xt_mm_members_on_map.html": {
+        "version_id": 1000135,
+        "version_string": "1.0.1 Beta 5",
+        "hash": "5da40ed0c59099423ec6ad8a1b6e9ce7"
+    },
     "admin/widget_def_options_xt_mm_minimap.html": {
         "version_id": 1000370,
         "version_string": "1.0.3",
         "hash": "a653f76c770ae4e26aa8f82d355536a7"
+    },
+    "admin/xt_mm.less": {
+        "version_id": 1000136,
+        "version_string": "1.0.1 Beta 6",
+        "hash": "87de70c9cc90ed52c3f7a5255f668a43"
     },
     "admin/xt_mm_helper_user_search_criteria.html": {
         "version_id": 1000270,
@@ -34,6 +54,11 @@
         "version_string": "1.0.1 Release Candidate 1",
         "hash": "60a4c67249a24c92db88a97de6292e17"
     },
+    "admin/xt_mm_pinselector.html": {
+        "version_id": 1000136,
+        "version_string": "1.0.1 Beta 6",
+        "hash": "8c8ca723eccce9bf42c9531893fa0bf1"
+    },
     "admin/xt_mm_tools_rebuild.html": {
         "version_id": 1000153,
         "version_string": "1.0.1 Release Candidate 3",
@@ -43,6 +68,11 @@
         "version_id": 1000153,
         "version_string": "1.0.1 Release Candidate 3",
         "hash": "b25da40fd8da2a03da44d8e8cc64854c"
+    },
+    "public/xt_mm.less": {
+        "version_id": 1000136,
+        "version_string": "1.0.1 Beta 6",
+        "hash": "0510c3cd3ab0197c2aa114d037600fef"
     },
     "public/xt_mm_autocomplete.html": {
         "version_id": 1000170,
@@ -63,6 +93,21 @@
         "version_id": 1000154,
         "version_string": "1.0.1 Release Candidate 4",
         "hash": "ccdddfdc05ff5afcfd559ec1eedc1d98"
+    },
+    "public/xt_mm_useritem.html": {
+        "version_id": 1000136,
+        "version_string": "1.0.1 Beta 6",
+        "hash": "768a001db847b9d46a46b8798a425ec6"
+    },
+    "public/xt_mm_widget_map_legend.html": {
+        "version_id": 1000135,
+        "version_string": "1.0.1 Beta 5",
+        "hash": "d979cb15b80adf9845b3b4dd7a75d0ec"
+    },
+    "public/xt_mm_widget_members_on_map.html": {
+        "version_id": 1000136,
+        "version_string": "1.0.1 Beta 6",
+        "hash": "16738364471a7da8bf0c26ed9c719594"
     },
     "public/xt_mm_widget_minimap.html": {
         "version_id": 1000370,

@@ -11,6 +11,9 @@
     "xtMMShowCluster.json": {
         "hash": "530462fa34c58ef20d456304bf0e7f6f"
     },
+    "xtMMShowPOI.json": {
+        "hash": "79b1cc6332b332874cd1588e904e6063"
+    },
     "xtMMaccountMap.json": {
         "hash": "697934a3502312120b926481ab528833"
     },
@@ -27,7 +30,7 @@
         "hash": "b739e1de0b13e949a8ea579b54d19a63"
     },
     "xtMMlogginCalls.json": {
-        "hash": "038722911d20b152b9456b0a59ed6e45"
+        "hash": "9ffeec9225ef7f24e0a34f208dc084ee"
     },
     "xtMMmapType.json": {
         "hash": "3336b8dadc3dcee31519590e9c05a9f4"

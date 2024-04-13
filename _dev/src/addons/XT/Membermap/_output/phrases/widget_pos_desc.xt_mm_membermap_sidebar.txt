@@ -1,0 +1,1 @@
+A position inside the membermap sidebar for various stats and new content widgets.

@@ -1,0 +1,19 @@
+<xf:js src="xt/membermap/admin.js" />
+<xf:css src="xt_mm.less" />
+
+<xf:assetuploadrow name="userGroup[xt_mm_markerPin]"
+				   value="{$userGroup.xt_mm_markerPin}" 
+				   asset="xtMembermapPin" 
+				   explain="{{ phrase('xt_mm_usergroup_marker_pin_explain') }}"
+				   label="{{ phrase('xt_mm_usergroup_marker_pin') }}" 
+				   data-xf-init="xtAssetImage"
+				   placeholder="path/to/marker.png"
+				   class="xt--mm-imagepreview"
+				   />
+<dl class="formRow">
+	<dt>
+	</dt>
+	<dd style="padding-top:0;">
+		<xf:include template="xt_mm_pinselector" />
+	</dd>
+</dl>				   

@@ -1,0 +1,1 @@
+When enabled, will include points of interest on maps (this is default standard with google maps). Disable this option if you want to "clean up" the map from looking cluttered.

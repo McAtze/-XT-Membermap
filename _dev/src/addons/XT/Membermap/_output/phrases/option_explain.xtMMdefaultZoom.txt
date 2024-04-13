@@ -1,0 +1,1 @@
+For detailed informations about the zoom levels check the <a href="https://developers.google.com/maps/documentation/javascript/overview#zoom-levels" target="_blank">google map developer documentation</a>.

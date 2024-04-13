@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Entity\\UserProfile",
+    "to_class": "XT\\Membermap\\XF\\Entity\\UserProfile",
+    "execute_order": 10,
+    "active": true
+}

@@ -1,0 +1,9 @@
+{
+    "template": "register_form",
+    "description": "Insert show on map checkbox",
+    "execution_order": 5,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "arg-value=\"{$fields.location}\" />",
+    "replace": "$0\n<xf:if is=\"{{ $xf.visitor.canViewXtMembermap() && $xf.options.registrationSetup.requireLocation }}\">\n\t<xf:macro template=\"xt_mm_macros\" name=\"xt_mm_ShowOnMapRegister\" arg-canViewXtMembermap=\"{{ $xf.visitor.canViewXtMembermap() }}\" />\n</xf:if>"
+}

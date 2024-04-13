@@ -1,0 +1,1 @@
+Roadmap - displays the default road map view. This is the default map type.

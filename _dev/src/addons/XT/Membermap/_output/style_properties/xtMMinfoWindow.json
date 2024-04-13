@@ -1,0 +1,26 @@
+{
+    "group_name": "xtMMAppearance",
+    "title": "Info window",
+    "description": "",
+    "property_type": "css",
+    "css_components": [
+        "text",
+        "background",
+        "border",
+        "border_radius",
+        "border_width_simple",
+        "border_color_simple",
+        "border_radius_simple",
+        "padding",
+        "extra"
+    ],
+    "value_type": "",
+    "value_parameters": "",
+    "has_variations": false,
+    "depends_on": "",
+    "value_group": "",
+    "property_value": {
+        "extra": "max-width: 350px;\nwidth: 100%;"
+    },
+    "display_order": 100
+}

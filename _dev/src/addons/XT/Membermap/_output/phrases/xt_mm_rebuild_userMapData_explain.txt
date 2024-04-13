@@ -1,0 +1,1 @@
+If you want to start a mass rebuilding of all location data press 'Rebuild now'.

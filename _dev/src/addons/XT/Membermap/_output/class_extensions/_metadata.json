@@ -1,6 +1,27 @@
 {
+    "XF-Admin-Controller-UserGroup_XT-Membermap-XF-Admin-Controller-UserGroup.json": {
+        "hash": "fbd3576eab5e3289beb244a847fb4b37"
+    },
+    "XF-Admin-Controller-User_XT-Membermap-XF-Admin-Controller-User.json": {
+        "hash": "497ad3d692439abdfc6cd43b7c23f96a"
+    },
+    "XF-Entity-UserProfile_XT-Membermap-XF-Entity-UserProfile.json": {
+        "hash": "4b481d7d3a29222498fd535d1d34eb95"
+    },
+    "XF-Entity-User_XT-Membermap-XF-Entity-User.json": {
+        "hash": "e228b63dae9fa8f5208255637c2e76ef"
+    },
     "XF-Job-UserAction_XT-Membermap-XF-Job-UserAction.json": {
         "hash": "ea4179b25b713836c150069839833726"
+    },
+    "XF-Pub-Controller-Account_XT-Membermap-XF-Pub-Controller-Account.json": {
+        "hash": "12201e0a95cdf7a12420379dced03a3d"
+    },
+    "XF-Repository-UserGroup_XT-Membermap-XF-Repository-UserGroup.json": {
+        "hash": "ccb7b67257599b5740ba084fc01b81ef"
+    },
+    "XF-Repository-UserProfile_XT-Membermap-XF-Repository-UserProfile.json": {
+        "hash": "3e38edd1405cb99b3871c9a242ab4e41"
     },
     "XF-Searcher-User_XT-Membermap-XF-Searcher-User.json": {
         "hash": "ab33b36c927c18d091d355e0ebed3f36"

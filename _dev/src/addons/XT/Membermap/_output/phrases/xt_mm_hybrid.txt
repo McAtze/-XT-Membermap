@@ -1,0 +1,1 @@
+Hybrid - displays a mixture of normal and satellite views.

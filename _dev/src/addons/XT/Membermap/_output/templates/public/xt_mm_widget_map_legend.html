@@ -1,0 +1,17 @@
+<xf:if is="$groupData is not empty">
+	<div class="block"{{ widget_data($widget) }} data-type="xt_membermap_legend">
+		<div class="block-container">
+			<h3 class="block-minorHeader">{{ phrase('xt_mm_map_legend') }}</h3>
+			<div class="block-body">
+				<div class="block-row block-row--minor">
+					<xf:foreach loop="$groupData" value="$group">
+						<dl class="pairs pairs--justified fauxBlockLink">
+							<dt class="xtMM-title">{$group.title}</dt>
+							<dd dir="auto"><img class="xtMM-icon" src="{$group.icon}" /></dd>
+						</dl>
+					</xf:foreach>
+				</div>
+			</div>
+		</div>
+	</div>
+</xf:if>

@@ -1,0 +1,1 @@
+A number of properties to control the appearance of [XT] Membermap add-on.

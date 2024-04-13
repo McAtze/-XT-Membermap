@@ -1,5 +1,14 @@
 {
+    "xtMMContainerHeight.json": {
+        "hash": "be1c5f2c577b9768ef190df332ec0741"
+    },
+    "xtMMinfoWindow.json": {
+        "hash": "f4dc0ee1b613f3c76de614137140822d"
+    },
+    "xtMMinfoWindowItem.json": {
+        "hash": "954d061430abbc71c4fbfaf5e7e8b26d"
+    },
     "xtMMmapId.json": {
-        "hash": "d4989743a6a985c52f7a309327ddfa7e"
+        "hash": "adce7c53c234fcc9fefe815d623918d2"
     }
 }

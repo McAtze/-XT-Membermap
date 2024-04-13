@@ -1,4 +1,7 @@
 {
+    "criteria_user_2cf90ccfcb7752e83f3770ba71153720.json": {
+        "hash": "1ff7dac09db1cff64748de0aa34b55a4"
+    },
     "entity_post_delete_aa338a51528dc1170411a8c822256dce.json": {
         "hash": "91e34db791668f72bc14fdef89972825"
     },
@@ -7,6 +10,18 @@
     },
     "entity_post_save_aed16929c6cc7154cea3d76d612b1deb.json": {
         "hash": "85424f072aaec9e5b607cf0321f8ba2b"
+    },
+    "entity_pre_save_ef9a0494faa3b8acf2793f509d9bf8f9.json": {
+        "hash": "ce943c5043ba527d4be52d94137ebc24"
+    },
+    "entity_structure_00a696f931a84d672cd2d0ddb9ba273c.json": {
+        "hash": "dc713531ea99db0b610711b444dc4937"
+    },
+    "entity_structure_a837428eb099fd07994cd61ea2012003.json": {
+        "hash": "60d1ac8e074fac572fb76d6486914579"
+    },
+    "templater_setup_351278fc42e19ac6dfe3d919ec57f0d7.json": {
+        "hash": "d0c632574232633de59b1cc6e7b3691a"
     },
     "user_delete_clean_init_1e8ee85e0abe882e4b98998e2f0a52c2.json": {
         "hash": "d18dd46f529ae948a625e96703235e8c"

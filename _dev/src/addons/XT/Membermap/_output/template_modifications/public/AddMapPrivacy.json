@@ -1,0 +1,9 @@
+{
+    "template": "account_details",
+    "description": "Add OptIn for Membermap",
+    "execution_order": 5,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "label=\"{{ phrase('location') }}\" />",
+    "replace": "$0\n<xf:if is=\"{{ $xf.visitor.canViewXtMembermap() }}\">\n\t<xf:macro name=\"xt_mm_macros::xt_mm_ShowOnMap\" arg-canViewXtMembermap=\"{{ $xf.visitor.canViewXtMembermap() }}\" arg-location_image=\"{$location_image}\"/>\n</xf:if>"
+}

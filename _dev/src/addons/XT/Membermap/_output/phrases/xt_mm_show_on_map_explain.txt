@@ -1,0 +1,1 @@
+Enable this option to let other users see your location on the membermap.

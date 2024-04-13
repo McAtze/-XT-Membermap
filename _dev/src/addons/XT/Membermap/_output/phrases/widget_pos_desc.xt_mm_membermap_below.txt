@@ -1,0 +1,1 @@
+A position inside the main content area of the membermap below the map.

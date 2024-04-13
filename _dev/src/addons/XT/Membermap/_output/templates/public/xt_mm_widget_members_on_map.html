@@ -1,0 +1,36 @@
+<xf:if is="$userData is not empty">
+	<div class="block"{{ widget_data($widget) }} data-type="xt_membermap">
+		<div class="block-container">
+			<h3 class="block-minorHeader">{{ phrase('xt_mm_map_stats') }}</h3>
+			<div class="block-body">
+				<div class="block-row block-row--minor">
+					<xf:if is="$style == 'name'">
+						<ul class="listInline listInline--comma">
+							<xf:foreach loop="$userData" value="$data">
+								<xf:trim>
+									<li><xf:username user="$data.user" rich="true" class="{{ !$data.user.visible ? 'username--invisible' : '' }}" /></li>
+								</xf:trim>
+							</xf:foreach>
+						</ul>
+					<xf:elseif is="$style == 'avatar'" />
+						<ul class="listHeap">
+							<xf:foreach loop="$userData" value="$data">
+								<li>
+									<xf:avatar user="$data.user" size="xs" img="true" />
+								</li>
+							</xf:foreach>
+						</ul>
+					</xf:if>					
+					<xf:if is="$unseen">
+						<span href="{{ link('online') }}">{{ phrase('ellipsis_and_x_more', {'count': number($unseen)}) }}</span>
+					</xf:if>
+				</div>
+			</div>
+			<div class="block-footer">
+				<span class="block-footer-counter">
+					{{ phrase('xt_mm_total_x_members',{'total': number($total)}) }}
+				</span>
+			</div>
+		</div>
+	</div>
+</xf:if>

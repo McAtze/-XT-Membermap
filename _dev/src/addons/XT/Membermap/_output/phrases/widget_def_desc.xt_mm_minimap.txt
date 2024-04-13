@@ -1,0 +1,1 @@
+Display a static minimap with the location of the visitor, if he wants to be visible on the map.

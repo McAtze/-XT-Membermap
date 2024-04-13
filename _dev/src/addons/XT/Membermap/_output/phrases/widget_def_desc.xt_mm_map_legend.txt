@@ -1,0 +1,1 @@
+Displays a legend of the icons on the map based on user groups.

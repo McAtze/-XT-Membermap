@@ -1,0 +1,9 @@
+{
+    "template": "user_group_edit",
+    "description": "Add marker pin asset",
+    "execution_order": 5,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:css src=\"public:app_user_banners.less\" />",
+    "replace": "<xf:include template=\"admin_xt_membermap_defaut_pin\" />\n\n\t\t$0"
+}

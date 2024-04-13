@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Repository\\UserProfile",
+    "to_class": "XT\\Membermap\\XF\\Repository\\UserProfile",
+    "execute_order": 10,
+    "active": true
+}

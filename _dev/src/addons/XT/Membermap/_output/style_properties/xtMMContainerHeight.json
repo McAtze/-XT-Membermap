@@ -1,0 +1,14 @@
+{
+    "group_name": "xtMMAppearance",
+    "title": "Map container height",
+    "description": "Set the height of the map container.",
+    "property_type": "value",
+    "css_components": [],
+    "value_type": "unit",
+    "value_parameters": "min=300\nmax=900\nstep=10",
+    "has_variations": false,
+    "depends_on": "",
+    "value_group": "",
+    "property_value": "600px",
+    "display_order": 30
+}

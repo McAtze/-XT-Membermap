@@ -8,7 +8,7 @@
     ],
     "validation_class": "",
     "validation_method": "",
-    "advanced": true,
+    "advanced": false,
     "default_value": "{\"enabled\":\"1\",\"days\":\"7\"}",
     "relations": {
         "xt_membermap": 401

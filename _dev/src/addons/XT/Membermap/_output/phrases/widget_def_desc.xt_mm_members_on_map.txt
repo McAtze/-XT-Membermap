@@ -1,0 +1,1 @@
+Displays all members on the map as name or avatar list.

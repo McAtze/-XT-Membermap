@@ -1,0 +1,9 @@
+{
+    "template": "user_edit",
+    "description": "Add OptIn for Membermap",
+    "execution_order": 5,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:textboxrow name=\"profile[location]\" value=\"{$user.Profile.location_}\"\n\t\t\t\t\t\tlabel=\"{{ phrase('location') }}\" />",
+    "replace": "$0\n<xf:checkboxrow>\n\t\t<xf:option name=\"profile[xt_mm_show_on_map]\" selected=\"{$user.Profile.xt_mm_show_on_map}\" \n\t\t\t\t   label=\"{{ phrase('xt_mm_show_on_map') }}\" \n\t\t\t\t   hint=\"{{ phrase('xt_mm_show_on_map_explain') }}\" />\n\t</xf:checkboxrow>"
+}

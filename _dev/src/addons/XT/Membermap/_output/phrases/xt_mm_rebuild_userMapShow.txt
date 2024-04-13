@@ -1,0 +1,1 @@
+XT: Make ALL user in map visible

@@ -1,0 +1,1 @@
+In order to prevent the 'Membermap' widget becoming too large on a busy board, you may limit the number of names before a '... and X more' link is added to terminate the list. A value of 0 disables the limit.

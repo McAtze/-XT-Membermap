@@ -1,0 +1,11 @@
+{
+    "route_type": "public",
+    "route_prefix": "xt-membermap",
+    "sub_name": "",
+    "format": "",
+    "build_class": "",
+    "build_method": "",
+    "controller": "XT\\Membermap:Membermap",
+    "context": "members",
+    "action_prefix": ""
+}
