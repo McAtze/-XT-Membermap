@@ -1,13 +1,13 @@
 {
     "admin/admin_xt_membermap_defaut_pin.html": {
-        "version_id": 1000136,
-        "version_string": "1.0.1 Beta 6",
-        "hash": "c648674a8348527e274c5a1e3fdecc56"
+        "version_id": 1000470,
+        "version_string": "1.0.4",
+        "hash": "da38c90c5985f017abefca54944583f5"
     },
     "admin/option_xt_membermap_defaut_pin.html": {
-        "version_id": 1000136,
-        "version_string": "1.0.1 Beta 6",
-        "hash": "20954e6bd4be8f10281bfc71a91d0996"
+        "version_id": 1000470,
+        "version_string": "1.0.4",
+        "hash": "a688cf3a8777a5028c062e61fab7021b"
     },
     "admin/option_xt_mm_default_latlong.html": {
         "version_id": 1000370,
@@ -75,24 +75,24 @@
         "hash": "0510c3cd3ab0197c2aa114d037600fef"
     },
     "public/xt_mm_autocomplete.html": {
-        "version_id": 1000170,
-        "version_string": "1.0.1",
-        "hash": "abe837cdb8b722f2cfa817744e91d930"
+        "version_id": 1000470,
+        "version_string": "1.0.4",
+        "hash": "39b3be0e74e9562cf5e0579dd151cbda"
     },
     "public/xt_mm_change_markerPin.html": {
-        "version_id": 1000154,
-        "version_string": "1.0.1 Release Candidate 4",
-        "hash": "ef52149a202104a4b7fe7795f94596a4"
+        "version_id": 1000470,
+        "version_string": "1.0.4",
+        "hash": "6b5bfe60eaf66177e30a16bea5038171"
     },
     "public/xt_mm_index.html": {
-        "version_id": 1000370,
-        "version_string": "1.0.3",
-        "hash": "9989c56420667047106ff770e72f6ce8"
+        "version_id": 1000470,
+        "version_string": "1.0.4",
+        "hash": "d61c099c2d741f1598133875e1ade396"
     },
     "public/xt_mm_macros.html": {
-        "version_id": 1000154,
-        "version_string": "1.0.1 Release Candidate 4",
-        "hash": "ccdddfdc05ff5afcfd559ec1eedc1d98"
+        "version_id": 1000470,
+        "version_string": "1.0.4",
+        "hash": "ee23bc9373ec089b8b1bea97e1a1fca7"
     },
     "public/xt_mm_useritem.html": {
         "version_id": 1000136,

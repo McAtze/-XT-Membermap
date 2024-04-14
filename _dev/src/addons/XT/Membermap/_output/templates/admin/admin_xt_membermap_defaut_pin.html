@@ -1,4 +1,4 @@
-<xf:js src="xt/membermap/admin.js" />
+<xf:js addon="XT/Membermap" src="xt/membermap/admin{{ $xf.versionId >= 2030000 ? '-xf23' : '' }}.js" min="1" />
 <xf:css src="xt_mm.less" />
 
 <xf:assetuploadrow name="userGroup[xt_mm_markerPin]"
@@ -16,4 +16,4 @@
 	<dd style="padding-top:0;">
 		<xf:include template="xt_mm_pinselector" />
 	</dd>
-</dl>				   
+</dl>
