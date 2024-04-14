@@ -1,6 +1,6 @@
 <xf:title>{{ phrase('xt_mm_change_markerPin') }}</xf:title>
 
-<xf:js src="xt/membermap/changeMarker.js" />
+<xf:js addon="XT/Membermap" src="xt/membermap/changeMarker{{ $xf.versionId >= 2030000 ? '-xf23' : '' }}.js" min="1" />
 <xf:wrap template="account_wrapper" />
 
 <xf:form action="{{ link('account/xt-membermap') }}" ajax="true" class="block" data-force-flash-message="on">

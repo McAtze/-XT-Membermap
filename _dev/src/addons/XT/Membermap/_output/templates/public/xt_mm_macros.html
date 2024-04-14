@@ -1,6 +1,6 @@
 <xf:macro name="xt_mm_ShowOnMap" arg-hint="" arg-canViewXtMembermap="!" arg-location_image="">
 	<xf:css src="xt_mm.less" />
-	<xf:js src="xt/membermap/changeMarker.js" />
+	<xf:js addon="XT/Membermap" src="xt/membermap/changeMarker{{ $xf.versionId >= 2030000 ? '-xf23' : '' }}.js" min="1" />
 	<xf:formrow>
 		<xf:checkbox hint="{{ $hint ? $hint : ''  }}">
 			<xf:option value="1" name="profile[xt_mm_show_on_map]" checked="{$xf.visitor.Profile.xt_mm_show_on_map}"
