@@ -53,7 +53,7 @@
 			}
 		},
 
-		addMarker(props, userid) { 
+		addMarker(props, userid) {
 			const marker = new google.maps.Marker({
 				position: props.coords,
 				map: this.map,
@@ -103,7 +103,7 @@
 			}
 
 			this.map = new google.maps.Map(document.getElementById('membermap'), options)
-			
+
 			const self = this
 
 			if (!this.options.poi)
@@ -112,8 +112,8 @@
 					{
 						featureType: 'poi',
 						stylers: [
-							  { visibility: 'off' }
-						]  
+							{ visibility: 'off' }
+						]
 					}
 				];
 				this.map.setOptions({styles: noPoi});
@@ -138,7 +138,7 @@
 				this.oms.addMarker(this.markers[i]);
 			}
 
-		   if (this.bounds.getNorthEast().equals(this.bounds.getSouthWest())) {
+			if (this.bounds.getNorthEast().equals(this.bounds.getSouthWest())) {
 				const northEastLat = bounds.getNorthEast().lat()
 				const northEastLng = bounds.getNorthEast().lat()
 				const extendPoint1 = new google.maps.LatLng(northEastLat + 0.01, northEastLng + 0.01)

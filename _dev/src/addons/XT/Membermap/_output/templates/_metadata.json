@@ -75,9 +75,9 @@
         "hash": "0510c3cd3ab0197c2aa114d037600fef"
     },
     "public/xt_mm_autocomplete.html": {
-        "version_id": 1000470,
-        "version_string": "1.0.4",
-        "hash": "39b3be0e74e9562cf5e0579dd151cbda"
+        "version_id": 1000372,
+        "version_string": "1.0.3.2",
+        "hash": "2e85d5e32203f6bfae0f211c30f473fa"
     },
     "public/xt_mm_change_markerPin.html": {
         "version_id": 1000470,
@@ -85,9 +85,9 @@
         "hash": "6b5bfe60eaf66177e30a16bea5038171"
     },
     "public/xt_mm_index.html": {
-        "version_id": 1000470,
-        "version_string": "1.0.4",
-        "hash": "d61c099c2d741f1598133875e1ade396"
+        "version_id": 1000471,
+        "version_string": "1.0.4.1",
+        "hash": "ea90c3dd63a5880c9a4b69d3d582610e"
     },
     "public/xt_mm_macros.html": {
         "version_id": 1000470,

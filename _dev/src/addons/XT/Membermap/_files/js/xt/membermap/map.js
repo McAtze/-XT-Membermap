@@ -1,7 +1,7 @@
 ! function ($, window, document, _undefined) {
     "use strict";
 
-	XF.xtMembermap = XF.Event.newHandler({
+    XF.xtMembermap = XF.Event.newHandler({
         eventNameSpace: 'xtMembermap',
 
         options: {
@@ -47,18 +47,18 @@
         onLoad: function (data) {
             if (data.mapData)
             {
-                this.mapData = data.mapData;    
+                this.mapData = data.mapData;
                 this.initMap();
             }
         },
 
-        addMarker: function(props,userid) { 
+        addMarker: function(props,userid) {
             var marker = new google.maps.Marker({
                 position: props.coords,
                 map: this.map,
                 title: props.title,
                 icon: props.iconUrl,
-            });           
+            });
 
             if (props.coords)
             {
@@ -72,22 +72,22 @@
 
             var self = this;
 
-            (function (marker, props) 
+            (function (marker, props)
             {
-                google.maps.event.addListener(marker, 'click', function (e) 
+                google.maps.event.addListener(marker, 'click', function (e)
                 {
-                    XF.ajax('post', props.infoUrl, {}, function (data) 
-                        {
-                            self.map.panTo(marker.getPosition())
-                            self.infoWindow.setContent(data.html.content);
-                            self.infoWindow.open(self.map, marker);
-                        });
+                    XF.ajax('post', props.infoUrl, {}, function (data)
+                    {
+                        self.map.panTo(marker.getPosition())
+                        self.infoWindow.setContent(data.html.content);
+                        self.infoWindow.open(self.map, marker);
+                    });
                 });
             })(marker, props);
             this.markers.push(marker);
         },
 
-		initMap: function() {
+        initMap: function() {
             var latitude = parseFloat(this.options.latitude);
             var longitude = parseFloat(this.options.longitude);
             var options = {
@@ -106,7 +106,7 @@
             };
 
             this.map = new google.maps.Map(document.getElementById('membermap'), options);
-            
+
             var self = this;
 
             if (!this.options.poi)
@@ -115,8 +115,8 @@
                     {
                         featureType: "poi",
                         stylers: [
-                              { visibility: "off" }
-                        ]  
+                            { visibility: "off" }
+                        ]
                     }
                 ];
                 this.map.setOptions({styles: noPoi});
@@ -136,13 +136,13 @@
                 });
             }
 
-            this.oms = new OverlappingMarkerSpiderfier(this.map, {keepSpiderfied : true});    
+            this.oms = new OverlappingMarkerSpiderfier(this.map, {keepSpiderfied : true});
             //for(var i = 0;i<=this.markers.length-1;i++)
             for (var i = 0, len = this.markers.length; i < len; i ++){
                 this.oms.addMarker(this.markers[i]);
             }
 
-           if (this.bounds.getNorthEast().equals(this.bounds.getSouthWest())) {
+            if (this.bounds.getNorthEast().equals(this.bounds.getSouthWest())) {
                 var extendPoint1 = new google.maps.LatLng(this.bounds.getNorthEast().lat() + 0.01, this.bounds.getNorthEast().lng() + 0.01);
                 var extendPoint2 = new google.maps.LatLng(this.bounds.getNorthEast().lat() - 0.01, this.bounds.getNorthEast().lng() - 0.01);
                 this.bounds.extend(extendPoint1);

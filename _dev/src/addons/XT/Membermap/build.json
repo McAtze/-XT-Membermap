@@ -5,9 +5,13 @@
   ],
   "minify": [
     "js/xt/membermap/admin.js",
+    "js/xt/membermap/admin-xf23.js",
     "js/xt/membermap/autocomplete.js",
-    "js/xt/membermap/map.js",
+    "js/xt/membermap/autocomplete-xf23.js",
     "js/xt/membermap/changeMarker.js",
+    "js/xt/membermap/changeMarker-xf23.js",
+    "js/xt/membermap/map.js",
+    "js/xt/membermap/map-xf23.js",
     "js/xt/membermap/oms.js"
   ],
   "exec": [

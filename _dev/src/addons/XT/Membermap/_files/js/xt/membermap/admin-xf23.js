@@ -1,5 +1,5 @@
 ((window, document) => {
-    'use strict'
+	'use strict'
 
 	XF.Element.extend('asset-upload', {
 		__backup: {
@@ -12,7 +12,7 @@
 			}
 		}
 	})
-	
+
 	XF.xtAssetImage = XF.Element.newHandler({
 		oldval: null,
 
@@ -33,8 +33,8 @@
 	})
 
 	XF.xtSetIcon = XF.Event.newHandler({
-        eventType: 'click',
-      	eventNameSpace: 'xtSetIcon',
+		eventType: 'click',
+		eventNameSpace: 'xtSetIcon',
 
 		container: null,
 
@@ -42,10 +42,10 @@
 			this.container = document.querySelector('.xt--mm-imagepreview')
 		},
 
-        click() {
+		click() {
 			this.container.value = this.target.getAttribute('src')
 			this.container.style.backgroundImage = 'url(' + this.container.value + ')'
-        }
+		}
 	})
 
 	XF.Element.register('xtAssetImage', 'XF.xtAssetImage');

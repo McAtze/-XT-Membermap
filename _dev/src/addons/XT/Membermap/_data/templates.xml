@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <templates>
-  <template type="admin" title="admin_xt_membermap_defaut_pin" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[<xf:js src="xt/membermap/admin.js" />
+  <template type="admin" title="admin_xt_membermap_defaut_pin" version_id="1000372" version_string="1.0.3.2"><![CDATA[<xf:js addon="XT/Membermap" src="xt/membermap/admin{{ $xf.versionId >= 2030000 ? '-xf23' : '' }}.js" min="1" />
 <xf:css src="xt_mm.less" />
 
 <xf:assetuploadrow name="userGroup[xt_mm_markerPin]"
@@ -18,8 +18,8 @@
 	<dd style="padding-top:0;">
 		<xf:include template="xt_mm_pinselector" />
 	</dd>
-</dl>				   ]]></template>
-  <template type="admin" title="option_xt_membermap_defaut_pin" version_id="1000136" version_string="1.0.1 Beta 6"><![CDATA[<xf:js src="xt/membermap/admin.js" min="1" />
+</dl>]]></template>
+  <template type="admin" title="option_xt_membermap_defaut_pin" version_id="1000470" version_string="1.0.4"><![CDATA[<xf:js addon="XT/Membermap" src="xt/membermap/admin{{ $xf.versionId >= 2030000 ? '-xf23' : '' }}.js" min="1" />
 <xf:css src="xt_mm.less" />
 
 <xf:assetuploadrow asset="xtmembermap" 
@@ -441,13 +441,13 @@ ul.xtMapMarkerPreview {
 		}
 	}
 }]]></template>
-  <template type="public" title="xt_mm_autocomplete" version_id="1000170" version_string="1.0.1"><![CDATA[<xf:if is="$xf.options.xtMMautoComplete">
+  <template type="public" title="xt_mm_autocomplete" version_id="1000372" version_string="1.0.3.2"><![CDATA[<xf:if is="$xf.options.xtMMautoComplete">
 	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$xf.options.xtMMGoogleMapsJsApiKey}&region={$xf.language.language_code|substr(3, 2)}&language={$xf.language.language_code|substr(0, 2)}&libraries=places" />
-	<xf:js src="xt/membermap/autocomplete.js" />
+	<xf:js addon="XT/Membermap" src="xt/membermap/autocomplete{{ $xf.versionId >= 2030000 ? '-xf23' : '' }}.js" min="1" />
 </xf:if>]]></template>
-  <template type="public" title="xt_mm_change_markerPin" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[<xf:title>{{ phrase('xt_mm_change_markerPin') }}</xf:title>
+  <template type="public" title="xt_mm_change_markerPin" version_id="1000470" version_string="1.0.4"><![CDATA[<xf:title>{{ phrase('xt_mm_change_markerPin') }}</xf:title>
 
-<xf:js src="xt/membermap/changeMarker.js" />
+<xf:js addon="XT/Membermap" src="xt/membermap/changeMarker{{ $xf.versionId >= 2030000 ? '-xf23' : '' }}.js" min="1" />
 <xf:wrap template="account_wrapper" />
 
 <xf:form action="{{ link('account/xt-membermap') }}" ajax="true" class="block" data-force-flash-message="on">
@@ -465,7 +465,7 @@ ul.xtMapMarkerPreview {
 
 	<xf:redirect />
 </xf:form>]]></template>
-  <template type="public" title="xt_mm_index" version_id="1000370" version_string="1.0.3"><![CDATA[<xf:set var="$googleJsApiKey" value="{$xf.options.xtMMGoogleMapsJsApiKey}" />
+  <template type="public" title="xt_mm_index" version_id="1000471" version_string="1.0.4.1"><![CDATA[<xf:set var="$googleJsApiKey" value="{$xf.options.xtMMGoogleMapsJsApiKey}" />
 <xf:set var="$googleMapsId" value="{{ property('xtMMmapId') }}" />
 <xf:set var="$region" value="{$xf.language.language_code|substr(3, 2)}" />
 <xf:set var="$language" value="{$xf.language.language_code|substr(0, 2)}" />
@@ -484,17 +484,15 @@ ul.xtMapMarkerPreview {
 </xf:if>
 
 <xf:css src="xt_mm.less" />
-<xf:css src="account_avatar.less" />
 <xf:css src="member_tooltip.less" />
-<xf:js prod="xf/avatar-compiled.js" dev="xf/avatar.js" />
 <xf:if is="$googleMapsId">
-	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$googleJsApiKey}&region={$region}&language={$language}&map_ids={$googleMapsId}" />
+	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$googleJsApiKey}&loading=async&region={$region}&language={$language}&map_ids={$googleMapsId}" />
 <xf:else />
-	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$googleJsApiKey}&region={$region}&language={$language}" />
+	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$googleJsApiKey}&loading=async&region={$region}&language={$language}" />
 </xf:if>
 <xf:js src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js" />
-<xf:js prod="xt/membermap/map.js" dev="xt/membermap/map.min.js" />
-<xf:js src="xt/membermap/oms.min.js" />
+<xf:js addon="XT/Membermap" src="xt/membermap/map{{ $xf.versionId >= 2030000 ? '-xf23' : '' }}.js" min="0" />
+<xf:js addon="XT/Membermap" src="xt/membermap/oms.js" min="1" />
 
 <xf:macro template="metadata_macros" name="canonical_url" arg-canonicalUrl="{{ link('canonical:xt-membermap') }}" />
 
@@ -544,9 +542,9 @@ ul.xtMapMarkerPreview {
 </div>
 
 <xf:widgetpos id="xt_mm_membermap_below" context-userdata="{$userData}" />]]></template>
-  <template type="public" title="xt_mm_macros" version_id="1000154" version_string="1.0.1 Release Candidate 4"><![CDATA[<xf:macro name="xt_mm_ShowOnMap" arg-hint="" arg-canViewXtMembermap="!" arg-location_image="">
+  <template type="public" title="xt_mm_macros" version_id="1000470" version_string="1.0.4"><![CDATA[<xf:macro name="xt_mm_ShowOnMap" arg-hint="" arg-canViewXtMembermap="!" arg-location_image="">
 	<xf:css src="xt_mm.less" />
-	<xf:js src="xt/membermap/changeMarker.js" />
+	<xf:js addon="XT/Membermap" src="xt/membermap/changeMarker{{ $xf.versionId >= 2030000 ? '-xf23' : '' }}.js" min="1" />
 	<xf:formrow>
 		<xf:checkbox hint="{{ $hint ? $hint : ''  }}">
 			<xf:option value="1" name="profile[xt_mm_show_on_map]" checked="{$xf.visitor.Profile.xt_mm_show_on_map}"

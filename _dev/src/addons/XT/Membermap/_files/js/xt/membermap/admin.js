@@ -1,6 +1,6 @@
 !function($, window, document, _undefined)
 {
-    "use strict";
+	"use strict";
 
 	XF.Element.extend("asset-upload", {
 		__backup: {
@@ -13,7 +13,7 @@
 			}
 		}
 	});
-	
+
 	XF.xtAssetImage = XF.Element.newHandler({
 
 		oldval: null,
@@ -37,8 +37,8 @@
 	});
 
 	XF.xtSetIcon = XF.Event.newHandler({
-        eventType: 'click',
-      	eventNameSpace: 'xtSetIcon',
+		eventType: 'click',
+		eventNameSpace: 'xtSetIcon',
 
 		$container: null,
 
@@ -46,17 +46,15 @@
 			this.$container = $('.xt--mm-imagepreview');
 		},
 
-        click: function () {
+		click: function () {
 			this.$container.val(this.$target.attr('src'));
 			this.$container.css('background-image', 'url(' + this.$target.attr('src') + ')');
-        }
+		}
 
 	});
 
 	XF.Element.register('xtAssetImage', 'XF.xtAssetImage');
 	XF.Event.register('click', 'xtSetIcon', 'XF.xtSetIcon');
 
-	
+
 }(jQuery, window, document);
-
-
