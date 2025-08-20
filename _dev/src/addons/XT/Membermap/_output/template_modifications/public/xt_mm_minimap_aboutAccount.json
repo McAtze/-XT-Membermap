@@ -5,5 +5,5 @@
     "enabled": true,
     "action": "str_replace",
     "find": "<xf:if is=\"$xf.options.geoLocationUrl\">\n\t\t\t\t\t\t\t\t\t<a href=\"{{ link('misc/location-info', '', {'location': $user.Profile.location}) }}\" rel=\"nofollow noreferrer\" target=\"_blank\" class=\"u-concealed\">{$user.Profile.location}</a>\n\t\t\t\t\t\t\t\t<xf:else />\n\t\t\t\t\t\t\t\t\t{$user.Profile.location}\n\t\t\t\t\t\t\t\t</xf:if>",
-    "replace": "$0\n\n<xf:if is=\"$xf.options.xtMMaccountMap && $xf.visitor.canViewXtMembermap()\">\n\t<div class=\"xt-mm-minimappreview js-xt-mm-relocate\">\n\t\t<a href=\"{{ link('xt-membermap') }}\" rel=\"nofollow noreferrer\" class=\"u-concealed\">\n\t\t\t{{ xt_minimap($xf.visitor, 's') }}\n\t\t</a>\n\t</div>\n</xf:if>"
+    "replace": "$0\n\n<xf:if is=\"$xf.options.xtMMaccountMap && $xf.visitor.canViewXtMembermap()\">\n\t<div class=\"xt-mm-minimappreview js-xt-mm-relocate\">\n\t\t<a href=\"{{ link('xt-membermap') }}\" rel=\"nofollow noreferrer\" class=\"u-concealed\">\n\t\t\t{{ xt_minimap($user, 's') }}\n\t\t</a>\n\t</div>\n</xf:if>"
 }
