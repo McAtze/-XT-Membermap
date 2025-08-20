@@ -198,7 +198,7 @@ class GoogleApi extends AbstractService
 
             /** @var \GuzzleHttp\Client $client **/
             $client = XF::app()->http()->client();
-            $response = $client->get($apiUrl)->getBody();
+            $response = $client->get($apiUrl)->getBody()->getContents();
             $data = \GuzzleHttp\json_decode($response);
 
             if ($data->status == 'OK')
