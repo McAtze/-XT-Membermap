@@ -10,8 +10,8 @@ class Listener
 {
     public static function userProfileEntityStructure(\XF\Mvc\Entity\Manager $em, \XF\Mvc\Entity\Structure &$structure)
     {
-		$structure->columns['xt_mm_location_lat'] = ['type' => Entity::FLOAT, 'default' => 0];
-		$structure->columns['xt_mm_location_long'] = ['type' => Entity::FLOAT, 'default' => 0];
+		$structure->columns['xt_mm_location_lat'] = ['type' => Entity::FLOAT, 'default' => 0, 'changeLog' => false];
+		$structure->columns['xt_mm_location_long'] = ['type' => Entity::FLOAT, 'default' => 0, 'changeLog' => false];
 		$structure->columns['xt_mm_show_on_map'] = ['type' => Entity::BOOL, 'default' => true, 'changeLog' => false];
     }
 
