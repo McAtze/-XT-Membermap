@@ -133,10 +133,12 @@
 				});
 			}
 
-			this.oms = new OverlappingMarkerSpiderfier(this.map, {keepSpiderfied : true});
-			for (let i = 0, len = this.markers.length; i < len; i ++){
-				this.oms.addMarker(this.markers[i]);
-			}
+			google.maps.event.addListenerOnce(this.map, 'idle', () => {
+				this.oms = new OverlappingMarkerSpiderfier(this.map, {keepSpiderfied : true});
+				for (let i = 0, len = this.markers.length; i < len; i ++){
+					this.oms.addMarker(this.markers[i]);
+				}
+			});
 
 			if (this.bounds.getNorthEast().equals(this.bounds.getSouthWest())) {
 				const northEastLat = bounds.getNorthEast().lat()
