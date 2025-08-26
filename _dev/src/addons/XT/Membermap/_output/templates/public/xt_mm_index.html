@@ -19,9 +19,9 @@
 <xf:css src="xt_mm.less" />
 <xf:css src="member_tooltip.less" />
 <xf:if is="$googleMapsId">
-	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$googleJsApiKey}&loading=async&region={$region}&language={$language}&map_ids={$googleMapsId}" />
+	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$googleJsApiKey}&region={$region}&language={$language}&map_ids={$googleMapsId}" />
 <xf:else />
-	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$googleJsApiKey}&loading=async&region={$region}&language={$language}" />
+	<xf:js src="https://maps.googleapis.com/maps/api/js?key={$googleJsApiKey}&region={$region}&language={$language}" />
 </xf:if>
 <xf:js src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js" />
 <xf:js addon="XT/Membermap" src="xt/membermap/map{{ $xf.versionId >= 2030000 ? '-xf23' : '' }}.js" min="0" />
