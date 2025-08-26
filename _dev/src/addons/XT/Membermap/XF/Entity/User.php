@@ -71,13 +71,60 @@ class User extends XFCP_User
 		$minimapUrl = $this->getMinimapUrl();
 		$minimapPath = $this->getAbstractedMinimapPath();
 
-		if ($minimapUrl AND !\XF\Util\File::abstractedPathExists($minimapPath)) 
+		if ($minimapUrl AND !\XF\Util\File::abstractedPathExists($minimapPath))
 		{
-			$googleService = $this->app()->service('XT\Membermap::GoogleApi');
-			$image = $googleService->fetchStaticLocationImageUser($this->Profile, $this->getMapMarkerIconPath());
-			if (!\XF\Util\File::copyFileToAbstractedPath($image, $minimapPath)) 
+			if (\XF::options()->xtMMGoogleMapsApiKey === '')
 			{
-				$minimapUrl = false;
+				return false;
+			}
+
+			$googleService = $this->app()->service('XT\Membermap::GoogleApi');
+			$imageUrl = $googleService->fetchStaticLocationImageUser($this->Profile, $this->getMapMarkerIconPath());
+
+			$error = null;
+			$streamFile = \XF\Util\File::getTempFile();
+
+			try
+			{
+				$options = [
+					'headers' => [
+						'Accept' => 'image/*,*/*;q=0.8',
+					],
+				];
+				$limits = [
+					'time' => 8,
+					'bytes' => 100 * 1024,
+				];
+
+				$response = $this->app()->http()->reader()->getUntrusted(
+					$imageUrl,
+					$limits,
+					$streamFile,
+					$options,
+					$error
+				);
+			}
+			catch (\Exception $e)
+			{
+				\XF::logException($e);
+
+				return false;
+			}
+
+			if ($response)
+			{
+				$response->getBody()->close();
+
+				if ($response->getStatusCode() !== 200)
+				{
+					\XF::logError("Failed to fetch Minimap from $imageUrl");
+					return false;
+				}
+			}
+
+			if (!\XF\Util\File::copyFileToAbstractedPath($streamFile, $minimapPath))
+			{
+				return false;
 			}
 		}
 
