@@ -50,7 +50,7 @@ $0]]></replace>
 <xf:if is="$xf.options.xtMMaccountMap && $xf.visitor.canViewXtMembermap()">
 	<div class="xt-mm-minimappreview js-xt-mm-relocate">
 		<a href="{{ link('xt-membermap') }}" rel="nofollow noreferrer" class="u-concealed">
-			{{ xt_minimap($xf.visitor, 's') }}
+			{{ xt_minimap($user, 's') }}
 		</a>
 	</div>
 </xf:if>]]></replace>
