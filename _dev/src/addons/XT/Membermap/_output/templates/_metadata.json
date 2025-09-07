@@ -1,8 +1,8 @@
 {
     "admin/admin_xt_membermap_defaut_pin.html": {
-        "version_id": 1000470,
-        "version_string": "1.0.4",
-        "hash": "da38c90c5985f017abefca54944583f5"
+        "version_id": 1000372,
+        "version_string": "1.0.3.2",
+        "hash": "a48e21fd3146d728c845627e02f1ba15"
     },
     "admin/option_xt_membermap_defaut_pin.html": {
         "version_id": 1000470,
